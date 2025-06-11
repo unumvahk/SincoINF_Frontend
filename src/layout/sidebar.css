@@ -1,0 +1,49 @@
+.sidebar {
+  width:50px;
+  background-color: #ffffff;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding-top: 1rem;
+  padding-left: 0.5rem;
+  border-right: 2px solid #134070;
+  transition: width 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+
+.sidebar.expandido {
+  width: 150px;
+}
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  padding-right: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #333;
+  cursor: pointer;
+  width: 100%;
+  position: relative;
+}
+
+
+.sidebar-item:hover {
+  background-color: #628bba;
+  border-radius: 10px;
+  width:120px;
+  
+}
+
+.icono {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.texto {
+  font-size: 16px;
+}

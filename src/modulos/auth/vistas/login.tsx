@@ -1,6 +1,6 @@
-// src/modulos/auth/vistas/Login.tsx
+
 import React, { useState } from 'react';
-// Importamos el archivo de estilo
+
 import './login.css'
 
 export const Login = () => {
