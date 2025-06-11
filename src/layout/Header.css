@@ -5,19 +5,19 @@
   padding: 10px 20px;
   background-color: #fff;
   border-bottom: 1px solid #ddd;
-  height: 40px;
+  height: 30px;
  border-bottom: 2px solid #134070;
 }
 
 .logo {
-  margin-top:10px;
-  height: 150px;
+  margin-top:13px;
+  height:120px;
   object-fit: contain;
 }
 
 .usuario-circulo {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   background-color: #134070;
   border-radius: 50%;
   color: #fff;

@@ -46,4 +46,10 @@
 
 .texto {
   font-size: 16px;
+  color: #000000; 
+  transition: color 0.3s ease;
+}
+
+.sidebar-item:hover .texto {
+  color: #ffffff; 
 }

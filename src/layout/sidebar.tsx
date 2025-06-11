@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { FaHome, FaUsers, FaTools } from 'react-icons/fa';
+import { FaLaptop  , FaUsers, FaTools } from 'react-icons/fa';
 import './Sidebar.css';
 
 const Sidebar: React.FC = () => {
@@ -12,17 +12,18 @@ const Sidebar: React.FC = () => {
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
     >
+      
       <div className="sidebar-item">
-        <FaHome className="icono" />
-        {isHovered && <span className="texto">Inicio</span>}
+        <FaLaptop className="icono" />
+        {isHovered && <span className="texto">Equipos</span>}
+      </div>
+      <div className="sidebar-item">
+        <FaTools className="icono" />
+        {isHovered && <span className="texto">licencias</span>}
       </div>
       <div className="sidebar-item">
         <FaUsers className="icono" />
         {isHovered && <span className="texto">Usuarios</span>}
-      </div>
-      <div className="sidebar-item">
-        <FaTools className="icono" />
-        {isHovered && <span className="texto">Equipos</span>}
       </div>
     </div>
   );
