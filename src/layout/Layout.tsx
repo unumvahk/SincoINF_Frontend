@@ -1,22 +1,21 @@
-import type { ReactNode } from 'react';
+import { useState } from 'react';
 import Header from './Header';
 import Sidebar from './sidebar';
 import './Layout.css';
 
 interface LayoutProps {
-  children: ReactNode;
-  
+  children: React.ReactNode;
 }
 
 const Layout = ({ children }: LayoutProps) => {
+  const [sidebarExpandido, setSidebarExpandido] = useState(false);
+
   return (
     <div className="layout">
-      <Header />
+      <Header toggleSidebar={() => setSidebarExpandido(!sidebarExpandido)} />
       <div className="main-content">
-        <Sidebar />
-        <div className="content">
-          {children}
-        </div>
+        <Sidebar expandido={sidebarExpandido} />
+        <div className="content">{children}</div>
       </div>
     </div>
   );
