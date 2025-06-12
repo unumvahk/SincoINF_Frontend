@@ -1,49 +1,104 @@
 .sidebar {
-  width: 0; /* oculto por defecto */
+  width: 0;
   background-color: #fff;
   height: 100vh;
   overflow-x: hidden;
   transition: width 0.3s ease;
   position: fixed;
-  top: 60px;
+  top: 50px;
   left: 0;
   z-index: 999;
   border-right: 2px solid #134070;
+  box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  padding-top: 1rem;
 }
 
+
 .sidebar.expandido {
-  width: 150px;
+  width: 160px;
 }
+
+.sidebar-item {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centra el ícono horizontalmente */
+  padding: 12px 16px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
+  border-radius:7px;
+  margin: 0 auto; /* Centra horizontalmente la cajita azul */
+  width: 70%; /* Ajusta el ancho para que no toque el borde */
+}
+
+
+.sidebar-item:hover {
+  transform: scale(1.05);
+  background-color: #f0f4f8;
+  
+}
+
+
+.sidebar-item.activo {
+  background-color: #134070;
+  transform: scale(1.05);
+  
+}
+
+.sidebar-item.activo .texto,
+.sidebar-item.activo .icono {
+  color: white;
+}
+
+.icono {
+  font-size: 20px;
+  color: #134070;
+  margin-right: 10px;
+  transition: color 0.2s ease;
+}
+
 
 .texto {
   display: none;
+  font-size: 16px;
+  color: #134070;
+  transition: color 0.2s ease;
 }
 
 .sidebar.expandido .texto {
   display: inline;
 }
 
-/* botón menú (en el header) */
+
 .menu-toggle {
-  font-size: 24px;
+  font-size: 26px;
   background: none;
   border: none;
   color: #134070;
   cursor: pointer;
   display: block;
+  margin-left: 1rem;
 }
 
-/* solo se muestra el botón en pantallas pequeñas */
+
 @media (min-width: 768px) {
   .menu-toggle {
-    display: none;
+    display: none; /* Ocultar el botón en pantallas grandes */
   }
 
   .sidebar {
-    width: 150px;
+    top:62px;
+    width:60px; /* Mostrar solo íconos */
+  }
+
+  .sidebar:hover {
+    width: 160px; /* Expandir con hover */
   }
 
   .sidebar .texto {
+    display: none;
+  }
+
+  .sidebar:hover .texto {
     display: inline;
   }
 }

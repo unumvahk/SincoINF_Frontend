@@ -1,6 +1,7 @@
 body {
   margin: 0;
 }
+
 .header {
   display: flex;
   justify-content: space-between;
@@ -8,12 +9,12 @@ body {
   padding: 10px 15px;
   background-color: #ffffff;
   border-bottom: 2px solid #134090;
-  height:30px;
+  height: 30px;
 }
 
 .logo {
-  margin-top:20px;
-  height:90px;
+  margin-top: 20px;
+  height: 90px;
   object-fit: contain;
 }
 
@@ -28,8 +29,18 @@ body {
   justify-content: center;
   font-weight: bold;
   font-size: 16px;
-  margin-right:10px;
+  margin-right: 10px;
 }
+
+/* Botón de menú hamburguesa */
+.menu-toggle {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: block; /* visible por defecto */
+}
+
 @media (min-width: 600px) {
   .logo {
     height: 100px;
@@ -46,6 +57,7 @@ body {
     background-color: #ffffff;
   }
 }
+
 @media (min-width: 1024px) {
   .logo {
     height: 140px;
@@ -59,7 +71,12 @@ body {
 
   .header {
     padding: 10px 40px;
-    height:40px;
+    height: 40px;
     background-color: #ffffff;
+  }
+
+  /* Ocultar botón hamburguesa en pantallas grandes */
+  .menu-toggle {
+    display: none;
   }
 }

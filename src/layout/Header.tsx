@@ -12,7 +12,7 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
       <button className="menu-toggle" onClick={toggleSidebar}>
         <FaBars />
       </button>
-      <img src="/imagenes/logo.png" alt="Logo" className="logo" />
+      <img src="/img/logo.png" alt="Logo" className="logo"/>
       <div className="usuario-circulo">U</div>
     </header>
   );
