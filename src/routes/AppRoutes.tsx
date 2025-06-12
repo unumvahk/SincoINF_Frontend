@@ -1,7 +1,7 @@
 // src/rutas/AppRoutes.tsx
 import { Routes, Route } from 'react-router-dom';
-import { Login } from '../modulos/auth/vistas/login'; // verifica esta ruta
-import RutasEquipos from "../modulos/equipos/rutas/RutasEquipos";
+import { Login } from '../modules/auth/vistas/login'; // verifica esta ruta
+import RutasEquipos from "../modules/Equipos/rutas/RutasEquipos";
 
 export const AppRoutes = () => {
   return (
