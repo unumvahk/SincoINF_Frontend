@@ -6,21 +6,21 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
+  padding: 10px 25px;
   background-color: #ffffff;
   border-bottom: 2px solid #134090;
-  height: 30px;
+  height: 40px;
 }
 
 .logo {
   margin-top: 20px;
-  height: 90px;
+  height: 100px;
   object-fit: contain;
 }
 
 .usuario-circulo {
-  width: 35px;
-  height: 35px;
+  width: 40px;
+  height: 40px;
   background-color: #134070;
   border-radius: 50%;
   color: #fff;
@@ -28,7 +28,7 @@ body {
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 16px;
+  font-size: 18px;
   margin-right: 10px;
 }
 
@@ -41,6 +41,7 @@ body {
   display: block; /* visible por defecto */
 }
 
+/* Tablet */
 @media (min-width: 600px) {
   .logo {
     height: 100px;
@@ -54,10 +55,10 @@ body {
 
   .header {
     padding: 10px 25px;
-    background-color: #ffffff;
   }
 }
 
+/* Escritorio */
 @media (min-width: 1024px) {
   .logo {
     height: 140px;
@@ -72,7 +73,6 @@ body {
   .header {
     padding: 10px 40px;
     height: 40px;
-    background-color: #ffffff;
   }
 
   /* Ocultar botón hamburguesa en pantallas grandes */

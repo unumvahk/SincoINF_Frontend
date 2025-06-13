@@ -1,3 +1,4 @@
+
 import React from 'react';
 import './Header.css';
 import { FaBars } from 'react-icons/fa';
@@ -12,8 +13,10 @@ const Header: React.FC<HeaderProps> = ({ toggleSidebar }) => {
       <button className="menu-toggle" onClick={toggleSidebar}>
         <FaBars />
       </button>
-      <img src="/img/logo.png" alt="Logo" className="logo"/>
-      <div className="usuario-circulo">U</div>
+      <img src="/img/logo.png" alt="Logo" className="logo" />
+      <div className="usuario-circulo">
+        <span>U</span>
+      </div>
     </header>
   );
 };

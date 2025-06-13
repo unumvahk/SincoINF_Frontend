@@ -1,5 +1,5 @@
 import React from "react";
-import "../estilos/EstiloTablaEquipos.css"; // Importamos los estilos CSS
+import "../estilos/EstiloTablaEquipos.css";
 
 // Tipado para un equipo
 interface Equipo {
@@ -21,7 +21,7 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
       {/* === PESTAÑAS === */}
       <div className="tab-nav">
         <button className="active">Inventario Licencias</button>
-        <button>Control Asignacion</button>
+        <button>Control Asignación</button>
       </div>
 
       {/* === BARRA DE BÚSQUEDA Y BOTÓN DE AÑADIR === */}
@@ -41,7 +41,7 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
             <th>PLACA</th>
             <th>COLABORADOR</th>
             <th>FECHA MANTENIMIENTO</th>
-            <th>UBICACION</th>
+            <th>UBICACIÓN</th>
             <th colSpan={2}>ACCIONES</th>
           </tr>
         </thead>
@@ -51,7 +51,7 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
               <td data-label="PLACA">{equipo.placa}</td>
               <td data-label="COLABORADOR">{equipo.colaborador}</td>
               <td data-label="FECHA MANTENIMIENTO">{equipo.fechaMantenimiento}</td>
-              <td data-label="UBICACION">{equipo.ubicacion}</td>
+              <td data-label="UBICACIÓN">{equipo.ubicacion}</td>
               <td data-label="ACCIONES">
                 <button className="info">Información</button>
               </td>

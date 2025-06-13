@@ -4,10 +4,13 @@ import FormularioInformacionEquipo from '../componentes/FormularioInformacionEqu
 import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
 import MetodoRepotenciacionEquipo from '../componentes/MetodoRepotenciacionEquipo';
 import HistorialMaquina from '../componentes/HistorialEquipoEspecifico';
+
+// Estilos
+import '../estilos/EquipoInfoGeneral.css';
 import '../estilos/HistorialMaquina.css';
-import '../estilos/BotonesEquipoAccion.css'
-import '../estilos/MetodoRepotenciacion.css'
-import '../estilos/TrasladoModal.css'
+import '../estilos/BotonesEquipoAccion.css';
+import '../estilos/MetodoRepotenciacion.css';
+import '../estilos/TrasladoModal.css';
 
 const VistaInformacionEquipo: React.FC = () => {
   return (
