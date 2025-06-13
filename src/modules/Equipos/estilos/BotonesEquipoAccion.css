@@ -1,0 +1,68 @@
+.botones-accion {
+  display: flex;
+  flex-direction: column; /* mobile-first */
+  gap: 12px;
+  width: 100%; /* se adapta al ancho disponible */
+  max-width: 290px; /* en móviles se mantiene delgado */
+  margin: 0 auto; /* centrado */
+  margin-top: 12px;
+}
+
+.btn {
+  padding: 12px 16px;
+  border: none;
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  text-align: center;
+}
+
+/* Colores */
+.btn.verde {
+  background-color: #34d399;
+}
+.btn.verde:hover {
+  background-color: #10b981;
+}
+
+.btn.naranja {
+  background-color: #fb923c;
+}
+.btn.naranja:hover {
+  background-color: #f97316;
+}
+
+.btn.azul {
+  background-color: #60a5fa;
+}
+.btn.azul:hover {
+  background-color: #3b82f6;
+}
+
+.btn:hover {
+  transform: scale(1.03);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* 📱 Desde pantallas medianas (768px) se acomodan horizontalmente */
+@media (min-width: 768px) {
+  .botones-accion {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    max-width: none; /* permitir expansión horizontal */
+    margin-left:140px; /* quitar márgenes fijos */
+    width: 100%;
+    gap: 16px;
+  }
+
+  .btn {
+    width: auto;
+    min-width: 150px;
+  }
+}
