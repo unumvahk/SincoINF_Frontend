@@ -1,6 +1,10 @@
-body {
+*, body {
   font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box
 }
+
 .input-style {
   @apply border border-blue-900 rounded px-2 py-1 w-full;
 }
