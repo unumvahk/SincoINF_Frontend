@@ -1,61 +1,72 @@
 import React from 'react';
+
 import '../estilos/FormularioInformcion.css.css'; // Si prefieres CSS tradicional
 
 const FormularioInformacionEquipo: React.FC = () => {
   return (
     <div className="contenedor-formulario">
       <div className="tarjeta">
-        <h2 className="titulo">Información del Equipo</h2>
+        <h2 className="titulo">Información del equipo</h2>
         <form className="grid-formulario">
           <div className="campo">
             <label htmlFor="serial">Serial</label>
-            <input id="serial" type="text" placeholder="Serial" />
+            <input type="text" id="serial" placeholder="Ej: ABC123" />
           </div>
+
+          <div className="campo">
+            <label htmlFor="tipo">Tipo</label>
+            <input type="text" id="tipo" placeholder="Ej: Portátil" />
+          </div>
+
           <div className="campo">
             <label htmlFor="marca">Marca</label>
-            <input id="marca" type="text" placeholder="Marca" />
+            <input type="text" id="marca" placeholder="Ej: Lenovo" />
           </div>
-          <div className="campo">
-            <label htmlFor="modelo">Modelo</label>
-            <input id="modelo" type="text" placeholder="Modelo" />
-          </div>
-          <div className="campo">
-            <label htmlFor="placa">Placa</label>
-            <input id="placa" type="text" placeholder="Placa" />
-          </div>
-          <div className="campo">
-            <label htmlFor="disco">Disco (GB)</label>
-            <input id="disco" type="text" placeholder="Disco (GB)" />
-          </div>
+
           <div className="campo">
             <label htmlFor="procesador">Procesador</label>
-            <input id="procesador" type="text" placeholder="Procesador" />
+            <input type="text" id="procesador" placeholder="Ej: Intel i5" />
           </div>
+
           <div className="campo">
-            <label htmlFor="ram">RAM (GB)</label>
-            <input id="ram" type="text" placeholder="RAM (GB)" />
+            <label htmlFor="ram">Memoria RAM</label>
+            <input type="text" id="ram" placeholder="Ej: 8 GB" />
           </div>
+
           <div className="campo">
-            <label htmlFor="nucleos">Núcleos</label>
-            <input id="nucleos" type="text" placeholder="Núcleos" />
+            <label htmlFor="disco">Disco</label>
+            <input type="text" id="disco" placeholder="Ej: 512 GB SSD" />
           </div>
+
           <div className="campo">
-            <label htmlFor="area">Área</label>
-            <input id="area" type="text" placeholder="Área" />
+            <label htmlFor="sistema">Sistema operativo</label>
+            <input type="text" id="sistema" placeholder="Ej: Windows 10" />
           </div>
+
+          <div className="campo">
+            <label htmlFor="sede">Sede</label>
+            <input type="text" id="sede" placeholder="Ej: Medellín" />
+          </div>
+
           <div className="campo">
             <label htmlFor="ubicacion">Ubicación</label>
-            <input id="ubicacion" type="text" placeholder="Ubicación" />
+            <input type="text" id="ubicacion" placeholder="Ej: Oficina 2B" />
           </div>
+
           <div className="campo">
-            <label htmlFor="fecha">Fecha de Registro</label>
-            <input id="fecha" type="date" />
+            <label htmlFor="estado">Estado</label>
+            <input type="text" id="estado" placeholder="Ej: Activo" />
           </div>
         </form>
 
+        <div className="acciones">
+          <button type="submit" className="btn">Guardar</button>
+        </div>
       </div>
     </div>
   );
 };
 
 export default FormularioInformacionEquipo;
+
+

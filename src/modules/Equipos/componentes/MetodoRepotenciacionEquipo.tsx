@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import '../estilos/MetodoRepotenciacion.css'; // Asegúrate de tener este archivo CSS
 
 const MetodoRepotenciacionEquipo: React.FC = () => {
   const [metodo, setMetodo] = useState('RAM');
@@ -9,11 +10,15 @@ const MetodoRepotenciacionEquipo: React.FC = () => {
       <label className="titulo">Escoja el método de repotenciación:</label>
       
       <div className="selector-repotenciacion">
-        <select value={metodo} onChange={(e) => setMetodo(e.target.value)}>
+        <select
+          value={metodo}
+          onChange={(e) => setMetodo(e.target.value)}
+        >
           <option value="RAM">RAM (GB)</option>
           <option value="DISCO">Disco (GB)</option>
         </select>
-        <button>↑</button>
+
+        <button className="boton-subir" title="Aplicar aumento">↑</button>
       </div>
 
       <div className="campo-aumento">
@@ -22,7 +27,7 @@ const MetodoRepotenciacionEquipo: React.FC = () => {
           type="number"
           value={cantidad}
           onChange={(e) => setCantidad(e.target.value)}
-          placeholder={`Ej: 8 ${metodo === 'RAM' ? 'GB' : 'GB'}`}
+          placeholder={`Ej: 8 GB`}
         />
       </div>
     </div>

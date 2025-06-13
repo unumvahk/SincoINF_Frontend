@@ -1,10 +1,8 @@
-// src/rutas/AppRoutes.tsx
-import { Routes, Route } from 'react-router';
+import { Routes, Route } from 'react-router-dom';
+import { Login } from '../modules/auth/vistas/Login'; // Asegúrate que el archivo se llame exactamente "Login.tsx"
+import RutasEquipos from '../modules/Equipos/rutas/RutasEquipos';
 
-import { Login } from '../modules/auth/vistas/login'; // verifica esta ruta
-import RutasEquipos from "../modules/Equipos/rutas/RutasEquipos";
-
-export const AppRoutes = () => {
+const AppRoutes = () => {
   return (
     <Routes>
       <Route path="/" element={<Login />} />
@@ -12,4 +10,5 @@ export const AppRoutes = () => {
     </Routes>
   );
 };
+
 export default AppRoutes;

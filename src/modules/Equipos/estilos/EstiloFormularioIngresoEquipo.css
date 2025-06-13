@@ -1,0 +1,73 @@
+/* === Contenedor general === */
+.contenedor-formulario {
+  background-color: #e9e9ee;
+  padding: 2rem;
+  border-radius: 10px;
+  max-width: 800px;
+  margin: 0 auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* === Título === */
+.titulo-formulario {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+  color: #222;
+}
+
+/* === Estilo del formulario en dos columnas === */
+.formulario-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+}
+
+/* === Columnas de campos === */
+.columna {
+  flex: 1 1 45%;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+/* === Inputs === */
+input {
+  padding: 0.6rem;
+  border: 2px solid #4c5fb3;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+/* === Botón === */
+.contenedor-boton {
+  width: 100%;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.boton-agregar {
+  background-color: #2e9f3b;
+  color: white;
+  padding: 0.7rem 2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.boton-agregar:hover {
+  background-color: #268933;
+}
+
+/* === Responsive para pantallas pequeñas === */
+@media (max-width: 768px) {
+  .formulario-grid {
+    flex-direction: column;
+  }
+
+  .columna {
+    width: 100%;
+  }
+}
