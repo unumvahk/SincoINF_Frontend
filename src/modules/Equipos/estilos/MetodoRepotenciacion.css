@@ -1,0 +1,106 @@
+.caja-repotenciacion {
+  background-color: #f3f3f4;
+  border: 1px solid #dcdcdf;
+  border-radius: 12px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  padding: 16px;
+  width: 100%;
+  max-width: 500px; /* Para pantallas grandes */
+  margin: 16px 0;    /* Ya no necesitas auto si usas align-items: center */
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+
+
+.caja-repotenciacion .titulo {
+  font-weight: 600;
+  font-size: 1rem;
+  color: #374151;
+}
+
+/* Selector de método + botón */
+.selector-repotenciacion {
+  display: flex;
+  flex-direction: row; /* Mobile: uno debajo del otro */
+  gap: 8px;
+}
+
+.selector-repotenciacion select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #23539c;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.selector-repotenciacion button {
+  padding: 10px 14px;
+  background-color: #061b47;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width:50px;
+}
+
+.selector-repotenciacion button:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.03);
+}
+
+/* Campo de aumento de repotenciación */
+.campo-aumento label {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #374151;
+  margin-bottom: 4px;
+  display: block;
+}
+
+.campo-aumento input {
+  width:250px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #d1d5db;
+  font-size: 0.95rem;
+  outline: none;
+}
+
+/* 🖥 Estilos para pantallas medianas en adelante */
+@media (min-width: 768px) {
+  .caja-repotenciacion {
+    max-width: 400px;
+  }
+
+  .selector-repotenciacion {
+    flex-direction: row; /* En horizontal en pantallas grandes */
+  }
+
+  .selector-repotenciacion select {
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid #23539c;
+  font-size: 0.9rem;
+  width: 100%;
+  flex: 1;
+}
+  .selector-repotenciacion button {
+  padding: 10px 14px;
+  background-color: #061b47;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width:50px;
+}
+
+  .campo-aumento input {
+    width:320px;
+  }
+}

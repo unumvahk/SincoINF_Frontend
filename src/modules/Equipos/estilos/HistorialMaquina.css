@@ -1,0 +1,150 @@
+/* CONTENEDOR GENERAL */
+.contenedor-info-equipo {
+  display: flex;
+  flex-direction: column; 
+  gap: 24px;
+  padding: 16px 20px; 
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* COLUMNA IZQUIERDA: FORMULARIO, BOTONES, MÉTODO */
+.columna-izquierda {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 2;
+  padding-left: 3px; 
+  align-items: center;
+}
+
+/* COLUMNA DERECHA: HISTORIAL */
+.columna-derecha {
+  flex: 1;
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius:5px;
+  border: 1.5px solid #b9b7b7;
+  box-shadow: 0 4px 8px rgba(118, 118, 118, 0.05);
+  transition: all 0.3s ease;
+}
+
+/* HISTORIAL: CONTENEDOR */
+.contenedor-historial {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+/* TÍTULO HISTORIAL */
+.contenedor-historial h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1f2937;
+  margin-top: 8px;
+}
+
+/* FILTROS BUSQUEDA */
+.busqueda-historial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.busqueda-historial input {
+  padding: 10px 12px;
+  border: 1px solid #aaaaab;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  background-color: #e6eefa;
+  color: #374151;
+  transition: border 0.2s;
+  height: 10px;
+}
+
+.busqueda-historial input:focus {
+  outline: none;
+  border-color: #183363;
+}
+
+/* LISTA DE HISTORIAL */
+.lista-historial {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.lista-historial li {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  transition: background-color 0.2s ease, transform 0.2s ease; /* ← se agregó transform */
+  cursor: pointer;
+}
+
+.lista-historial li:hover {
+  background-color: #eef2f7;
+  transform: scale(1.02); /* ← esto hace el efecto "zoom" */
+}
+
+
+/* ÍCONOS Y TEXTO DENTRO DE ITEM */
+.lista-historial .fecha,
+.lista-historial .descripcion {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.93rem;
+  color: #374151;
+}
+
+.lista-historial .fecha svg,
+.lista-historial .descripcion svg {
+  width: 18px;
+  height: 18px;
+  color: #183363;
+}
+
+/* MENSAJE DE VACÍO */
+.lista-historial .vacio {
+  text-align: center;
+  font-style: italic;
+  color: #6b7280;
+  padding: 12px;
+  border-radius: 8px;
+  background-color: #f9fafb;
+  border: 1px dashed #d1d5db;
+}
+
+/* RESPONSIVE: COLUMNA AL LADO EN PANTALLAS GRANDES */
+@media (min-width: 768px) {
+  .contenedor-info-equipo {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .columna-izquierda {
+    flex: 2;
+  }
+
+  .columna-derecha {
+    flex: 1;
+  }
+
+  .busqueda-historial {
+    flex-direction: row;
+    gap: 12px;
+  }
+
+  .busqueda-historial input {
+    flex: 1;
+  }
+}

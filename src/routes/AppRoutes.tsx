@@ -1,5 +1,5 @@
 // src/rutas/AppRoutes.tsx
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router';
 
 import { Login } from '../modules/auth/vistas/login'; // verifica esta ruta
 import RutasEquipos from "../modules/Equipos/rutas/RutasEquipos";
