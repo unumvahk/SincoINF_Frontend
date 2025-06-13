@@ -1,31 +1,33 @@
 /* === Contenedor principal de toda la vista === */
 .contenedor-principal {
-  display: block;
   font-family: Arial, sans-serif;
   min-height: 100vh;
 }
 
 /* === Contenido general === */
 .contenido {
-  padding: 1rem 2rem;
+  padding: 2rem;
   background-color: #f2f2f2;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
 /* === Navegación de pestañas === */
 .tab-nav {
   display: flex;
-  gap: 0.5rem;
-  margin-bottom: 1rem;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .tab-nav button {
   flex: 1;
-  padding: 0.7rem 1rem;
-  font-size: 1rem;
+  padding: 0.6rem;
+  font-size: 0.95rem;
   border: 1px solid #1c3c75;
   background-color: white;
   color: #1c3c75;
   cursor: pointer;
+  border-radius: 4px;
 }
 
 .tab-nav button.active {
@@ -44,13 +46,22 @@
 
 .barra-superior input {
   flex: 1;
-  padding: 0.5rem;
+  padding: 0.5rem 0.75rem;
   border: 1px solid #ccc;
-  min-width: 250px;
+  min-width: 220px;
+  font-size: 0.95rem;
+  border-radius: 4px;
+}
+
+.barra-superior .buscar-btn,
+.barra-superior .agregar-btn {
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  font-weight: 500;
 }
 
 .barra-superior .buscar-btn {
-  padding: 0.5rem 0.7rem;
   background-color: white;
   border: 1px solid #ccc;
   cursor: pointer;
@@ -59,17 +70,15 @@
 .barra-superior .agregar-btn {
   background-color: darkgreen;
   color: white;
-  padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
-  font-weight: bold;
 }
 
 /* === Imagen del logo principal === */
 .logo-img {
-  margin-top: 10px;
-  height: 150px;
+  height: 100px; /* Ajusta a tu gusto */
   object-fit: contain;
+  margin-bottom: 1rem;
 }
 
 /* === Tabla principal === */
@@ -79,11 +88,12 @@
   margin-top: 1rem;
   background-color: white;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
 .tabla-equipos th,
 .tabla-equipos td {
-  padding: 0.75rem;
+  padding: 0.6rem 0.8rem;
   text-align: left;
   border: 1px solid #ddd;
 }
@@ -93,26 +103,36 @@
 }
 
 /* === Botones === */
+.info,
+.inactivar {
+  font-size: 0.85rem;
+  padding: 0.35rem 0.8rem;
+  border-radius: 4px;
+}
+
 .info {
   background-color: #007bff;
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
   cursor: pointer;
 }
 
-.eliminar {
+.inactivar {
   background-color: #dc3545;
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
   cursor: pointer;
 }
 
-/* === Estilos Responsive === */
+/* === Responsive Design === */
 @media screen and (max-width: 768px) {
   .contenido {
     padding: 1rem;
+  }
+
+  .barra-superior {
+    flex-direction: column;
+    align-items: stretch;
   }
 
   .tabla-equipos thead {
@@ -136,20 +156,14 @@
     border-bottom: 1px solid #eee;
   }
 
-  .tabla-equipos td:last-child {
-    border-bottom: none;
-  }
-
   .tabla-equipos td::before {
     content: attr(data-label);
     font-weight: bold;
-    text-transform: uppercase;
     color: #555;
   }
 
-  .barra-superior {
-    flex-direction: column;
-    align-items: stretch;
+  .tabla-equipos td:last-child {
+    border-bottom: none;
   }
 
   .tab-nav {

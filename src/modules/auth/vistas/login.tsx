@@ -1,7 +1,5 @@
-
 import React, { useState } from 'react';
-
-import './login.css'
+import './Login.css'; // Importa el archivo de estilos
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -24,30 +22,48 @@ export const Login = () => {
   };
 
   return (
-    <div className="login-container">
-      <img src="/img/logo.png" alt="Logo" className="logo" />
+    <div className="login-page">
+      {/* Lado izquierdo con el logo o imagen */}
+      <div className="login-left">
+        <img src="/img/logo.png" alt="Logo" className="login-logo" />
+      </div>
 
-      <h2>LOGIN</h2>
-      <form className="login-form" onSubmit={handleSubmit}>
-        <input
-          type="email"
-          placeholder="Usuario"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
+      {/* Lado derecho con el formulario */}
+      <div className="login-right">
+        <form className="login-form" onSubmit={handleSubmit}>
+          <h2>Inicio de sesión</h2>
 
-        <input
-          type="password"
-          placeholder="Contraseña"
-          value={contraseña}
-          onChange={(e) => setContraseña(e.target.value)}
-          required
-        />
+          <div className="input-group">
+            <span className="icon">👤</span>
+            <input
+              type="email"
+              placeholder="Usuario"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+            />
+          </div>
 
-        <button id= 'boton'type="submit">Ingresar</button>
-      </form>
-      {mensaje && <p className="mensaje">{mensaje}</p>}
+          <div className="input-group">
+            <span className="icon">🔒</span>
+            <input
+              type="password"
+              placeholder="Contraseña"
+              value={contraseña}
+              onChange={(e) => setContraseña(e.target.value)}
+              required
+            />
+          </div>
+
+          <button type="submit">Acceder</button>
+
+          <div className="login-links">
+            <a href="#">¿Olvidaste tu contraseña?</a>
+          </div>
+
+          {mensaje && <p className="mensaje">{mensaje}</p>}
+        </form>
+      </div>
     </div>
   );
 };

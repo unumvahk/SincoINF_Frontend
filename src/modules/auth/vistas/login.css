@@ -1,53 +1,123 @@
-.login-container {
-  width: 100%;
-  max-width: 400px;
-  margin: 60px auto;
-  padding: 30px;
-  background-color: #f2f2f2;
-  text-align: center;
-  border: 1.5px solid #001f3f;
-  border-radius: 8px;
+/* Contenedor principal con dos columnas */
+.login-page {
+  display: flex;
+  height: 100vh;
 }
 
-.logo {
-  width: 180px;
-  margin-bottom: 20px;
+/* Lado izquierdo con imagen/logo */
+.login-left {
+  flex: 1;
+  background-color: #e6f0fa; /* Fondo claro azul */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+.login-logo {
+  width: 60%;
+  max-width: 300px;
+}
+
+/* Lado derecho con formulario */
+.login-right {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+}
+
+/* Estilos del formulario */
 .login-form {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  align-items: center;
+  justify-content: center;
+  background: none; /* ✅ Quitamos fondo blanco */
+  box-shadow: none; /* ✅ Quitamos sombra */
+  padding: 0;        /* ✅ Quitamos padding para compactar */
+  max-width: 350px;  /* ✅ Más estrecho */
+  width: 100%;
 }
 
-.login-form input {
-  padding: 10px;
-  border: 2px solid #001f3f;
-  border-radius: 5px;
-  font-size: 16px;
+
+.login-form h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #0d2c59;
 }
 
-.login-form button {
-  width:150px;
+/* Input con íconos */
+.input-group {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  border: 1.5px solid #0d2c59;
+  border-radius: 8px;
+  padding: 2px 8px;          /* ✅ Padding más pequeño */
+  margin-bottom: 10px;
+  background-color: white;   /* ✅ Contraste claro sin contenedor grande */
+  box-sizing: border-box;
+}
+
+
+.input-group .icon {
+  margin-right: 6px;
+  font-size: 10px;
+}
+
+.input-group input {
+  border: none;
+  outline: none;
+  padding: 6px 8px;
+  flex: 1;
+  font-size: 12px;
+  background: transparent;
+}
+
+/* Botón */
+button {
+  width: 40%;
   padding: 10px;
-  background-color: #1a47a2;
+  background-color: #0d47a1;
   color: white;
   border: none;
-  border-radius: 5px;
-  font-size: 16px;
+  border-radius: 25px;
+  font-size: 12px;
   cursor: pointer;
-  display: block;
-  margin: 20px auto 0 auto;
 }
 
-.login-form button:hover {
-  background-color: #14367a;
+button:hover {
+  background-color: #08306b;
 }
 
+/* Enlace inferior */
+.login-links {
+  margin-top: 20px;
+  text-align: center;
+  font-size: 14px;
+}
+
+/* Mensaje de estado */
 .mensaje {
-  margin-top: 15px;
-  font-weight: bold;
+  text-align: center;
+  color: red;
+  margin-top: 10px;
 }
-#boton{
 
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .login-page {
+    flex-direction: column;
+  }
+
+  .login-left, .login-right {
+    flex: none;
+    width: 100%;
+    padding: 20px;
+  }
+
+  .login-logo {
+    width: 120px;
+  }
 }
