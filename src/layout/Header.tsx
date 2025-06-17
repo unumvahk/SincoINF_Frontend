@@ -1,4 +1,3 @@
-
 import React from 'react';
 import './Header.css';
 import { FaBars } from 'react-icons/fa';

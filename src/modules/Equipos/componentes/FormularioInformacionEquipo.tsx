@@ -58,10 +58,6 @@ const FormularioInformacionEquipo: React.FC = () => {
             <input type="text" id="estado" placeholder="Ej: Activo" />
           </div>
         </form>
-
-        <div className="acciones">
-          <button type="submit" className="btn">Guardar</button>
-        </div>
       </div>
     </div>
   );
