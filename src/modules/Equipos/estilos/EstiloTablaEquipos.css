@@ -1,15 +1,10 @@
-/* === Contenedor principal de toda la vista === */
-.contenedor-principal {
-  font-family: Arial, sans-serif;
-  min-height: 100vh;
-}
-
-/* === Contenido general === */
+/* === Contenedor general === */
 .contenido {
   padding: 2rem;
   background-color: #f2f2f2;
   max-width: 1200px;
   margin: 0 auto;
+  font-family: Arial, sans-serif;
 }
 
 /* === Navegación de pestañas === */
@@ -44,43 +39,45 @@
   flex-wrap: wrap;
 }
 
-.barra-superior input {
+/* Input con icono (lupa) integrado */
+.input-con-icono {
+  position: relative;
   flex: 1;
-  padding: 0.5rem 0.75rem;
+  min-width: 240px;
+}
+
+.input-con-icono input {
+  width: 100%;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* espacio a la derecha para la lupa */
   border: 1px solid #ccc;
-  min-width: 250px;
+  border-radius: 4px;
   font-size: 0.95rem;
-  border-radius: 4px;
 }
 
-.barra-superior .buscar-btn,
-.barra-superior .agregar-btn {
-  font-size: 0.9rem;
-  padding: 0.45rem 1rem;
-  border-radius: 4px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
+/* Icono lupa dentro del input */
+.icono-lupa {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888;
+  font-size: 1rem;
 }
 
-.barra-superior .buscar-btn {
-  background-color: white;
-  border: 1px solid #ccc;
-}
-
+/* Botón de añadir */
 .barra-superior .agregar-btn {
   background-color: darkgreen;
   color: white;
+  border: none;
+  padding: 0.45rem 1rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
 }
 
-/* === Imagen del logo principal === */
-.logo-img {
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-
-/* === Tabla principal === */
+/* === Tabla === */
 .tabla-equipos {
   width: 100%;
   border-collapse: collapse;
@@ -101,27 +98,34 @@
   background-color: #f0f0f0;
 }
 
-/* === Botones === */
+/* === Botones dentro de la tabla === */
 .info,
-.eliminar {
-  font-size: 0.85rem;
-  padding: 0.4rem 0.8rem;
+.inactivar {
+  font-size: 0.9rem;              /* Aumentamos un poco el tamaño de letra */
+  padding: 0.45rem 1rem;          /* Más espacio horizontal para el texto */
   border-radius: 4px;
+  white-space: nowrap;           /* Evita que se parta el texto */
+  min-width: 100px;              /* Tamaño mínimo para que no se achique demasiado */
+  text-align: center;            /* Centra el texto dentro del botón */
+}
+
+/* Botón azul de información */
+.info {
+  background-color: #007bff;
+  color: #fff;
   border: none;
   cursor: pointer;
 }
 
-.info {
-  background-color: #007bff;
-  color: white;
-}
-
-.eliminar {
+/* Botón rojo de inactivar */
+.inactivar {
   background-color: #dc3545;
-  color: white;
+  color: #fff;
+  border: none;
+  cursor: pointer;
 }
 
-/* === Estilos Responsive === */
+/* === Estilo responsivo para móviles === */
 @media screen and (max-width: 768px) {
   .contenido {
     padding: 1rem;
