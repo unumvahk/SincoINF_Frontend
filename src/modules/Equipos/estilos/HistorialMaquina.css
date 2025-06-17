@@ -1,39 +1,43 @@
 /* CONTENEDOR GENERAL */
 .contenedor-info-equipo {
   display: flex;
-  flex-direction: column; 
-  gap: 24px;
-  padding: 16px 20px; 
+  flex-direction: column;
+  gap: 1.5rem;
+  
   width: 100%;
   box-sizing: border-box;
+  max-width: 1200px;       /* Limita el ancho máximo */
+  margin: 0 auto;          /* Centra horizontalmente */
 }
 
-/* COLUMNA IZQUIERDA: FORMULARIO, BOTONES, MÉTODO */
+
+/* COLUMNA IZQUIERDA */
 .columna-izquierda {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem;
   flex: 2;
-  padding-left: 3px; 
+  padding-left: 0.25rem;
   align-items: center;
 }
 
-/* COLUMNA DERECHA: HISTORIAL */
+/* COLUMNA DERECHA */
 .columna-derecha {
   flex: 1;
   background-color: #ffffff;
-  padding: 20px;
-  border-radius:5px;
-  border: 1.5px solid #b9b7b7;
-  box-shadow: 0 4px 8px rgba(118, 118, 118, 0.05);
+  padding: 1.25rem;
+  border-radius: 0.375rem;
+  border: 0.093rem solid #b9b7b7;
+  box-shadow: 0 0.25rem 0.5rem rgba(118, 118, 118, 0.05);
   transition: all 0.3s ease;
+  margin-left: 1rem;
 }
 
 /* HISTORIAL: CONTENEDOR */
 .contenedor-historial {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem;
 }
 
 /* TÍTULO HISTORIAL */
@@ -41,25 +45,25 @@
   font-size: 1.25rem;
   font-weight: 600;
   color: #1f2937;
-  margin-top: 8px;
+  margin-top: 0.5rem;
 }
 
 /* FILTROS BUSQUEDA */
 .busqueda-historial {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
 }
 
 .busqueda-historial input {
-  padding: 10px 12px;
+  padding: 0.625rem 0.75rem;
   border: 1px solid #aaaaab;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   font-size: 0.95rem;
   background-color: #e6eefa;
   color: #374151;
   transition: border 0.2s;
-  height: 10px;
+  height: 2.5rem;
 }
 
 .busqueda-historial input:focus {
@@ -71,7 +75,7 @@
 .lista-historial {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0.75rem;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -80,36 +84,35 @@
 .lista-historial li {
   background-color: #f9fafb;
   border: 1px solid #e5e7eb;
-  border-radius: 10px;
-  padding: 12px 16px;
+  border-radius: 0.625rem;
+  padding: 0.75rem 1rem;
   display: flex;
   flex-direction: column;
-  gap: 6px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
-  transition: background-color 0.2s ease, transform 0.2s ease; /* ← se agregó transform */
+  gap: 0.375rem;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.03);
+  transition: background-color 0.2s ease, transform 0.2s ease;
   cursor: pointer;
 }
 
 .lista-historial li:hover {
   background-color: #eef2f7;
-  transform: scale(1.02); /* ← esto hace el efecto "zoom" */
+  transform: scale(1.02);
 }
 
-
-/* ÍCONOS Y TEXTO DENTRO DE ITEM */
+/* ÍCONOS Y TEXTO */
 .lista-historial .fecha,
 .lista-historial .descripcion {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 0.5rem;
   font-size: 0.93rem;
   color: #374151;
 }
 
 .lista-historial .fecha svg,
 .lista-historial .descripcion svg {
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   color: #183363;
 }
 
@@ -118,14 +121,14 @@
   text-align: center;
   font-style: italic;
   color: #6b7280;
-  padding: 12px;
-  border-radius: 8px;
+  padding: 0.75rem;
+  border-radius: 0.5rem;
   background-color: #f9fafb;
   border: 1px dashed #d1d5db;
 }
 
-/* RESPONSIVE: COLUMNA AL LADO EN PANTALLAS GRANDES */
-@media (min-width: 768px) {
+/* RESPONSIVE: COLUMNAS AL LADO EN PANTALLAS GRANDES */
+@media (min-width: 48rem) {
   .contenedor-info-equipo {
     flex-direction: row;
     align-items: flex-start;
@@ -137,14 +140,16 @@
 
   .columna-derecha {
     flex: 1;
+  
   }
 
   .busqueda-historial {
     flex-direction: row;
-    gap: 12px;
+    gap: 0.75rem;
   }
 
   .busqueda-historial input {
     flex: 1;
   }
 }
+

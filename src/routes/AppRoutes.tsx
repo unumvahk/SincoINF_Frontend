@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { Login } from '../modules/auth/vistas/Login'; // Asegúrate que el archivo se llame exactamente "Login.tsx"
+import { Login } from '../modules/auth/vistas/login'; // Asegúrate que el archivo se llame exactamente "Login.tsx"
 import RutasEquipos from '../modules/Equipos/rutas/RutasEquipos';
 
 const AppRoutes = () => {
