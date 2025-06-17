@@ -50,15 +50,10 @@
   width: 100%;
   padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* espacio a la derecha para la lupa */
   border: 1px solid #ccc;
-<<<<<<< HEAD
   border-radius: 4px;
-=======
-  min-width: 250px;
->>>>>>> eac5934f4aa98c94f546a49aa178d4f37375d89a
   font-size: 0.95rem;
 }
 
-<<<<<<< HEAD
 /* Icono lupa dentro del input */
 .icono-lupa {
   position: absolute;
@@ -68,28 +63,12 @@
   pointer-events: none;
   color: #888;
   font-size: 1rem;
-=======
-.barra-superior .buscar-btn,
-.barra-superior .agregar-btn {
-  font-size: 0.9rem;
-  padding: 0.45rem 1rem;
-  border-radius: 4px;
-  font-weight: 500;
-  border: none;
-  cursor: pointer;
-}
-
-.barra-superior .buscar-btn {
-  background-color: white;
-  border: 1px solid #ccc;
->>>>>>> eac5934f4aa98c94f546a49aa178d4f37375d89a
 }
 
 /* Botón de añadir */
 .barra-superior .agregar-btn {
   background-color: darkgreen;
   color: white;
-<<<<<<< HEAD
   border: none;
   padding: 0.45rem 1rem;
   font-size: 0.9rem;
@@ -99,18 +78,6 @@
 }
 
 /* === Tabla === */
-=======
-}
-
-/* === Imagen del logo principal === */
-.logo-img {
-  height: 100px;
-  object-fit: contain;
-  margin-bottom: 1rem;
-}
-
-/* === Tabla principal === */
->>>>>>> eac5934f4aa98c94f546a49aa178d4f37375d89a
 .tabla-equipos {
   width: 100%;
   border-collapse: collapse;
@@ -133,7 +100,6 @@
 
 /* === Botones dentro de la tabla === */
 .info,
-<<<<<<< HEAD
 .inactivar {
   font-size: 0.9rem;              /* Aumentamos un poco el tamaño de letra */
   padding: 0.45rem 1rem;          /* Más espacio horizontal para el texto */
@@ -141,20 +107,11 @@
   white-space: nowrap;           /* Evita que se parta el texto */
   min-width: 100px;              /* Tamaño mínimo para que no se achique demasiado */
   text-align: center;            /* Centra el texto dentro del botón */
-=======
-.eliminar {
-  font-size: 0.85rem;
-  padding: 0.4rem 0.8rem;
-  border-radius: 4px;
-  border: none;
-  cursor: pointer;
->>>>>>> eac5934f4aa98c94f546a49aa178d4f37375d89a
 }
 
 /* Botón azul de información */
 .info {
   background-color: #007bff;
-<<<<<<< HEAD
   color: #fff;
   border: none;
   cursor: pointer;
@@ -169,17 +126,6 @@
 }
 
 /* === Estilo responsivo para móviles === */
-=======
-  color: white;
-}
-
-.eliminar {
-  background-color: #dc3545;
-  color: white;
-}
-
-/* === Estilos Responsive === */
->>>>>>> eac5934f4aa98c94f546a49aa178d4f37375d89a
 @media screen and (max-width: 768px) {
   .contenido {
     padding: 1rem;
