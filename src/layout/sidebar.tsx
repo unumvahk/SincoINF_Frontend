@@ -1,29 +1,38 @@
-
 import React, { useState } from 'react';
-import { FaLaptop  , FaUsers, FaTools } from 'react-icons/fa';
+import { FaLaptop, FaUsers, FaTools } from 'react-icons/fa';
 import './Sidebar.css';
 
-const Sidebar: React.FC = () => {
-  const [isHovered, setIsHovered] = useState(false);
+interface SidebarProps {
+  expandido: boolean;
+}
+
+const Sidebar: React.FC<SidebarProps> = ({ expandido }) => {
+  const [activo, setActivo] = useState('equipos');
 
   return (
-    <div
-      className={`sidebar ${isHovered ? 'expandido' : ''}`}
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      
-      <div className="sidebar-item">
+    <div className={`sidebar ${expandido ? 'expandido' : ''}`}>
+      <div
+        className={`sidebar-item ${activo === 'equipos' ? 'activo' : ''}`}
+        onClick={() => setActivo('equipos')}
+      >
         <FaLaptop className="icono" />
-        {isHovered && <span className="texto">Equipos</span>}
+        <span className="texto">Equipos</span>
       </div>
-      <div className="sidebar-item">
+
+      <div
+        className={`sidebar-item ${activo === 'licencias' ? 'activo' : ''}`}
+        onClick={() => setActivo('licencias')}
+      >
         <FaTools className="icono" />
-        {isHovered && <span className="texto">licencias</span>}
+        <span className="texto">Licencias</span>
       </div>
-      <div className="sidebar-item">
+
+      <div
+        className={`sidebar-item ${activo === 'usuarios' ? 'activo' : ''}`}
+        onClick={() => setActivo('usuarios')}
+      >
         <FaUsers className="icono" />
-        {isHovered && <span className="texto">Usuarios</span>}
+        <span className="texto">Usuarios</span>
       </div>
     </div>
   );

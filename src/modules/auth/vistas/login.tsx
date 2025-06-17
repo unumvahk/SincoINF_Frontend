@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './Login.css'; // Importa el archivo de estilos
+import './Login.css'; // Asegúrate que este archivo tenga el nombre correcto
 
 export const Login = () => {
   const [email, setEmail] = useState('');
@@ -23,12 +23,12 @@ export const Login = () => {
 
   return (
     <div className="login-page">
-      {/* Lado izquierdo con el logo o imagen */}
+      {/* Lado izquierdo con imagen/logo */}
       <div className="login-left">
         <img src="/img/logo.png" alt="Logo" className="login-logo" />
       </div>
 
-      {/* Lado derecho con el formulario */}
+      {/* Lado derecho con formulario */}
       <div className="login-right">
         <form className="login-form" onSubmit={handleSubmit}>
           <h2>Inicio de sesión</h2>

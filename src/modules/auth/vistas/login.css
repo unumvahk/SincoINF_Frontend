@@ -1,13 +1,13 @@
-/* Contenedor principal con dos columnas */
+/* === Contenedor principal con dos columnas === */
 .login-page {
   display: flex;
   height: 100vh;
 }
 
-/* Lado izquierdo con imagen/logo */
+/* === Lado izquierdo con logo o imagen === */
 .login-left {
   flex: 1;
-  background-color: #e6f0fa; /* Fondo claro azul */
+  background-color: #e6f0fa;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,7 +18,7 @@
   max-width: 300px;
 }
 
-/* Lado derecho con formulario */
+/* === Lado derecho con formulario === */
 .login-right {
   flex: 1;
   display: flex;
@@ -27,19 +27,17 @@
   background-color: white;
 }
 
-/* Estilos del formulario */
+/* === Estilo del formulario === */
 .login-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  background: none; /* ✅ Quitamos fondo blanco */
-  box-shadow: none; /* ✅ Quitamos sombra */
-  padding: 0;        /* ✅ Quitamos padding para compactar */
-  max-width: 350px;  /* ✅ Más estrecho */
+  background: none;
+  box-shadow: none;
+  padding: 0;
+  max-width: 350px;
   width: 100%;
 }
-
 
 .login-form h2 {
   text-align: center;
@@ -47,23 +45,23 @@
   color: #0d2c59;
 }
 
-/* Input con íconos */
+/* === Inputs con íconos === */
 .input-group {
   width: 80%;
   display: flex;
   align-items: center;
   border: 1.5px solid #0d2c59;
   border-radius: 8px;
-  padding: 2px 8px;          /* ✅ Padding más pequeño */
+  padding: 2px 8px;
   margin-bottom: 10px;
-  background-color: white;   /* ✅ Contraste claro sin contenedor grande */
+  background-color: white;
   box-sizing: border-box;
 }
 
-
 .input-group .icon {
   margin-right: 6px;
-  font-size: 10px;
+  font-size: 14px;
+  color: #0d2c59;
 }
 
 .input-group input {
@@ -71,11 +69,11 @@
   outline: none;
   padding: 6px 8px;
   flex: 1;
-  font-size: 12px;
+  font-size: 14px;
   background: transparent;
 }
 
-/* Botón */
+/* === Botón === */
 button {
   width: 40%;
   padding: 10px;
@@ -83,29 +81,31 @@ button {
   color: white;
   border: none;
   border-radius: 25px;
-  font-size: 12px;
+  font-size: 14px;
   cursor: pointer;
+  margin-top: 15px;
 }
 
 button:hover {
   background-color: #08306b;
 }
 
-/* Enlace inferior */
+/* === Enlaces inferiores === */
 .login-links {
   margin-top: 20px;
   text-align: center;
   font-size: 14px;
 }
 
-/* Mensaje de estado */
+/* === Mensaje de error o estado === */
 .mensaje {
   text-align: center;
   color: red;
   margin-top: 10px;
+  font-weight: bold;
 }
 
-/* RESPONSIVE */
+/* === Responsive === */
 @media (max-width: 768px) {
   .login-page {
     flex-direction: column;
