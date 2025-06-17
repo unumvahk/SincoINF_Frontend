@@ -15,7 +15,7 @@ const Layout = ({ children }: LayoutProps) => {
       <Header toggleSidebar={() => setSidebarExpandido(!sidebarExpandido)} />
       <div className="main-content">
         <Sidebar expandido={sidebarExpandido} />
-        <div className="content">
+        <div className={`content ${sidebarExpandido ? 'contenido-expandido' : ''}`}>
           {children}
         </div>
       </div>

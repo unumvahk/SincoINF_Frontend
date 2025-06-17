@@ -55,7 +55,7 @@ export const Login = () => {
             />
           </div>
 
-          <button type="submit">Acceder</button>
+          <button className="boton-login" type="submit">Acceder</button>
 
           <div className="login-links">
             <a href="#">¿Olvidaste tu contraseña?</a>
