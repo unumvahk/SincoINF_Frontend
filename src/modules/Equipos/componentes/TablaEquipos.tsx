@@ -1,7 +1,7 @@
 import React from "react";
 import "../estilos/EstiloTablaEquipos.css";
 
-// Tipado para un equipo
+// Definimos la estructura de un equipo
 interface Equipo {
   placa: string;
   colaborador: string;
@@ -14,27 +14,29 @@ interface Props {
   equipos: Equipo[];
 }
 
-// Componente funcional principal
+// Componente principal de la tabla de equipos
 const TablaEquipos: React.FC<Props> = ({ equipos }) => {
   return (
     <div className="contenido">
-      {/* === PESTAÑAS === */}
+      {/* Pestañas de navegación */}
       <div className="tab-nav">
         <button className="active">Inventario Licencias</button>
         <button>Control Asignación</button>
       </div>
 
-      {/* === BARRA DE BÚSQUEDA Y BOTÓN DE AÑADIR === */}
+      {/* Barra superior con campo de búsqueda + botón añadir */}
       <div className="barra-superior">
-        <input
-          type="text"
-          placeholder="Nombre de Colaborador / Cédula"
-        />
-        <button className="buscar-btn">🔍</button>
+        {/* Input con lupa integrada */}
+        <div className="input-con-icono">
+          <input type="text" placeholder="Nombre de Colaborador / Cédula" />
+          <span className="icono-lupa">🔍</span>
+        </div>
+
+        {/* Botón verde para añadir licencia */}
         <button className="agregar-btn">Añadir Licencia</button>
       </div>
 
-      {/* === TABLA DE EQUIPOS === */}
+      {/* Tabla de equipos */}
       <table className="tabla-equipos">
         <thead>
           <tr>
