@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModalTraslado from './TrasladoModal'; // Ajusta la ruta si está en otra carpeta
+import ModalTraslado from './TrasladoModal'; 
 
 const BotonesEquipoAccion: React.FC = () => {
   const [mostrarModal, setMostrarModal] = useState(false);
