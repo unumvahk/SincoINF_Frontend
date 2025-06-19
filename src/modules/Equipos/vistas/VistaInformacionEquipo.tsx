@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import Layout from '../../../layout/Layout'; 
 import FormularioInformacionEquipo from '../componentes/FormularioInformacionEquipo';
 import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
-import MetodoRepotenciacionEquipo from '../componentes/MetodoRepotenciacionEquipo';
 import HistorialMaquina from '../componentes/HistorialEquipoEspecifico';
 import ModalTraslado from '../componentes/TrasladoModal'; 
 
@@ -23,7 +22,6 @@ const VistaInformacionEquipo: React.FC = () => {
         <div className="columna-izquierda">
           <FormularioInformacionEquipo />
           <BotonesEquipoAccion />
-          <MetodoRepotenciacionEquipo />
         </div>
         {/* Columna derecha */}
         <div className="columna-derecha">

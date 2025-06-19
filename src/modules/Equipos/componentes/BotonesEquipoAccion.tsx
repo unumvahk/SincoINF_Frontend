@@ -1,23 +1,32 @@
 import React, { useState } from 'react';
-import ModalTraslado from './TrasladoModal'; 
+import ModalTraslado from './TrasladoModal';
+import ModalMantenimiento from './ModalMantenimiento';
+import MetodoRepotenciacionEquipo from './MetodoRepotenciacionEquipo';
 
 const BotonesEquipoAccion: React.FC = () => {
-  const [mostrarModal, setMostrarModal] = useState(false);
-
-  const abrirModal = () => setMostrarModal(true);
-  const cerrarModal = () => setMostrarModal(false);
+  const [mostrarTraslado, setMostrarTraslado] = useState(false);
+  const [mostrarMantenimiento, setMostrarMantenimiento] = useState(false);
+  const [mostrarRepotenciacion, setMostrarRepotenciacion] = useState(false); // nuevo
 
   return (
     <>
       <div className="botones-accion">
-        <button className="btn verde" onClick={abrirModal}>
-          Añadir Traslado
-        </button>
-        <button className="btn naranja">Mantenimientos</button>
-        <button className="btn azul">Repotenciación</button>
+        <button className="btn verde" onClick={() => setMostrarTraslado(true)}>Añadir Traslado</button>
+        <button className="btn naranja" onClick={() => setMostrarMantenimiento(true)}>Mantenimientos</button>
+        <button className="btn azul" onClick={() => setMostrarRepotenciacion(true)}>Repotenciación</button>
       </div>
 
-      <ModalTraslado visible={mostrarModal} onClose={cerrarModal} />
+      <ModalTraslado visible={mostrarTraslado} onClose={() => setMostrarTraslado(false)} />
+      <ModalMantenimiento visible={mostrarMantenimiento} onClose={() => setMostrarMantenimiento(false)} />
+
+      {mostrarRepotenciacion && (
+        <div className="modal-overlay">
+          <div className="modal-contenido">
+            <button className="btn-cerrar" onClick={() => setMostrarRepotenciacion(false)}>×</button>
+            <MetodoRepotenciacionEquipo />
+          </div>
+        </div>
+      )}
     </>
   );
 };
