@@ -1,37 +1,34 @@
-// src/modulos/equipos/componentes/FormularioIngresoEquipo.tsx
-
 import React from "react";
-import "../estilos/EstiloFormularioIngresoEquipo.css"; // Estilos CSS específicos
+import "../estilos/EstiloFormularioIngresoEquipo.css";
 
 const FormularioIngresoEquipo: React.FC = () => {
   return (
     <div className="contenedor-formulario">
-      {/* Título principal */}
-      <h2 className="titulo-formulario">INGRESOS EQUIPOS</h2>
+      {/* ✅ TÍTULO CENTRADO */}
+      <h2 className="titulo-formulario">INGRESO DE EQUIPOS</h2>
 
-      {/* Formulario en columnas */}
       <form className="formulario-grid">
-        {/* Primera columna */}
+        {/* Inputs columna izquierda */}
         <div className="columna">
-          <input type="text" placeholder="Serial" required />
+          <input type="text" placeholder="De serie" required />
           <input type="text" placeholder="Marca" required />
           <input type="text" placeholder="Modelo" required />
           <input type="text" placeholder="Placa" required />
           <input type="text" placeholder="Procesador" required />
         </div>
 
-        {/* Segunda columna */}
+        {/* Inputs columna derecha */}
         <div className="columna">
-          <input type="number" placeholder="Ram ( GB )" required />
-          <input type="number" placeholder="Nucleos" required />
-          <input type="number" placeholder="Disco ( GB )" required />
-          <input type="date" placeholder="Fecha Ingreso" required />
+          <input type="number" placeholder="RAM (GB)" required />
+          <input type="number" placeholder="Núcleos" required />
+          <input type="number" placeholder="Disco (GB)" required />
+          <input type="date" required />
         </div>
 
-        {/* Botón de envío */}
+        {/* Botón final */}
         <div className="contenedor-boton">
           <button type="submit" className="boton-agregar">
-            Agregar Dispositivo
+            Agregar dispositivo
           </button>
         </div>
       </form>

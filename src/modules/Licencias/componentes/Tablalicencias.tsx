@@ -1,8 +1,7 @@
-import React, { useState } from "react"; // Importamos useState para controlar la visibilidad del modal
+import React from "react";
 import "../estilos/EstiloTablaEquipos.css";
-import FormularioIngresoEquipo from "../componentes/FormularioIngresoEquipo"; // Importamos el formulario que se mostrará como modal
 
-// Definimos la estructura de los datos de cada equipo
+// Estructura de un equipo
 interface Equipo {
   placa: string;
   colaborador: string;
@@ -10,33 +9,33 @@ interface Equipo {
   ubicacion: string;
 }
 
-// Tipado de las props del componente
+// Props que recibe el componente
 interface Props {
   equipos: Equipo[];
 }
 
-// Componente principal de la tabla de equipos
 const TablaEquipos: React.FC<Props> = ({ equipos }) => {
-  // Estado que controla si el formulario modal está visible o no
-  const [mostrarFormulario, setMostrarFormulario] = useState(false);
-
   return (
     <div className="contenido">
-      {/* === Barra superior con búsqueda e botón "Añadir Equipo" === */}
+      {/* Navegación de pestañas */}
+      <div className="tab-nav">
+        <button className="active">Inventario Licencias</button>
+        <button>Control Asignación</button>
+      </div>
+
+      {/* Barra superior: búsqueda y botón */}
       <div className="barra-superior">
-        {/* Campo de búsqueda con icono de lupa */}
+        {/* Campo de búsqueda con ícono */}
         <div className="input-con-icono">
           <input type="text" placeholder="Nombre de Colaborador / Cédula" />
           <span className="icono-lupa">🔍</span>
         </div>
 
-        {/* Botón para mostrar el formulario flotante (modal) */}
-        <button className="agregar-btn" onClick={() => setMostrarFormulario(true)}>
-          Añadir Equipo
-        </button>
+        {/* Botón agregar licencia */}
+        <button className="agregar-btn">Añadir Licencia</button>
       </div>
 
-      {/* === Tabla con los datos de los equipos === */}
+      {/* Tabla de datos */}
       <table className="tabla-equipos">
         <thead>
           <tr>
@@ -58,27 +57,12 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
                 <button className="info">Información</button>
               </td>
               <td data-label="ACCIONES">
-                <button className="inactivar">Inactivar</button>
+                <button className="eliminar">Eliminar</button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
-
-      {/* === MODAL FLOTANTE === */}
-      {mostrarFormulario && (
-        <div className="modal-overlay">
-          <div className="modal-contenido">
-            {/* Botón en la esquina para cerrar el modal */}
-            <button className="cerrar-modal" onClick={() => setMostrarFormulario(false)}>
-              ✕
-            </button>
-
-            {/* Aquí se renderiza el formulario dentro del modal */}
-            <FormularioIngresoEquipo />
-          </div>
-        </div>
-      )}
     </div>
   );
 };

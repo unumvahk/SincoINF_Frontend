@@ -1,29 +1,32 @@
 /* === Contenedor general === */
 .contenido {
-  padding: 1rem;
-  background-color: #f2f2f2;
-  max-width: 90%;
-  margin: 0 auto;
+  padding: 1.5rem;
   font-family: Arial, sans-serif;
+  background-color: #dc3545;
+  margin-left: 5rem; /* espacio para la barra lateral */
+  margin-top: 4rem;  /* espacio para la barra superior */
+  min-height: calc(100vh - 4rem); /* altura de pantalla - barra superior */
+  box-sizing: border-box;
+  overflow-x: auto;
 }
+
 
 /* === Navegación de pestañas === */
 .tab-nav {
   display: flex;
   gap: 1rem;
   margin-bottom: 1.5rem;
-  flex-wrap: wrap;
 }
 
 .tab-nav button {
   flex: 1;
-  padding: 0.6rem 1rem;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
   border: 1px solid #1c3c75;
   background-color: white;
   color: #1c3c75;
   cursor: pointer;
-  border-radius: 0.25rem;
+  border-radius: 4px;
 }
 
 .tab-nav button.active {
@@ -40,20 +43,22 @@
   flex-wrap: wrap;
 }
 
+/* Input con icono (lupa) integrado */
 .input-con-icono {
   position: relative;
   flex: 1;
-  min-width: min(100%, 15rem);
+  min-width: 240px;
 }
 
 .input-con-icono input {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem; /* espacio a la derecha para la lupa */
   border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  border-radius: 4px;
+  font-size: 0.95rem;
 }
 
+/* Icono lupa dentro del input */
 .icono-lupa {
   position: absolute;
   right: 0.8rem;
@@ -70,8 +75,8 @@
   color: white;
   border: none;
   padding: 0.45rem 1rem;
-  font-size: clamp(0.85rem, 2vw, 1rem);
-  border-radius: 0.25rem;
+  font-size: 0.9rem;
+  border-radius: 4px;
   font-weight: 500;
   cursor: pointer;
 }
@@ -82,8 +87,8 @@
   border-collapse: collapse;
   margin-top: 1rem;
   background-color: white;
-  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
 .tabla-equipos th,
@@ -100,14 +105,15 @@
 /* === Botones dentro de la tabla === */
 .info,
 .inactivar {
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
-  padding: 0.45rem 1rem;
-  border-radius: 0.25rem;
-  white-space: nowrap;
-  min-width: 6rem;
-  text-align: center;
+  font-size: 0.9rem;              /* Aumentamos un poco el tamaño de letra */
+  padding: 0.45rem 1rem;          /* Más espacio horizontal para el texto */
+  border-radius: 4px;
+  white-space: nowrap;           /* Evita que se parta el texto */
+  min-width: 100px;              /* Tamaño mínimo para que no se achique demasiado */
+  text-align: center;            /* Centra el texto dentro del botón */
 }
 
+/* Botón azul de información */
 .info {
   background-color: #007bff;
   color: #fff;
@@ -115,6 +121,7 @@
   cursor: pointer;
 }
 
+/* Botón rojo de inactivar */
 .inactivar {
   background-color: #dc3545;
   color: #fff;
@@ -122,7 +129,7 @@
   cursor: pointer;
 }
 
-/* === RESPONSIVE (MÓVILES) === */
+/* === Estilo responsivo para móviles === */
 @media screen and (max-width: 768px) {
   .contenido {
     padding: 1rem;
@@ -149,7 +156,7 @@
     display: block;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
-    border-radius: 0.5rem;
+    border-radius: 8px;
     padding: 0.5rem;
     background-color: #fff;
   }
@@ -171,69 +178,4 @@
   .tabla-equipos td:last-child {
     border-bottom: none;
   }
-}
-
-/* === ESCALADO EN PANTALLAS GRANDES === */
-@media screen and (min-width: 1440px) {
-  .contenido {
-    padding: 2rem 4rem;
-    max-width: 80%;
-  }
-
-  .tabla-equipos {
-    font-size: 1rem;
-  }
-
-  .barra-superior .agregar-btn {
-    font-size: 1rem;
-  }
-
-  /* === Modal flotante === */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 1000;
-}
-
-.modal-contenido {
-  background-color: white;
-  padding: 2rem;
-  border-radius: 1rem;
-  max-width: 95%;
-  width: 600px;
-  position: relative;
-  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
-}
-
-/* Botón para cerrar modal */
-.cerrar-modal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: crimson;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Responsive para modal */
-@media screen and (max-width: 600px) {
-  .modal-contenido {
-    width: 90%;
-    padding: 1.5rem;
-  }
-}
-
-
 }

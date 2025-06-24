@@ -1,6 +1,6 @@
 import React from 'react';
 
-import '../estilos/FormularioInformcion.css.css'; // Si prefieres CSS tradicional
+import '../estilos/FormularioInformcion.css.css'; 
 
 const FormularioInformacionEquipo: React.FC = () => {
   return (

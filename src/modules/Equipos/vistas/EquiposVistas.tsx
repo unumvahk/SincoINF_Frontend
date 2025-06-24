@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import TablaEquipos from "../componentes/TablaEquipos";
 import Layout from "../../../layout/Layout";
-
+import FormularioIngresoEquipo from "../componentes/FormularioIngresoEquipo";
 interface Equipo {
   placa: string;
   colaborador: string;
@@ -57,8 +57,10 @@ const EquiposVista: React.FC = () => {
   return (
     <Layout>
       <TablaEquipos equipos={equipos} />
+      
     </Layout>
   );
+  
 };
 
 export default EquiposVista;

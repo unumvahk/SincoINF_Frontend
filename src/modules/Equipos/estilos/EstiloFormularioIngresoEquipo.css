@@ -1,68 +1,76 @@
-/* === Contenedor general === */
+/* === Contenedor del formulario === */
 .contenedor-formulario {
   background-color: #e9e9ee;
   padding: 2rem;
   border-radius: 10px;
-  max-width: 800px;
-  margin: 0 auto;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  max-width: 900px;
+  width: 95%;
+  margin: 5vh auto;
+  display: flex;
+  flex-wrap: wrap;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-/* === Título === */
+/* === Título del formulario === */
 .titulo-formulario {
   text-align: center;
-  margin-bottom: 1.5rem;
   font-size: 1.8rem;
-  color: #222;
+  margin-bottom: 2rem;
+  color: #1c3c75;
 }
 
-/* === Estilo del formulario en dos columnas === */
+/* === Grid para los campos === */
 .formulario-grid {
   display: flex;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   justify-content: space-between;
 }
 
-/* === Columnas de campos === */
+/* === Columnas de inputs === */
 .columna {
-  flex: 1 1 45%;
+  flex: 1;
+  min-width: 250px;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
 }
 
-/* === Inputs === */
-input {
-  padding: 0.6rem;
-  border: 2px solid #4c5fb3;
-  border-radius: 5px;
+/* === Inputs generales === */
+.columna input {
+  padding: 0.6rem 1rem;
   font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  background-color: white;
 }
 
-/* === Botón === */
+/* === Contenedor del botón === */
 .contenedor-boton {
   width: 100%;
-  margin-top: 1.5rem;
-  text-align: center;
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
 }
 
+/* === Botón agregar === */
 .boton-agregar {
-  background-color: #2e9f3b;
+  background-color: darkgreen;
   color: white;
-  padding: 0.7rem 2rem;
-  font-size: 1rem;
   border: none;
-  border-radius: 6px;
+  padding: 0.75rem 2rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
 .boton-agregar:hover {
-  background-color: #268933;
+  background-color: #006400;
 }
 
 /* === Responsive para pantallas pequeñas === */
-@media (max-width: 768px) {
+@media screen and (max-width: 600px) {
   .formulario-grid {
     flex-direction: column;
   }
