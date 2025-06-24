@@ -1,9 +1,5 @@
-<<<<<<< HEAD
-/* === Contenedor del formulario === */
-.contenedor-formulario {
-=======
+
 .contenedor-ingreso-equipo {
->>>>>>> main
   background-color: #e9e9ee;
   padding: 2rem;
   border-radius: 10px;
@@ -15,80 +11,51 @@
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
 }
 
-<<<<<<< HEAD
-/* === Título del formulario === */
-.titulo-formulario {
-=======
 .titulo-ingreso-equipo {
->>>>>>> main
   text-align: center;
   font-size: 1.8rem;
   margin-bottom: 2rem;
   color: #1c3c75;
 }
 
-<<<<<<< HEAD
-/* === Grid para los campos === */
-.formulario-grid {
-=======
 .formulario-ingreso-grid {
->>>>>>> main
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
   justify-content: space-between;
 }
-
-<<<<<<< HEAD
 /* === Columnas de inputs === */
-.columna {
-  flex: 1;
-  min-width: 250px;
-=======
+
 .columna-ingreso {
   flex: 1 1 45%;
->>>>>>> main
   display: flex;
   flex-direction: column;
   gap: 1rem;
 }
 
-<<<<<<< HEAD
 /* === Inputs generales === */
-.columna input {
-  padding: 0.6rem 1rem;
-=======
 .columna-ingreso input {
   padding: 0.6rem;
   border: 2px solid #4c5fb3;
   border-radius: 5px;
->>>>>>> main
   font-size: 1rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   background-color: white;
 }
 
-<<<<<<< HEAD
-/* === Contenedor del botón === */
-.contenedor-boton {
-=======
 .contenedor-boton-ingreso {
->>>>>>> main
   width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 2rem;
 }
 
-<<<<<<< HEAD
-/* === Botón agregar === */
-.boton-agregar {
-  background-color: darkgreen;
-=======
+
+
 .boton-agregar-equipo {
   background-color: #2e9f3b;
->>>>>>> main
+
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -98,23 +65,23 @@
   transition: background-color 0.3s ease;
 }
 
-<<<<<<< HEAD
-.boton-agregar:hover {
-  background-color: #006400;
-}
+
+
+
 
 /* === Responsive para pantallas pequeñas === */
 @media screen and (max-width: 600px) {
-  .formulario-grid {
-=======
+
+
 .boton-agregar-equipo:hover {
   background-color: #268933;
 }
-
+}
 /* Responsive */
 @media (max-width: 768px) {
   .formulario-ingreso-grid {
->>>>>>> main
+
+
     flex-direction: column;
   }
 
