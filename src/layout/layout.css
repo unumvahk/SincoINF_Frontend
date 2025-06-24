@@ -12,12 +12,16 @@
 
 .content {
   flex: 1;
-  padding: 20px;
+  padding: 2rem;
   overflow-y: auto;
   transition: margin-left 0.3s ease;
-  margin-left: 50px; /* default para sidebar colapsado */
+  margin-left: 50px;
+  margin-top: 8vh;
+  min-height: calc(100vh - 8vh);
+  box-sizing: border-box;
 }
 
+/* Expandido al pasar el mouse o en modo manual */
 .contenido-expandido {
   margin-left: 150px;
 }
@@ -28,6 +32,6 @@
   }
 
   .contenido-expandido {
-    margin-left: 150px;
+    margin-left: 200px;
   }
 }
