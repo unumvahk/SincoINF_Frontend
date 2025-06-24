@@ -3,6 +3,7 @@ import "../estilos/EstiloFormularioIngresoEquipo.css";
 
 const FormularioIngresoEquipo: React.FC = () => {
   return (
+
     <div className="contenedor-ingreso-equipo">
       <h2 className="titulo-ingreso-equipo">INGRESOS EQUIPOS</h2>
 
@@ -25,6 +26,7 @@ const FormularioIngresoEquipo: React.FC = () => {
         <div className="contenedor-boton-ingreso">
           <button type="submit" className="boton-agregar-equipo">
             Agregar Dispositivo
+
           </button>
         </div>
       </form>
