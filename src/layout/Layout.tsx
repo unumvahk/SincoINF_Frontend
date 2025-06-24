@@ -11,11 +11,11 @@ const Layout = ({ children }: LayoutProps) => {
   const [sidebarExpandido, setSidebarExpandido] = useState(false);
 
   return (
-    <div className="layout">
+    <div className="layout-contenedor">
       <Header toggleSidebar={() => setSidebarExpandido(!sidebarExpandido)} />
-      <div className="main-content">
+      <div className="layout-principal">
         <Sidebar expandido={sidebarExpandido} />
-        <div className={`content ${sidebarExpandido ? 'contenido-expandido' : ''}`}>
+        <div className={`layout-contenido ${sidebarExpandido ? 'layout-contenido-expandido' : ''}`}>
           {children}
         </div>
       </div>
