@@ -6,23 +6,29 @@ import MetodoRepotenciacionEquipo from './MetodoRepotenciacionEquipo';
 const BotonesEquipoAccion: React.FC = () => {
   const [mostrarTraslado, setMostrarTraslado] = useState(false);
   const [mostrarMantenimiento, setMostrarMantenimiento] = useState(false);
-  const [mostrarRepotenciacion, setMostrarRepotenciacion] = useState(false); // nuevo
+  const [mostrarRepotenciacion, setMostrarRepotenciacion] = useState(false);
 
   return (
     <>
-      <div className="botones-accion">
-        <button className="btn verde" onClick={() => setMostrarTraslado(true)}>Añadir Traslado</button>
-        <button className="btn naranja" onClick={() => setMostrarMantenimiento(true)}>Mantenimientos</button>
-        <button className="btn azul" onClick={() => setMostrarRepotenciacion(true)}>Repotenciación</button>
+      <div className="botones-equipo-accion">
+        <button className="btn-equipo verde-equipo" onClick={() => setMostrarTraslado(true)}>
+          Añadir Traslado
+        </button>
+        <button className="btn-equipo naranja-equipo" onClick={() => setMostrarMantenimiento(true)}>
+          Mantenimientos
+        </button>
+        <button className="btn-equipo azul-equipo" onClick={() => setMostrarRepotenciacion(true)}>
+          Repotenciación
+        </button>
       </div>
 
       <ModalTraslado visible={mostrarTraslado} onClose={() => setMostrarTraslado(false)} />
       <ModalMantenimiento visible={mostrarMantenimiento} onClose={() => setMostrarMantenimiento(false)} />
 
       {mostrarRepotenciacion && (
-        <div className="modal-overlay">
-          <div className="modal-contenido">
-            <button className="btn-cerrar" onClick={() => setMostrarRepotenciacion(false)}>×</button>
+        <div className="modal-overlay-equipo">
+          <div className="modal-contenido-equipo">
+            <button className="btn-cerrar-equipo" onClick={() => setMostrarRepotenciacion(false)}>×</button>
             <MetodoRepotenciacionEquipo />
           </div>
         </div>
