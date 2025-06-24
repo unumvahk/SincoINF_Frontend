@@ -46,7 +46,7 @@ const empleadosSimulados: Record<string, any> = {
 const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
   const [empleado, setEmpleado] = useState<any | null>(null);
   const [equipoNuevo, setEquipoNuevo] = useState<any | null>(null);
-  const [esUrgente, setEsUrgente] = useState(false);
+  const [estadoFinal, setEstadoFinal] = useState(''); // ✅ Aquí sí va el useState
 
   const {
     register,
@@ -65,7 +65,7 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
   if (!visible) return null;
 
   const onSubmit = (data: TrasladoFormData) => {
-    console.log('Datos enviados:', { ...data, esUrgente });
+    console.log('Datos enviados:', { ...data, estadoFinal });
   };
 
   const buscarInfoEmpleado = () => {
@@ -91,6 +91,7 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
             setValue('buscarEmpleado', '');
             setEquipoNuevo(null);
             setValue('serialNuevo', '');
+            setEstadoFinal('');
           }}>
             <option value="">Seleccione tipo de traslado</option>
             <option value="ENTRADA">Ingreso</option>
@@ -115,7 +116,7 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
             <>
               <div className="formulario-grid">
                 <div className="campo">
-                  <label >Buscar empleado</label>
+                  <label>Buscar empleado</label>
                   <input
                     type="text"
                     placeholder="Cédula / Hostname / Correo"
@@ -166,22 +167,19 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
                 <p>⚠ Este equipo será marcado como <strong>Inactivo - Bodega</strong>.</p>
               </div>
 
-              <div className="switch-contenedor">
-                <label className="switch-label">¿Desea cambiar el estado?</label>
-                <div className="switch-wrapper">
-                  <span className={`switch-opcion ${esUrgente ? 'activo' : ''}`}>En Uso</span>
-
-                  <label className="switch">
-                    <input
-                      type="checkbox"
-                      checked={esUrgente}
-                      onChange={() => setEsUrgente(!esUrgente)}
-                    />
-                    <span className="slider"></span>
-                  </label>
-
-                  <span className={`switch-opcion ${!esUrgente ? 'activo' : ''}`}>Disponible Bodega</span>
-                </div>
+              <div className="estado-contenedor">
+                <label className="estado-label">Estado final del equipo</label>
+                <select
+                  className="estado-select"
+                  value={estadoFinal}
+                  onChange={(e) => setEstadoFinal(e.target.value)}
+                >
+                  <option value="" disabled>Seleccione estado...</option>
+                  <option value="ACTIVO">Activo</option>
+                  <option value="INACTIVO">Inactivo</option>
+                  <option value="MANTENIMIENTO">Mantenimiento</option>
+                  <option value="ARCHIVO">Archivo</option>
+                </select>
               </div>
             </>
           )}

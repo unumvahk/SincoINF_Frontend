@@ -130,50 +130,34 @@ label {
   font-size: 0.85rem;
   padding: 0.2rem;
 }
-
-/* === SWITCH === */
-.switch-contenedor {
+.estado-contenedor {
   margin-top: 1.5rem;
   text-align: center;
 }
 
-.switch-label {
+.estado-label {
   font-size: 1rem;
-  display: block;
-  margin-bottom: 0.4rem;
   font-weight: 600;
-  color: #333;
+  color: #374151;
+  margin-bottom: 0.5rem;
+  display: block;
 }
 
-.switch-wrapper {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+.estado-select {
+  width: 100%;
+  padding: 0.6rem 1rem;
+  font-size: 0.95rem;
+  border: 1px solid #d1d5dd;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  color: #111827;
+  transition: border-color 0.3s ease;
 }
 
-.switch-opcion {
-  font-size: 0.9rem;
-  color: #666;
-  font-weight: 500;
-}
-
-.switch-opcion.activo {
-  color: #134070;
-  font-weight: bold;
-}
-
-.switch {
-  position: relative;
-  display: inline-block;
-  width: 40px;
-  height: 20px;
-}
-
-.switch input {
-  opacity: 0;
-  width: 0;
-  height: 0;
+.estado-select:focus {
+  border-color: #007bff;
+  background-color: #ffffff;
+  outline: none;
 }
 
 .slider {
