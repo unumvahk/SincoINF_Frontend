@@ -7,6 +7,7 @@ const RutasEquipos = () => {
     <Routes>
       <Route path="informacion" element={<VistaInformacionEquipo />} />
       <Route path="Info" element={<EquiposVista />} />
+      
     </Routes>
   );
 };
