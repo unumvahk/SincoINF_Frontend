@@ -1,82 +1,79 @@
 body {
   margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
+/* Estilo principal del header */
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 25px;
-  background-color: #ffffff;
-  border-bottom: 2px solid #134090;
-  height: 40px;
+  padding: 4vh 5vw;
+  background-color: #060471;
+  border-bottom: 2px solid #ffffff;
+  height: 8vh;
 }
 
+/* Logo responsive */
 .logo {
-  margin-top: 20px;
-  height: 100px;
+  height:8vh; 
+  max-height: 120px;
+  width: auto;
   object-fit: contain;
+  margin-top:0.5vh;
 }
 
+/* Círculo del usuario */
 .usuario-circulo {
-  width: 40px;
-  height: 40px;
-  background-color: #134070;
+  width: 7vw;
+  height: 7vw;
+  max-width: 45px;
+  max-height: 45px;
+  background-color: #ffffff;
   border-radius: 50%;
-  color: #fff;
+  color: #0b0349;
   display: flex;
   align-items: center;
   justify-content: center;
   font-weight: bold;
-  font-size: 18px;
-  margin-right: 10px;
+  font-size: clamp(14px, 2vw, 20px);
+  margin-right: 2vw;
 }
 
-/* Botón de menú hamburguesa */
+/* Botón hamburguesa */
 .menu-toggle {
   background: none;
   border: none;
-  font-size: 24px;
+  font-size: clamp(20px, 5vw, 26px);
   cursor: pointer;
-  display: block; /* visible por defecto */
+  display: block;
+  color: #e9e9e9;
+  margin-top: 1vh;
 }
 
-/* Tablet */
+/* Tablet: ajustes menores */
 @media (min-width: 600px) {
-  .logo {
-    height: 100px;
+  .header {
+    padding: 5vh 4vw;
   }
 
   .usuario-circulo {
-    width: 40px;
-    height: 40px;
-    font-size: 18px;
-  }
-
-  .header {
-    padding: 10px 25px;
+    width: 5vw;
+    height: 5vw;
   }
 }
 
-/* Escritorio */
+/* Escritorio: ocultar botón hamburguesa */
 @media (min-width: 1024px) {
-  .logo {
-    height: 140px;
-  }
-
-  .usuario-circulo {
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
-  }
-
   .header {
-    padding: 10px 40px;
-    height: 40px;
+    padding: 5vh 4vw;
   }
 
-  /* Ocultar botón hamburguesa en pantallas grandes */
   .menu-toggle {
     display: none;
+  }
+  .usuario-circulo {
+    width: 4vw;
+    height: 4vw;
   }
 }

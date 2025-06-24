@@ -1,5 +1,4 @@
-/* === Contenedor general === */
-.contenedor-formulario {
+.contenedor-ingreso-equipo {
   background-color: #e9e9ee;
   padding: 2rem;
   border-radius: 10px;
@@ -8,46 +7,41 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-/* === Título === */
-.titulo-formulario {
+.titulo-ingreso-equipo {
   text-align: center;
   margin-bottom: 1.5rem;
   font-size: 1.8rem;
   color: #222;
 }
 
-/* === Estilo del formulario en dos columnas === */
-.formulario-grid {
+.formulario-ingreso-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: space-between;
 }
 
-/* === Columnas de campos === */
-.columna {
+.columna-ingreso {
   flex: 1 1 45%;
   display: flex;
   flex-direction: column;
   gap: 0.8rem;
 }
 
-/* === Inputs === */
-input {
+.columna-ingreso input {
   padding: 0.6rem;
   border: 2px solid #4c5fb3;
   border-radius: 5px;
   font-size: 1rem;
 }
 
-/* === Botón === */
-.contenedor-boton {
+.contenedor-boton-ingreso {
   width: 100%;
   margin-top: 1.5rem;
   text-align: center;
 }
 
-.boton-agregar {
+.boton-agregar-equipo {
   background-color: #2e9f3b;
   color: white;
   padding: 0.7rem 2rem;
@@ -57,17 +51,17 @@ input {
   cursor: pointer;
 }
 
-.boton-agregar:hover {
+.boton-agregar-equipo:hover {
   background-color: #268933;
 }
 
-/* === Responsive para pantallas pequeñas === */
+/* Responsive */
 @media (max-width: 768px) {
-  .formulario-grid {
+  .formulario-ingreso-grid {
     flex-direction: column;
   }
 
-  .columna {
+  .columna-ingreso {
     width: 100%;
   }
 }

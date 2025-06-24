@@ -1,0 +1,82 @@
+.modal-mantenimiento.modal-overlay {
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modal-mantenimiento.modal-contenido {
+  max-width: 500px;
+  background: #fff;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+  margin: 1rem;
+}
+
+.modal-mantenimiento .modal-titulo {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #134070;
+  margin-bottom: 1.5rem;
+}
+
+.tabs-mantenimiento {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 1.5rem;
+}
+
+.tabs-mantenimiento button {
+  padding: 0.5rem 1rem;
+  border: 1px solid #007bff;
+  background-color: white;
+  color: #007bff;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: 500;
+}
+
+.tabs-mantenimiento button.activo {
+  background-color: #007bff;
+  color: white;
+}
+
+.formulario-mant {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+}
+
+.formulario-mant label {
+  font-weight: 600;
+  color: #333;
+}
+
+.formulario-mant input,
+.formulario-mant textarea {
+  padding: 0.6rem 0.8rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.btn-principal {
+  margin-top: 1rem;
+  background-color: #007bff;
+  color: white;
+  padding: 0.7rem;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn-cerrar {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}

@@ -1,18 +1,13 @@
-// src/modulos/equipos/componentes/FormularioIngresoEquipo.tsx
-
 import React from "react";
-import "../estilos/EstiloFormularioIngresoEquipo.css"; // Estilos CSS específicos
+import "../estilos/EstiloFormularioIngresoEquipo.css";
 
 const FormularioIngresoEquipo: React.FC = () => {
   return (
-    <div className="contenedor-formulario">
-      {/* Título principal */}
-      <h2 className="titulo-formulario">INGRESOS EQUIPOS</h2>
+    <div className="contenedor-ingreso-equipo">
+      <h2 className="titulo-ingreso-equipo">INGRESOS EQUIPOS</h2>
 
-      {/* Formulario en columnas */}
-      <form className="formulario-grid">
-        {/* Primera columna */}
-        <div className="columna">
+      <form className="formulario-ingreso-grid">
+        <div className="columna-ingreso">
           <input type="text" placeholder="Serial" required />
           <input type="text" placeholder="Marca" required />
           <input type="text" placeholder="Modelo" required />
@@ -20,17 +15,15 @@ const FormularioIngresoEquipo: React.FC = () => {
           <input type="text" placeholder="Procesador" required />
         </div>
 
-        {/* Segunda columna */}
-        <div className="columna">
+        <div className="columna-ingreso">
           <input type="number" placeholder="Ram ( GB )" required />
           <input type="number" placeholder="Nucleos" required />
           <input type="number" placeholder="Disco ( GB )" required />
           <input type="date" placeholder="Fecha Ingreso" required />
         </div>
 
-        {/* Botón de envío */}
-        <div className="contenedor-boton">
-          <button type="submit" className="boton-agregar">
+        <div className="contenedor-boton-ingreso">
+          <button type="submit" className="boton-agregar-equipo">
             Agregar Dispositivo
           </button>
         </div>

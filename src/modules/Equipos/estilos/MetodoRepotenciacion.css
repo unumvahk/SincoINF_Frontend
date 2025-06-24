@@ -1,18 +1,16 @@
 .caja-repotenciacion {
   background-color: #f3f3f4;
   border: 1px solid #dcdcdf;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  padding: 16px;
+  border-radius: 0.75rem; /* 12px */
+  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.08); /* 2px 6px */
+  padding: 1rem; /* 16px */
   width: 100%;
-  max-width: 500px; /* Para pantallas grandes */
-  margin: 16px 0;    /* Ya no necesitas auto si usas align-items: center */
+  max-width: 31.25rem; /* 500px */
+  margin: 1rem 0; /* 16px */
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 1rem; /* 16px */
 }
-
-
 
 .caja-repotenciacion .titulo {
   font-weight: 600;
@@ -23,28 +21,28 @@
 /* Selector de método + botón */
 .selector-repotenciacion {
   display: flex;
-  flex-direction: row; /* Mobile: uno debajo del otro */
-  gap: 8px;
+  flex-direction: row;
+  gap: 0.5rem; /* 8px */
 }
 
 .selector-repotenciacion select {
-  padding: 10px 12px;
-  border-radius: 8px;
+  padding: 0.625rem 0.75rem; /* 10px 12px */
+  border-radius: 0.5rem; /* 8px */
   border: 1px solid #23539c;
   font-size: 0.9rem;
   width: 100%;
 }
 
 .selector-repotenciacion button {
-  padding: 10px 14px;
+  padding: 0.625rem 0.875rem; /* 10px 14px */
   background-color: #061b47;
   color: white;
   border: none;
-  border-radius: 8px;
+  border-radius: 0.5rem;
   cursor: pointer;
   font-weight: bold;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  width:50px;
+  width: 3.125rem; /* 50px */
 }
 
 .selector-repotenciacion button:hover {
@@ -57,50 +55,44 @@
   font-size: 0.95rem;
   font-weight: 500;
   color: #374151;
-  margin-bottom: 4px;
+  margin-bottom: 0.25rem; /* 4px */
   display: block;
 }
 
 .campo-aumento input {
-  width:250px;
-  padding: 10px 12px;
-  border-radius: 8px;
+  /* 250px */
+  padding: 0.625rem 0.75rem; /* 10px 12px */
+  border-radius: 0.5rem;
   border: 1px solid #d1d5db;
   font-size: 0.95rem;
   outline: none;
 }
 
-/* 🖥 Estilos para pantallas medianas en adelante */
-@media (min-width: 768px) {
+/* 🖥 Pantallas medianas (768px en adelante) */
+@media (min-width: 48rem) {
   .caja-repotenciacion {
-    max-width: 400px;
+    max-width: 25rem; /* 400px */
   }
 
   .selector-repotenciacion {
-    flex-direction: row; /* En horizontal en pantallas grandes */
+    flex-direction: row;
   }
 
   .selector-repotenciacion select {
-  padding: 10px 12px;
-  border-radius: 8px;
-  border: 1px solid #23539c;
-  font-size: 0.9rem;
-  width: 100%;
-  flex: 1;
-}
+    padding: 0.625rem 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid #23539c;
+    font-size: 0.9rem;
+    width: 100%;
+    flex: 1;
+  }
+
   .selector-repotenciacion button {
-  padding: 10px 14px;
-  background-color: #061b47;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  width:50px;
-}
+    padding: 0.625rem 0.875rem;
+    width: 3.125rem; /* 50px */
+  }
 
   .campo-aumento input {
-    width:320px;
+    width: 20rem; /* 320px */
   }
 }
