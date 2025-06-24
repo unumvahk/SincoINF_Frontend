@@ -1,11 +1,11 @@
 import React from "react";
 import "../estilos/EstiloFormularioIngresoEquipo.css";
-
+ 
 const FormularioIngresoEquipo: React.FC = () => {
   return (
     <div className="contenedor-ingreso-equipo">
-      <h2 className="titulo-ingreso-equipo">Registro de Equipos</h2>
-
+      <h2 className="titulo-ingreso-equipo">INGRESOS EQUIPOS</h2>
+ 
       <form className="formulario-ingreso-grid">
         {/* Columna izquierda */}
         <div className="columna-ingreso">
@@ -24,8 +24,7 @@ const FormularioIngresoEquipo: React.FC = () => {
           <label>Procesador</label>
           <input type="text" placeholder="Ej. Intel Core i5" required />
         </div>
-
-        {/* Columna derecha */}
+ 
         <div className="columna-ingreso">
           <label>RAM (GB)</label>
           <input type="number" placeholder="Ej. 8" required />
@@ -39,16 +38,15 @@ const FormularioIngresoEquipo: React.FC = () => {
           <label>Fecha de Ingreso</label>
           <input type="date" required />
         </div>
-
-        {/* Botón */}
+ 
         <div className="contenedor-boton-ingreso">
           <button type="submit" className="boton-agregar-equipo">
-            Registrar Equipo
+            Agregar Dispositivo
           </button>
         </div>
       </form>
     </div>
   );
 };
-
+ 
 export default FormularioIngresoEquipo;
