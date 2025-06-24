@@ -1,7 +1,7 @@
-import React from "react";
-import "../estilos/EstiloFormularioIngresoEquipo.css";
- 
-const FormularioIngresoEquipo: React.FC = () => {
+import React from 'react'; // Testing
+import '../estilos/FormularioInformcion.css.css'; // Cambia el nombre del archivo también
+
+const FormularioInformacionEquipo: React.FC = () => {
   return (
     <div className="contenedor-ingreso-equipo">
       <h2 className="titulo-ingreso-equipo">INGRESOS EQUIPOS</h2>
