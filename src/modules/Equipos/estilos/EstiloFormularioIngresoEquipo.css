@@ -24,6 +24,7 @@
   gap: 2rem;
   justify-content: space-between;
 }
+/* === Columnas de inputs === */
 
 .columna-ingreso {
   flex: 1 1 45%;
@@ -32,7 +33,7 @@
   gap: 1rem;
 }
 
-
+/* === Inputs generales === */
 .columna-ingreso input {
   padding: 0.6rem;
   border: 2px solid #4c5fb3;
@@ -43,7 +44,6 @@
   background-color: white;
 }
 
-
 .contenedor-boton-ingreso {
   width: 100%;
   display: flex;
@@ -51,8 +51,11 @@
   margin-top: 2rem;
 }
 
+
+
 .boton-agregar-equipo {
   background-color: #2e9f3b;
+
   color: white;
   border: none;
   padding: 0.75rem 2rem;
@@ -63,16 +66,22 @@
 }
 
 
+
+
+
 /* === Responsive para pantallas pequeñas === */
 @media screen and (max-width: 600px) {
+
 
 .boton-agregar-equipo:hover {
   background-color: #268933;
 }
-
+}
 /* Responsive */
 @media (max-width: 768px) {
   .formulario-ingreso-grid {
+
+
     flex-direction: column;
   }
 
