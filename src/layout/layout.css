@@ -1,37 +1,33 @@
-.layout {
+.layout-contenedor {
   display: flex;
   flex-direction: column;
   height: 100vh;
 }
 
-.main-content {
+.layout-principal {
   display: flex;
   flex: 1;
   overflow: hidden;
 }
 
-.content {
+.layout-contenido {
   flex: 1;
-  padding: 2rem;
   overflow-y: auto;
   transition: margin-left 0.3s ease;
-  margin-left: 50px;
-  margin-top: 8vh;
   min-height: calc(100vh - 8vh);
   box-sizing: border-box;
 }
 
-/* Expandido al pasar el mouse o en modo manual */
-.contenido-expandido {
+.layout-contenido-expandido {
   margin-left: 150px;
 }
 
 @media (min-width: 768px) {
-  .content {
+  .layout-contenido {
     margin-left: 60px;
   }
 
-  .contenido-expandido {
+  .layout-contenido-expandido {
     margin-left: 200px;
   }
 }

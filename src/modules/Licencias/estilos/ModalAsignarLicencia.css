@@ -1,0 +1,130 @@
+.filtro-busqueda {
+  display: flex;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
+  align-items: center;
+}
+
+.select-criterio {
+  padding: 0.5rem;
+  font-size: 0.95rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+}
+
+.input-con-icono {
+  position: relative;
+  flex: 1;
+}
+
+.input-con-icono input {
+  width: 100%;
+  padding: 0.6rem 2.5rem 0.6rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+}
+
+.icono-busqueda {
+  position: absolute;
+  right: 0.8rem;
+  top:1.20rem;
+  transform: translateY(-50%);
+  color: #134090;
+  font-size: 1.1rem;
+  pointer-events: none;
+  line-height: 1;
+}
+
+
+.lista-resultados {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.5rem 0;
+  border: 1px solid #ddd;
+  border-radius: 0.5rem;
+  max-height: 10rem;
+  overflow-y: auto;
+}
+
+.lista-resultados li {
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.lista-resultados li:hover {
+  background-color: #f0f4fc;
+}
+
+.datos-empleado {
+  background-color: #f9fafb;
+  padding: 1rem;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.5rem;
+  margin-top: 1rem;
+}
+
+.btn-confirmar-asignacion {
+  margin-top: 1rem;
+  background-color: #28a745;
+  color: white;
+  font-weight: 600;
+  padding: 0.7rem 1.5rem;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.btn-confirmar-asignacion:hover {
+  background-color: #218838;
+}
+.card-empleado {
+  background-color: #f4f6fb;
+  border: 1px solid #cbd5e0;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+.card-empleado h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #0b1a64;
+}
+
+.datos-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem 1.5rem;
+}
+
+.modal-exito {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(13, 13, 13, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-exito-contenido {
+  background: white;
+  padding: 2rem 2.5rem;
+  border-radius: 1rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #28a745;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: scale(0.95); }
+  to { opacity: 1; transform: scale(1); }
+}

@@ -1,102 +1,79 @@
 import React, { useState } from 'react';
 import '../estilos/LicenciaDetalle.css';
 import ModalAsignarLicencia from './ModalAsignarLicencia';
-import ModalConfirmacion from './ModalConfirmacion';
 
 const LicenciaDetalle: React.FC = () => {
   const [mostrarAsignar, setMostrarAsignar] = useState(false);
-  const [mostrarConfirmacion, setMostrarConfirmacion] = useState(false);
-  
-  const handleInactivar = () => {
-    setMostrarConfirmacion(true);
-  };
-
-  const confirmarInactivacion = () => {
-    setMostrarConfirmacion(false);
-    alert('Licencia inactivada correctamente');
-  };
-
-  const licencia = {
-    nombre: 'Microsoft Office',
-    proveedor: 'Microsoft',
-    cantidad: 50,
-    enUso: 35,
-    disponibles: 15,
-    fechaIngreso: '2023-01-01',
-    fechaVencimiento: '2026-01-01',
-    version: '365',
-    plataforma: 'Windows',
-    software: 'Sí',
-    openSource: 'No',
-    estado: 'Activa',
-  };
 
   return (
     <div className="contenedor-licencia">
       <div className="tarjeta-licencia">
-        <h2 className="titulo-licencia">Detalles Licencia</h2>
+        <h2 className="titulo-licencia">Detalles de la Licencia</h2>
+
         <div className="grid-licencia">
           <div className="campo-licencia">
             <label>Nombre</label>
-            <input type="text" value={licencia.nombre} disabled />
+            <input type="text" placeholder="Ej: Microsoft Office" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Licencias Disponibles</label>
-            <input type="text" value={licencia.disponibles} disabled />
+            <input type="text" placeholder="Ej: 15" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Plataforma</label>
-            <input type="text" value={licencia.plataforma} disabled />
+            <input type="text" placeholder="Ej: Windows" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Proveedor</label>
-            <input type="text" value={licencia.proveedor} disabled />
+            <input type="text" placeholder="Ej: Microsoft" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Fecha de Ingreso</label>
-            <input type="text" value={licencia.fechaIngreso} disabled />
+            <input type="text" placeholder="Ej: 2023-01-01" readOnly />
           </div>
           <div className="campo-licencia">
             <label>¿Es Software?</label>
-            <input type="text" value={licencia.software} disabled />
+            <input type="text" placeholder="Ej: Sí" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Cantidad</label>
-            <input type="text" value={licencia.cantidad} disabled />
+            <input type="text" placeholder="Ej: 50" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Fecha de Vencimiento</label>
-            <input type="text" value={licencia.fechaVencimiento} disabled />
+            <input type="text" placeholder="Ej: 2026-01-01" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Open Source</label>
-            <input type="text" value={licencia.openSource} disabled />
+            <input type="text" placeholder="Ej: No" readOnly />
           </div>
           <div className="campo-licencia">
             <label>En Uso</label>
-            <input type="text" value={licencia.enUso} disabled />
+            <input type="text" placeholder="Ej: 35" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Versión</label>
-            <input type="text" value={licencia.version} disabled />
+            <input type="text" placeholder="Ej: 365" readOnly />
           </div>
           <div className="campo-licencia">
             <label>Estado</label>
-            <input type="text" value={licencia.estado} disabled />
+            <input type="text" placeholder="Ej: Activa" readOnly />
           </div>
         </div>
 
-        <div className="botones-licencia">
-          <button className="btn verde" onClick={() => setMostrarAsignar(true)}>Asignar</button>
-          <button className="btn rojo" onClick={handleInactivar}>Inactivar</button>
+        <div className="contenedor-boton-asignar">
+          <button
+            className="btn-asignar-licencia"
+            onClick={() => setMostrarAsignar(true)}
+          >
+            Asignar Licencia
+          </button>
         </div>
       </div>
 
-      <ModalAsignarLicencia visible={mostrarAsignar} onClose={() => setMostrarAsignar(false)} />
-      <ModalConfirmacion
-        visible={mostrarConfirmacion}
-        onClose={() => setMostrarConfirmacion(false)}
-        onConfirmar={confirmarInactivacion}
+      <ModalAsignarLicencia
+        visible={mostrarAsignar}
+        onClose={() => setMostrarAsignar(false)}
       />
     </div>
   );
