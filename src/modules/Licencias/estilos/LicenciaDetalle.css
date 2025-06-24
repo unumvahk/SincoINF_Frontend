@@ -1,0 +1,149 @@
+/* Contenedor principal */
+.contenedor-licencia {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 1rem;
+  background-color: #f9fafb;
+  min-height: 100vh;
+}
+
+/* Tarjeta */
+.tarjeta-licencia {
+  background: #ffffff;
+  border-radius: 1.5rem;
+  padding: 2rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+  width: 100%;
+  max-width: 1000px;
+  border: 1px solid #e5e7eb;
+}
+
+/* Título */
+.titulo-licencia {
+  font-size: 2rem;
+  color: #2163c1;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-align: center;
+  border-bottom: 2px solid #e5e7eb;
+  padding-bottom: 1rem;
+}
+
+/* Grid responsive */
+.grid-licencia {
+  display: grid;
+  gap: 1.25rem;
+  grid-template-columns: 1fr;
+}
+.campo-licencia {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 1rem;
+}
+
+.campo-licencia label {
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  color: #374151;
+}
+
+.campo-licencia input {
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.40rem;
+  background-color: #ffffff;
+  color: #374151;
+}
+
+@media (min-width: 640px) {
+  .grid-licencia {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .grid-licencia {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* Inputs */
+.grid-licencia input {
+  padding: 0.85rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.30rem;
+  background-color: #f0efef;
+  color: #1a212a;
+  box-shadow:
+    0 8px 16px rgba(0, 0, 0, 0.06),
+    0 2px 4px rgba(0, 0, 0, 0.04);
+  transition: all 0.3s ease;
+  transform: translateY(0);
+}
+
+/* Efecto al enfocar (hover o focus) */
+.grid-licencia input:focus {
+  outline: none;
+  box-shadow:
+    0 10px 20px rgba(0, 0, 0, 0.08),
+    0 4px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-2px);
+  background-color: #f9fafb;
+}
+
+
+/* Botones */
+.botones-licencia {
+  margin-top: 2.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+}
+
+@media (min-width: 640px) {
+  .botones-licencia {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.btn {
+  padding: 0.8rem 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.6rem;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.btn.verde {
+  background-color: #28a745;
+}
+
+.btn.verde:hover {
+  background-color: #218838;
+}
+
+.btn.rojo {
+  background-color: #dc3545;
+}
+
+.btn.rojo:hover {
+  background-color: #c82333;
+}
+
+/* Modal adicional si usas confirmaciones */
+.modal-confirmacion .contenido-modal {
+  border-radius: 1rem;
+  padding: 2rem;
+  background-color: white;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  text-align: center;
+}
