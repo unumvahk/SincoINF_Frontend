@@ -7,19 +7,36 @@ const FormularioIngresoEquipo: React.FC = () => {
       <h2 className="titulo-ingreso-equipo">INGRESOS EQUIPOS</h2>
  
       <form className="formulario-ingreso-grid">
+        {/* Columna izquierda */}
         <div className="columna-ingreso">
-          <input type="text" placeholder="Serial" required />
-          <input type="text" placeholder="Marca" required />
-          <input type="text" placeholder="Modelo" required />
-          <input type="text" placeholder="Placa" required />
-          <input type="text" placeholder="Procesador" required />
+          <label>Serial</label>
+          <input type="text" placeholder="Ingrese el serial" required />
+
+          <label>Marca</label>
+          <input type="text" placeholder="Ingrese la marca" required />
+
+          <label>Modelo</label>
+          <input type="text" placeholder="Ingrese el modelo" required />
+
+          <label>Placa</label>
+          <input type="text" placeholder="Ingrese la placa" required />
+
+          <label>Procesador</label>
+          <input type="text" placeholder="Ej. Intel Core i5" required />
         </div>
  
         <div className="columna-ingreso">
-          <input type="number" placeholder="Ram ( GB )" required />
-          <input type="number" placeholder="Nucleos" required />
-          <input type="number" placeholder="Disco ( GB )" required />
-          <input type="date" placeholder="Fecha Ingreso" required />
+          <label>RAM (GB)</label>
+          <input type="number" placeholder="Ej. 8" required />
+
+          <label>Núcleos</label>
+          <input type="number" placeholder="Ej. 4" required />
+
+          <label>Disco Duro (GB)</label>
+          <input type="number" placeholder="Ej. 512" required />
+
+          <label>Fecha de Ingreso</label>
+          <input type="date" required />
         </div>
  
         <div className="contenedor-boton-ingreso">

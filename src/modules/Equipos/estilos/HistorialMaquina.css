@@ -23,14 +23,16 @@
 
 /* COLUMNA DERECHA */
 .columna-derecha {
-  flex: 1;
   background-color: #ffffff;
   padding: 1.25rem;
   border-radius: 0.375rem;
   border: 0.093rem solid #b9b7b7;
   box-shadow: 0 0.25rem 0.5rem rgba(118, 118, 118, 0.05);
   transition: all 0.3s ease;
-  margin-left: 1rem;
+
+  width: 100%;
+  max-width: 400px;         /* Limita el ancho incluso en móvil */
+  margin: 0 auto;           /* Centra en pantallas pequeñas */
 }
 
 /* HISTORIAL: CONTENEDOR */
@@ -42,9 +44,9 @@
 
 /* TÍTULO HISTORIAL */
 .contenedor-historial h3 {
-  font-size: 1.25rem;
-  font-weight: 600;
-  color: #1f2937;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #0b1a64;
   margin-top: 0.5rem;
 }
 
@@ -139,8 +141,9 @@
   }
 
   .columna-derecha {
-    flex: 1;
-  
+    margin-left: 1.5rem;
+    max-width: 350px;
+    margin-top:2rem;
   }
 
   .busqueda-historial {
