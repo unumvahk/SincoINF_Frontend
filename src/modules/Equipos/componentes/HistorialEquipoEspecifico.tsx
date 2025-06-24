@@ -21,9 +21,10 @@ const HistorialMaquina: React.FC = () => {
     <div className="contenedor-historial">
       <h3>Historial de la Máquina</h3>
       <div className="busqueda-historial">
-        <input
+        <input 
           type="text"
           placeholder="Buscar..."
+          className="busquedaint"
           value={busqueda}
           onChange={(e) => setBusqueda(e.target.value)}
         />

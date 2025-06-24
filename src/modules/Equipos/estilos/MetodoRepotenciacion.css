@@ -60,7 +60,7 @@
 }
 
 .campo-aumento input {
-  width: 15.625rem; /* 250px */
+  /* 250px */
   padding: 0.625rem 0.75rem; /* 10px 12px */
   border-radius: 0.5rem;
   border: 1px solid #d1d5db;

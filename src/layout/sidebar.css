@@ -1,42 +1,31 @@
+/* Por defecto: OCULTO en pantallas pequeñas */
 .sidebar {
-  width: 50px;
-  background-color: #ffffff;
+  display: none;
+  width: 60px;
+  background-color: #fefefe;
   height: calc(100vh - 40px);
-  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-top: 1rem;
   padding-left: 0.5rem;
-  border-right: 2px solid #134070;
-  transition: width 0.3s ease;
+  border-right: 2px solid #1c037a;
   position: fixed;
-  top: 8vh;
+  top: 10vh;
   left: 0;
   z-index: 999;
   overflow: hidden;
   box-shadow: 2px 0 8px rgba(0, 0, 0, 0.1);
+  transition: width 0.3s ease;
 }
 
-/* Ocultar en móviles si no está expandido */
-@media (max-width: 767px) {
-  .sidebar {
-    display: none;
-  
-  }
-
-  .sidebar.expandido {
-    display: flex;
-    width: 150px;
-    
-  }
-}
-
+/* Se muestra solo si está expandido */
 .sidebar.expandido {
+  display: flex;
   width: 150px;
 }
 
-/* Sidebar en desktop se comporta como hover */
-@media (min-width: 768px) {
+/* Pantallas grandes: mostrar sidebar siempre (hover visible) */
+@media (min-width: 1024px) {
   .sidebar {
     display: flex;
     width: 60px;
@@ -55,6 +44,12 @@
   }
 }
 
+/* Cuando está expandido siempre muestra texto */
+.sidebar.expandido .texto {
+  display: inline;
+}
+
+/* Ítems del menú */
 .sidebar-item {
   display: flex;
   align-items: center;
@@ -73,7 +68,7 @@
 
 .sidebar-item.activo {
   background-color: #134070;
-  transform: scale(1.05);
+  transform: scale(0.9);
 }
 
 .sidebar-item.activo .texto,
@@ -81,20 +76,19 @@
   color: white;
 }
 
+/* Íconos */
 .icono {
   font-size: 20px;
   color: #134070;
   margin-right: 10px;
   transition: color 0.2s ease;
+  width:40px;
 }
 
+/* Texto del ítem */
 .texto {
   font-size: 16px;
   color: #000000;
   transition: color 0.3s ease;
   display: none;
-}
-
-.sidebar.expandido .texto {
-  display: inline;
 }
