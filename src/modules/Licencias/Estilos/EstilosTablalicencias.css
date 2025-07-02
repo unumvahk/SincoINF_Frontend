@@ -1,0 +1,215 @@
+/* === CONTENEDOR GENERAL === */
+.licencia-contenido {
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin-left: 5rem;
+  margin-top: 4rem;
+  min-height: calc(100vh - 4rem);
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* === NAVEGACIÓN DE PESTAÑAS === */
+.licencia-tab-nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.licencia-tab-nav button {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #1c3c75;
+  background-color: white;
+  color: #1c3c75;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.licencia-tab-nav button.active {
+  background-color: #1c3c75;
+  color: white;
+}
+
+/* === BARRA DE BÚSQUEDA Y BOTÓN === */
+.licencia-barra-superior {
+  display: flex;
+  align-items: center; /* alinea verticalmente input y botón */
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+/* contenedor del input con la lupa */
+.licencia-input-con-icono {
+  position: relative;
+  flex: 1;
+  min-width: 240px;
+}
+
+/* input de búsqueda con altura pareja al botón */
+.licencia-input-con-icono input {
+  width: 100%;
+  padding: 0.55rem 2.5rem 0.55rem 0.75rem; /* altura ajustada */
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 0.95rem;
+  line-height: 1.2rem; 
+  /* mejor alineación del texto */
+}
+
+/* icono lupa perfectamente centrado */
+.licencia-icono-lupa {
+  position: absolute;
+  right: 0.8rem;
+  top: 40%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888;
+  font-size: 1rem;
+  
+}
+
+/* botón añadir licencia con altura pareja al input */
+.licencia-btn-agregar {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  padding: 0.55rem 1rem; /* mismo alto que input */
+  font-size: 0.9rem;
+  border-radius: 4px;
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  margin-bottom: 1rem; /* evita que se parta en varias líneas */
+}
+
+/* === TABLA DE LICENCIAS === */
+.tabla-licencia {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
+}
+
+/* CABECERA DE LA TABLA con fondo azul y texto blanco */
+.tabla-licencia thead {
+  background-color: #0b2f6a;
+  color: white;
+}
+
+.tabla-licencia th,
+.tabla-licencia td {
+  padding: 0.75rem;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+/* === BOTÓN DETALLES === */
+.licencia-btn-detalles {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  border-radius: 4px;
+  white-space: nowrap;
+  min-width: 100px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* === CAJAS RESUMEN === */
+.licencia-cajas-resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.licencia-caja {
+  flex: 1 1 200px;
+  background-color: #f2f5fb;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.licencia-caja h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #1c3c75;
+}
+
+.licencia-caja p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* === RESPONSIVE GENERAL === */
+@media screen and (max-width: 768px) {
+  .licencia-contenido {
+    padding: 1rem;
+    margin-left: 0; /* elimina espacio lateral en móviles */
+  }
+
+  .licencia-barra-superior {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .licencia-tab-nav {
+    flex-direction: column;
+  }
+
+  .licencia-tab-nav button {
+    width: 100%;
+  }
+
+  .tabla-licencia {
+    border: none;
+  }
+
+  .tabla-licencia thead {
+    display: none;
+  }
+
+  .tabla-licencia tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #fff;
+  }
+
+  .tabla-licencia td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tabla-licencia td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+
+  .tabla-licencia td:last-child {
+    border-bottom: none;
+  }
+
+  /* cajas resumen en una columna */
+  .licencia-cajas-resumen {
+    flex-direction: column;
+  }
+}

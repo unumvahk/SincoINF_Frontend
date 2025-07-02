@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../estilos/LicenciaDetalle.css';
 import ModalAsignarLicencia from './ModalAsignarLicencia';
 
+
 const LicenciaDetalle: React.FC = () => {
   const [mostrarAsignar, setMostrarAsignar] = useState(false);
 
