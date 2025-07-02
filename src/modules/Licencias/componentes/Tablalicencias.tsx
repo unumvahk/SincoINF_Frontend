@@ -1,63 +1,97 @@
-import React from "react";
-import "../estilos/EstiloTablaEquipos.css";
+import React, { useState } from "react";
+import "../estilos/EstilosTablalicencias.css";
+import ModalLicenciaFlotante from "./ModalLicenciaFlotante";
+import { useNavigate } from "react-router-dom"; // ✅ Agregado
 
-// Estructura de un equipo
-interface Equipo {
-  placa: string;
-  colaborador: string;
-  fechaMantenimiento: string;
-  ubicacion: string;
+interface Licencia {
+  nombreLicencia: string;
+  proveedorLicencia: string;
+  fechaAdquisicionLicencia: string;
+  fechaVencimientoLicencia: string;
+  cantidadLicencia: number;
 }
 
-// Props que recibe el componente
 interface Props {
-  equipos: Equipo[];
+  licencias: Licencia[];
 }
 
-const TablaEquipos: React.FC<Props> = ({ equipos }) => {
+const Tablalicencias: React.FC<Props> = ({ licencias }) => {
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const navigate = useNavigate(); // ✅ Agregado
+
+  // ✅ Función de navegación
+  const irAControlAsignacion = () => {
+    navigate("/licencias/licenciaAsignacion");
+  };
+
+  const licenciasPorVencer = licencias.filter((lic) => {
+    const vencimiento = new Date(lic.fechaVencimientoLicencia);
+    const hoy = new Date();
+    const diasRestantes = (vencimiento.getTime() - hoy.getTime()) / (1000 * 3600 * 24);
+    return diasRestantes >= 0 && diasRestantes <= 60;
+  });
+
   return (
-    <div className="contenido">
-      {/* Navegación de pestañas */}
-      <div className="tab-nav">
+    <div className="licencia-contenido">
+      {/* Pestañas */}
+      <div className="licencia-tab-nav">
         <button className="active">Inventario Licencias</button>
-        <button>Control Asignación</button>
+        <button onClick={irAControlAsignacion}>Control Asignación</button> {/* ✅ Agregado */}
       </div>
 
-      {/* Barra superior: búsqueda y botón */}
-      <div className="barra-superior">
-        {/* Campo de búsqueda con ícono */}
-        <div className="input-con-icono">
-          <input type="text" placeholder="Nombre de Colaborador / Cédula" />
-          <span className="icono-lupa">🔍</span>
+      {/* Barra superior */}
+      <div className="licencia-barra-superior">
+        <div className="licencia-input-con-icono">
+          <input type="text" placeholder="Nombre de licencia / proveedor" />
+          <span className="licencia-icono-lupa">🔍</span>
         </div>
-
-        {/* Botón agregar licencia */}
-        <button className="agregar-btn">Añadir Licencia</button>
+        <button
+          className="licencia-btn-agregar"
+          onClick={() => setMostrarFormulario(true)}
+        >
+          Añadir licencia
+        </button>
       </div>
 
-      {/* Tabla de datos */}
-      <table className="tabla-equipos">
+      {/* Cajas resumen */}
+      <div className="licencia-cajas-resumen">
+        <div className="licencia-caja">
+          <h4>Total de licencias</h4>
+          <p>{licencias.length}</p>
+        </div>
+        <div className="licencia-caja">
+          <h4>Licencias por vencer</h4>
+          <p>{licenciasPorVencer.length}</p>
+        </div>
+      </div>
+
+      {/* Modal flotante */}
+      {mostrarFormulario && (
+        <ModalLicenciaFlotante onClose={() => setMostrarFormulario(false)} />
+      )}
+
+      {/* Tabla */}
+      <table className="tabla-licencia">
         <thead>
           <tr>
-            <th>PLACA</th>
-            <th>COLABORADOR</th>
-            <th>FECHA MANTENIMIENTO</th>
-            <th>UBICACIÓN</th>
-            <th colSpan={2}>ACCIONES</th>
+            <th>NOMBRE</th>
+            <th>PROVEEDOR</th>
+            <th>FECHA ADQUISICIÓN</th>
+            <th>FECHA VENCIMIENTO</th>
+            <th>CANTIDAD</th>
+            <th>DETALLES</th>
           </tr>
         </thead>
         <tbody>
-          {equipos.map((equipo, i) => (
+          {licencias.map((licencia, i) => (
             <tr key={i}>
-              <td data-label="PLACA">{equipo.placa}</td>
-              <td data-label="COLABORADOR">{equipo.colaborador}</td>
-              <td data-label="FECHA MANTENIMIENTO">{equipo.fechaMantenimiento}</td>
-              <td data-label="UBICACIÓN">{equipo.ubicacion}</td>
-              <td data-label="ACCIONES">
-                <button className="info">Información</button>
-              </td>
-              <td data-label="ACCIONES">
-                <button className="eliminar">Eliminar</button>
+              <td data-label="NOMBRE">{licencia.nombreLicencia}</td>
+              <td data-label="PROVEEDOR">{licencia.proveedorLicencia}</td>
+              <td data-label="FECHA ADQUISICIÓN">{licencia.fechaAdquisicionLicencia}</td>
+              <td data-label="FECHA VENCIMIENTO">{licencia.fechaVencimientoLicencia}</td>
+              <td data-label="CANTIDAD">{licencia.cantidadLicencia}</td>
+              <td data-label="DETALLES" style={{ textAlign: "center" }}>
+                <button className="licencia-btn-detalles">Detalles</button>
               </td>
             </tr>
           ))}
@@ -67,4 +101,4 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
   );
 };
 
-export default TablaEquipos;
+export default Tablalicencias;
