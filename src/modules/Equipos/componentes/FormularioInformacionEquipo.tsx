@@ -1,35 +1,31 @@
-import React from "react";
-import "../estilos/EstiloFormularioIngresoEquipo.css";
- 
-const FormularioIngresoEquipo: React.FC = () => {
+import React from 'react'; // Testing
+import '../estilos/FormularioInformcion.css.css'; // Cambia el nombre del archivo también
+
+const FormularioInformacionEquipo: React.FC = () => {
   return (
-    <div className="contenedor-ingreso-equipo">
-      <h2 className="titulo-ingreso-equipo">INGRESOS EQUIPOS</h2>
- 
-      <form className="formulario-ingreso-grid">
-        <div className="columna-ingreso">
-          <input type="text" placeholder="Serial" required />
-          <input type="text" placeholder="Marca" required />
-          <input type="text" placeholder="Modelo" required />
-          <input type="text" placeholder="Placa" required />
-          <input type="text" placeholder="Procesador" required />
-        </div>
- 
-        <div className="columna-ingreso">
-          <input type="number" placeholder="Ram ( GB )" required />
-          <input type="number" placeholder="Nucleos" required />
-          <input type="number" placeholder="Disco ( GB )" required />
-          <input type="date" placeholder="Fecha Ingreso" required />
-        </div>
- 
-        <div className="contenedor-boton-ingreso">
-          <button type="submit" className="boton-agregar-equipo">
-            Agregar Dispositivo
-          </button>
-        </div>
-      </form>
-    </div>
+      <div className="tarjeta-infoequipo">
+        <h2 className="titulo-infoequipo">Información del equipo</h2>
+        <form className="grid-infoequipo">
+          {[
+            ['serial', 'Serial', 'Ej: ABC123'],
+            ['tipo', 'Tipo', 'Ej: Portátil'],
+            ['marca', 'Marca', 'Ej: Lenovo'],
+            ['procesador', 'Procesador', 'Ej: Intel i5'],
+            ['ram', 'Memoria RAM', 'Ej: 8 GB'],
+            ['disco', 'Disco', 'Ej: 512 GB SSD'],
+            ['sistema', 'Sistema operativo', 'Ej: Windows 10'],
+            ['sede', 'Sede', 'Ej: Medellín'],
+            ['ubicacion', 'Ubicación', 'Ej: Oficina 2B'],
+            ['estado', 'Estado', 'Ej: Activo']
+          ].map(([id, label, placeholder]) => (
+            <div className="campo-infoequipo" key={id}>
+              <label htmlFor={id}>{label}</label>
+              <input type="text" id={id} placeholder={placeholder} />
+            </div>
+          ))}
+        </form>
+      </div>
   );
 };
- 
-export default FormularioIngresoEquipo;
+
+export default FormularioInformacionEquipo;
