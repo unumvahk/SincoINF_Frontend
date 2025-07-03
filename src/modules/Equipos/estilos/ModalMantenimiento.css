@@ -15,7 +15,7 @@
 .modal-mantenimiento .modal-titulo {
   text-align: center;
   font-size: 1.5rem;
-  color: #134070;
+  color: #0b2f6a;
   margin-bottom: 1.5rem;
 }
 
@@ -28,16 +28,16 @@
 
 .tabs-mantenimiento button {
   padding: 0.5rem 1rem;
-  border: 1px solid #007bff;
+  border: 1px solid #0b2f6a;
   background-color: white;
-  color: #007bff;
+  color: #0b2f6a;
   cursor: pointer;
   border-radius: 5px;
   font-weight: 500;
 }
 
 .tabs-mantenimiento button.activo {
-  background-color: #007bff;
+  background-color: #0b2f6a;
   color: white;
 }
 
@@ -62,7 +62,7 @@
 
 .btn-principal {
   margin-top: 1rem;
-  background-color: #007bff;
+  background-color: #0b2f6a;
   color: white;
   padding: 0.7rem;
   border: none;

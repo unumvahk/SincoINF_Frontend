@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { FaArrowLeft } from 'react-icons/fa';
 import Layout from '../../../layout/Layout'; 
 import FormularioInformacionEquipo from '../componentes/FormularioInformacionEquipo';
 import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
@@ -14,9 +16,15 @@ import '../estilos/TrasladoModal.css';
 
 const VistaInformacionEquipo: React.FC = () => {
   const [mostrarModalTraslado, setMostrarModalTraslado] = useState(false); 
+  const navigate = useNavigate();
 
   return (
     <Layout>
+      {/* 🔙 Botón de regreso */}
+      <button className="btn-volver" onClick={() => navigate('/equipos')}>
+        <FaArrowLeft />
+      </button>
+
       <div className="contenedor-info-equipo">
         {/* Columna izquierda */}
         <div className="columna-izquierda">

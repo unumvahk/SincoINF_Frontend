@@ -1,0 +1,134 @@
+.modal-registro-usuario-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(10, 10, 10, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  overflow: auto;
+  z-index: 2000 !important;
+}
+
+.modal-registro-usuario {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+.cerrar-modal {
+  position: absolute;
+  top: 0.8rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: #333;
+}
+
+.titulo-modal-usuario {
+  text-align: center;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #0b2f6a;
+  margin-bottom: 1.5rem;
+}
+
+.formulario-usuario {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.campo-formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-formulario label {
+  font-weight: 600;
+  color: #0b2f6a;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-bottom: 0.3rem;
+}
+
+.campo-formulario input,
+.campo-formulario select {
+  padding: 0.65rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #f9f9f9;
+  width: 100%;
+}
+
+.btn-guardar-usuario {
+  margin-top: 1rem;
+  padding: 0.75rem 1.5rem;
+  background-color: #134090;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.btn-guardar-usuario:hover {
+  background-color: #0b2f6a;
+}
+
+.mensaje-exito {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  background-color: #dff0d8;
+  color: #2e7d32;
+  border: 1px solid #c8e6c9;
+  border-radius: 0.5rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pantallas grandes: dos columnas */
+@media (min-width: 768px) {
+  .formulario-usuario {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+
+  .btn-guardar-usuario {
+    grid-column: span 2;
+  }
+
+  .mensaje-exito {
+    grid-column: span 2;
+  }
+}

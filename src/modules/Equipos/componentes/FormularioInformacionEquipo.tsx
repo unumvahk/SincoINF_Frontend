@@ -1,5 +1,5 @@
 import React from 'react'; // Testing
-import '../estilos/FormularioInformcion.css.css'; // Cambia el nombre del archivo también
+import '../estilos/FormularioInformacion.css'; // Cambia el nombre del archivo también
 
 const FormularioInformacionEquipo: React.FC = () => {
   return (

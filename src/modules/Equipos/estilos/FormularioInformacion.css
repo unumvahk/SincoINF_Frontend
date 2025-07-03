@@ -13,21 +13,21 @@
   background-color: #ffffff;
   padding: 1.25rem;
   border-radius: 0.75rem;
-  width:auto;
-  max-width: 60rem;
-  /* márgenes laterales garantizados en cualquier pantalla */
-  margin: 1rem 1.5rem;
+  width: 100%;
+  max-width: 30rem; /* ⭐ ancho más equilibrado para móviles */
+  margin: 1rem auto;
   box-shadow:
     0 0.5rem 1rem rgba(13, 3, 108, 0.25),
     0 -0.3rem 0.8rem rgba(13, 3, 108, 0.15);
   border: 1px solid rgba(19, 64, 144, 0.2);
 }
 
+
+
 .titulo-infoequipo {
   margin-bottom: 1rem;
   font-size: 1.25rem;
   color: #134090;
-  text-align: center;
 }
 
 .grid-infoequipo {
@@ -39,6 +39,7 @@
 .campo-infoequipo {
   display: flex;
   flex-direction: column;
+  text-align: left;
 }
 
 .campo-infoequipo label {

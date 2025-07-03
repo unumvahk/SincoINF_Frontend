@@ -1,38 +1,43 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { FaLaptop, FaUsers, FaTools } from 'react-icons/fa';
-import './Sidebar.css';
+import { useNavigate, useLocation } from 'react-router-dom';
+import './sidebar.css';
 
 interface SidebarProps {
   expandido: boolean;
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ expandido }) => {
-  const [activo, setActivo] = useState('equipos');
+  const navigate = useNavigate();
+  const location = useLocation(); // 🔍 Obtenemos la ruta actual
+
+  // ✅ Función para determinar si la ruta está activa
+  const esActivo = (ruta: string) => location.pathname === ruta;
 
   return (
-    <div className={`sidebar ${expandido ? 'expandido' : ''}`}>
+    <div className={`sidebar-contenedor ${expandido ? 'sidebar-expandido' : ''}`}>
       <div
-        className={`sidebar-item ${activo === 'equipos' ? 'activo' : ''}`}
-        onClick={() => setActivo('equipos')}
+        className={`sidebar-item ${esActivo('/equipos') ? 'sidebar-item-activo' : ''}`}
+        onClick={() => navigate('/equipos')}
       >
-        <FaLaptop className="icono" />
-        <span className="texto">Equipos</span>
+        <FaLaptop className="sidebar-icono" />
+        <span className="sidebar-texto">Equipos</span>
       </div>
 
       <div
-        className={`sidebar-item ${activo === 'licencias' ? 'activo' : ''}`}
-        onClick={() => setActivo('licencias')}
+        className={`sidebar-item ${esActivo('/licencias') ? 'sidebar-item-activo' : ''}`}
+        onClick={() => navigate('/licencias')}
       >
-        <FaTools className="icono" />
-        <span className="texto">Licencias</span>
+        <FaTools className="sidebar-icono" />
+        <span className="sidebar-texto">Licencias</span>
       </div>
 
       <div
-        className={`sidebar-item ${activo === 'usuarios' ? 'activo' : ''}`}
-        onClick={() => setActivo('usuarios')}
+        className={`sidebar-item ${esActivo('/usuarios') ? 'sidebar-item-activo' : ''}`}
+        onClick={() => navigate('/usuarios')}
       >
-        <FaUsers className="icono" />
-        <span className="texto">Usuarios</span>
+        <FaUsers className="sidebar-icono" />
+        <span className="sidebar-texto">Usuarios</span>
       </div>
     </div>
   );

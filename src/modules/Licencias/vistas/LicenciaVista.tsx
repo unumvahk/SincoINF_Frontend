@@ -1,6 +1,6 @@
 // src/vistas/LicenciaVista.tsx
 import React from 'react';
-import LicenciaDetalle from '../componentes/LicenciaDetalle';
+import LicenciaDetalle from '../componentes/DetallesLicencia';
 import Layout from '../../../layout/Layout';
 
 

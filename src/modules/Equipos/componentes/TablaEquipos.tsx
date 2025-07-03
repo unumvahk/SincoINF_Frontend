@@ -1,8 +1,9 @@
-import React, { useState } from "react"; // Importamos useState para controlar la visibilidad del modal
+import React, { useState } from "react";
 import "../estilos/EstiloTablaEquipos.css";
-import FormularioIngresoEquipo from "../componentes/FormularioIngresoEquipo"; // Importamos el formulario que se mostrará como modal
+import ConfirmacionInactivar from "./ConfirmacionInactivarEquipo";
+import FormularioIngresoEquipo from "./FormularioIngresoEquipo";
+import { useNavigate } from "react-router-dom";
 
-// Definimos la estructura de los datos de cada equipo
 interface Equipo {
   placa: string;
   colaborador: string;
@@ -10,34 +11,59 @@ interface Equipo {
   ubicacion: string;
 }
 
-// Tipado de las props del componente
 interface Props {
   equipos: Equipo[];
 }
 
-// Componente principal de la tabla de equipos
 const TablaEquipos: React.FC<Props> = ({ equipos }) => {
-  // Estado que controla si el formulario modal está visible o no
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
+  const [filtro, setFiltro] = useState("");
+  const [campoFiltro, setCampoFiltro] = useState("colaborador");
+  const [equipoSeleccionado, setEquipoSeleccionado] = useState<Equipo | null>(null);
+  const [mensajeExito, setMensajeExito] = useState("");
+
+
+  const navigate = useNavigate();
+
+  const equiposFiltrados = equipos.filter((equipo) =>
+    equipo[campoFiltro as keyof Equipo].toLowerCase().includes(filtro.toLowerCase())
+  );
 
   return (
-    <div className="contenido">
-      {/* === Barra superior con búsqueda e botón "Añadir Equipo" === */}
-      <div className="barra-superior">
-        {/* Campo de búsqueda con icono de lupa */}
-        <div className="input-con-icono">
-          <input type="text" placeholder="Nombre de Colaborador / Cédula" />
-          <span className="icono-lupa">🔍</span>
+    <div className="equipos-contenedor">
+      {/* === Barra superior con filtros === */}
+      <div className="equipos-barra-superior">
+        <div className="equipos-filtro-contenedor">
+          <select
+            className="filtrar-equipos"
+            value={campoFiltro}
+            onChange={(e) => setCampoFiltro(e.target.value)}
+          >
+            <option value="colaborador">Nombre del Colaborador</option>
+            <option value="placa">Placa</option>
+            <option value="ubicacion">Ubicación</option>
+          </select>
+          <div className="equipos-busqueda">
+            <input
+              type="text"
+              placeholder="Buscar..."
+              value={filtro}
+              onChange={(e) => setFiltro(e.target.value)}
+            />
+            <span className="equipos-icono-busqueda">🔍</span>
+          </div>
         </div>
 
-        {/* Botón para mostrar el formulario flotante (modal) */}
-        <button className="agregar-btn" onClick={() => setMostrarFormulario(true)}>
+        <button
+          className="equipos-btn-agregar"
+          onClick={() => setMostrarFormulario(true)}
+        >
           Añadir Equipo
         </button>
       </div>
 
-      {/* === Tabla con los datos de los equipos === */}
-      <table className="tabla-equipos">
+      {/* === Tabla === */}
+      <table className="equipos-tabla">
         <thead>
           <tr>
             <th>PLACA</th>
@@ -48,35 +74,60 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
           </tr>
         </thead>
         <tbody>
-          {equipos.map((equipo, i) => (
-            <tr key={i}>
+          {equiposFiltrados.map((equipo, index) => (
+            <tr key={index}>
               <td data-label="PLACA">{equipo.placa}</td>
               <td data-label="COLABORADOR">{equipo.colaborador}</td>
               <td data-label="FECHA MANTENIMIENTO">{equipo.fechaMantenimiento}</td>
               <td data-label="UBICACIÓN">{equipo.ubicacion}</td>
-              <td data-label="ACCIONES">
-                <button className="info">Información</button>
+              <td className="equipos-acciones">
+                <button
+                  className="equipos-btn-detalles"
+                  onClick={() => navigate("/equipos/informacion")}
+                >
+                  Detalles
+                </button>
               </td>
-              <td data-label="ACCIONES">
-                <button className="inactivar">Inactivar</button>
+              <td className="equipos-acciones">
+                <button
+                  className="equipos-btn-inactivar"
+                  onClick={() => setEquipoSeleccionado(equipo)}
+                >
+                  Inactivar
+                </button>
               </td>
             </tr>
           ))}
         </tbody>
       </table>
 
-      {/* === MODAL FLOTANTE === */}
+      {/* === Modal Ingreso Equipo === */}
       {mostrarFormulario && (
         <div className="modal-overlay">
           <div className="modal-contenido">
-            {/* Botón en la esquina para cerrar el modal */}
-            <button className="cerrar-modal" onClick={() => setMostrarFormulario(false)}>
-              ✕
-            </button>
-
-            {/* Aquí se renderiza el formulario dentro del modal */}
-            <FormularioIngresoEquipo />
+            <FormularioIngresoEquipo onClose={() => setMostrarFormulario(false)} />
           </div>
+        </div>
+      )}
+
+      {/* === Modal Confirmación Inactivación === */}
+      {equipoSeleccionado && (
+        <ConfirmacionInactivar
+          equipo={equipoSeleccionado}
+          onCancelar={() => setEquipoSeleccionado(null)}
+          onConfirmar={() => {
+            setMensajeExito(`Equipo con placa ${equipoSeleccionado?.placa} inactivado exitosamente.`);
+            setEquipoSeleccionado(null);
+
+            // Ocultar la notificación después de 3 segundos
+            setTimeout(() => setMensajeExito(""), 3000);
+          }}
+
+        />
+      )}
+      {mensajeExito && (
+        <div className="toast-exito">
+          {mensajeExito}
         </div>
       )}
     </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../estilos/LicenciaDetalle.css';
+import '../estilos/DetallesLicencia.css';
 import ModalAsignarLicencia from './ModalAsignarLicencia';
 
 const LicenciaDetalle: React.FC = () => {
