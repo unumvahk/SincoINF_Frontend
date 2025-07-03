@@ -1,6 +1,6 @@
 import React from 'react';
 import Layout from '../../../layout/Layout';
-import Tablalicencias from '../componentes/TablaLicencias';
+import Tablalicencias from '../componentes/Tablalicencias';
 
 // Datos simulados de licencias
 const licenciasPrueba = [

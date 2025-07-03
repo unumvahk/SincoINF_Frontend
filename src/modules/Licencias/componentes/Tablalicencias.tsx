@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "../estilos/EstilosTablalicencias.css";
 import ModalLicenciaFlotante from "./ModalLicenciaFlotante";
-import { useNavigate } from "react-router-dom"; // ✅ Agregado
+import { useNavigate } from "react-router-dom";
 
 interface Licencia {
   nombreLicencia: string;
@@ -17,9 +17,8 @@ interface Props {
 
 const Tablalicencias: React.FC<Props> = ({ licencias }) => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
-  const navigate = useNavigate(); // ✅ Agregado
+  const navigate = useNavigate();
 
-  // ✅ Función de navegación
   const irAControlAsignacion = () => {
     navigate("/licencias/licenciaAsignacion");
   };
@@ -33,27 +32,21 @@ const Tablalicencias: React.FC<Props> = ({ licencias }) => {
 
   return (
     <div className="licencia-contenido">
-      {/* Pestañas */}
       <div className="licencia-tab-nav">
         <button className="active">Inventario Licencias</button>
-        <button onClick={irAControlAsignacion}>Control Asignación</button> {/* ✅ Agregado */}
+        <button onClick={irAControlAsignacion}>Control Asignación</button>
       </div>
 
-      {/* Barra superior */}
       <div className="licencia-barra-superior">
         <div className="licencia-input-con-icono">
           <input type="text" placeholder="Nombre de licencia / proveedor" />
           <span className="licencia-icono-lupa">🔍</span>
         </div>
-        <button
-          className="licencia-btn-agregar"
-          onClick={() => setMostrarFormulario(true)}
-        >
+        <button className="licencia-btn-agregar" onClick={() => setMostrarFormulario(true)}>
           Añadir licencia
         </button>
       </div>
 
-      {/* Cajas resumen */}
       <div className="licencia-cajas-resumen">
         <div className="licencia-caja">
           <h4>Total de licencias</h4>
@@ -65,12 +58,10 @@ const Tablalicencias: React.FC<Props> = ({ licencias }) => {
         </div>
       </div>
 
-      {/* Modal flotante */}
       {mostrarFormulario && (
         <ModalLicenciaFlotante onClose={() => setMostrarFormulario(false)} />
       )}
 
-      {/* Tabla */}
       <table className="tabla-licencia">
         <thead>
           <tr>
@@ -83,15 +74,20 @@ const Tablalicencias: React.FC<Props> = ({ licencias }) => {
           </tr>
         </thead>
         <tbody>
-          {licencias.map((licencia, i) => (
-            <tr key={i}>
-              <td data-label="NOMBRE">{licencia.nombreLicencia}</td>
-              <td data-label="PROVEEDOR">{licencia.proveedorLicencia}</td>
-              <td data-label="FECHA ADQUISICIÓN">{licencia.fechaAdquisicionLicencia}</td>
-              <td data-label="FECHA VENCIMIENTO">{licencia.fechaVencimientoLicencia}</td>
-              <td data-label="CANTIDAD">{licencia.cantidadLicencia}</td>
-              <td data-label="DETALLES" style={{ textAlign: "center" }}>
-                <button className="licencia-btn-detalles">Detalles</button>
+          {licencias.map((licencia) => (
+            <tr key={licencia.nombreLicencia}>
+              <td>{licencia.nombreLicencia}</td>
+              <td>{licencia.proveedorLicencia}</td>
+              <td>{licencia.fechaAdquisicionLicencia}</td>
+              <td>{licencia.fechaVencimientoLicencia}</td>
+              <td>{licencia.cantidadLicencia}</td>
+              <td style={{ textAlign: "center" }}>
+                <button
+                  className="licencia-btn-detalles"
+                  onClick={() => navigate("/licencias/licenciaDetalles", { state: { licencia } })}
+                >
+                  Detalles
+                </button>
               </td>
             </tr>
           ))}
