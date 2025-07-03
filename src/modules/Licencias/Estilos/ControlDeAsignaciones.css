@@ -1,0 +1,166 @@
+/* === CONTENEDOR GENERAL === */
+.lic-container {
+  width: 100%;
+  min-height: 100vh;
+  font-family: sans-serif;
+  background-color: #f4f6f8;
+}
+
+/* === CONTENIDO PRINCIPAL === */
+.lic-contenido {
+  padding: 4rem;
+  width: 100%;
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* === FILTROS Y BÚSQUEDA === */
+.lic-filtros-barra {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+/* === SELECT DE FILTRO === */
+.lic-filtros-barra select {
+  padding: 0.5rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  min-width: 180px;
+}
+
+/* === INPUT CON ÍCONO DE LUPA === */
+.lic-input-con-icono {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  flex: 1;
+}
+
+.lic-input-con-icono input {
+  width: 100%;
+  padding: 0.5rem 2.2rem 0.5rem 0.75rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 0.95rem;
+}
+
+.lic-icono-lupa {
+  position: absolute;
+  right: 10px;
+  top: 40%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #888;
+  font-size: 1rem;
+}
+
+/* === BOTÓN BUSCAR === */
+.lic-btn-buscar {
+  background-color: #3a72e5;
+  color: white;
+  border: none;
+  padding: 0.4rem 1.2rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+}
+
+/* === TABLA === */
+/* === TABLA === */
+.lic-tabla {
+  width: 100%;
+  border-collapse: collapse;
+  background: white;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 0.95rem;
+}
+
+.lic-tabla thead {
+  background-color: #0b2f6a;
+  color: white;
+}
+
+.lic-tabla th,
+.lic-tabla td {
+  border: 1px solid #ccc;
+  padding: 0.7rem;
+  text-align: left;
+}
+
+
+/* === BOTÓN REVOCAR === */
+.lic-btn-Revocar{
+  background-color: #d93025;
+  color: white;
+  border: none;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.lic-btn-eliminar:hover {
+  background-color: #b0201c;
+}
+
+/* === RESPONSIVE === */
+@media screen and (max-width: 768px) {
+  .lic-contenido {
+    padding: 1rem;
+  }
+
+  .lic-filtros-barra {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lic-input-con-icono {
+    width: 100%;
+  }
+
+  .lic-btn-buscar {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .lic-tabla {
+    border: none;
+  }
+
+  .lic-tabla thead {
+    display: none;
+  }
+
+  .lic-tabla tr {
+    display: block;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #fff;
+  }
+
+  .lic-tabla td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .lic-tabla td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+
+  .lic-tabla td:last-child {
+    border-bottom: none;
+  }
+}

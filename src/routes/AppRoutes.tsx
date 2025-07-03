@@ -5,6 +5,7 @@ import RutasLicencia from '../modules/Licencias/rutas/RutasLicencia';
 import RutasPerfil from '../modules/Perfil/rutas/RutasPerfil';
 import RutasUsuarios from '../modules/Usuarios/rutas/RutasUsuarios';
 
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -13,6 +14,7 @@ const AppRoutes = () => {
       <Route path="/licencias/*" element={<RutasLicencia />} />
       <Route path="/perfil/*" element={<RutasPerfil />} />
       <Route path="/usuarios/*" element={<RutasUsuarios />} />
+
     </Routes>
   );
 };
