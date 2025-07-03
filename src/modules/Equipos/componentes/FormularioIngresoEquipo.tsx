@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "../estilos/EstiloFormularioIngresoEquipo.css";
+<<<<<<< HEAD
 import {
   FaIdBadge,
   FaDesktop,
@@ -47,6 +48,19 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
       <div className="ingreso-equipo-modal">
         <button className="ingreso-equipo-cerrar" onClick={onClose}>✕</button>
         <h2 className="ingreso-equipo-titulo">Ingreso de Equipos</h2>
+=======
+
+const FormularioIngresoEquipo: React.FC = () => {
+  return (
+    <div className="contenedor-ingreso-equipo">
+      <h2 className="titulo-ingreso-equipo">Registro de Equipos</h2>
+
+      <form className="formulario-ingreso-grid">
+        {/* Columna izquierda */}
+        <div className="columna-ingreso">
+          <label>Serial</label>
+          <input type="text" placeholder="Ingrese el serial" required />
+>>>>>>> 9e316caed352cada5aab533f07e8f20881856434
 
         {/* === Formulario === */}
         <form className="ingreso-equipo-form-grid" onSubmit={handleSubmit}>
@@ -102,11 +116,34 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
             </div>
           )}
         </div>
+<<<<<<< HEAD
 
         {/* === Botón debajo de todo === */}
         <div className="ingreso-equipo-boton-contenedor">
           <button onClick={handleSubmit} className="ingreso-equipo-boton">
             ✅ Agregar Dispositivo
+=======
+
+        {/* Columna derecha */}
+        <div className="columna-ingreso">
+          <label>RAM (GB)</label>
+          <input type="number" placeholder="Ej. 8" required />
+
+          <label>Núcleos</label>
+          <input type="number" placeholder="Ej. 4" required />
+
+          <label>Disco Duro (GB)</label>
+          <input type="number" placeholder="Ej. 512" required />
+
+          <label>Fecha de Ingreso</label>
+          <input type="date" required />
+        </div>
+
+        {/* Botón */}
+        <div className="contenedor-boton-ingreso">
+          <button type="submit" className="boton-agregar-equipo">
+            Registrar Equipo
+>>>>>>> 9e316caed352cada5aab533f07e8f20881856434
           </button>
         </div>
 
