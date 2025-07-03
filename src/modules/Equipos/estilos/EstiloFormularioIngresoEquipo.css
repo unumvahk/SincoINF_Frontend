@@ -1,111 +1,210 @@
-/* Estilos generales */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f4f6f9;
+/* === CONTENEDOR MODAL === */
+.ingreso-equipo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 5vh;
+  overflow-y: auto;
+  z-index: 9999;
 }
 
-/* Contenedor del formulario */
-.formulario-equipo-contenedor {
-  background-color: #ffffff;
-  padding: 2rem;
+.ingreso-equipo-modal {
+  background-color: #fff;
   border-radius: 1rem;
+  padding: 2rem 2.5rem;
   width: 95%;
-  max-width: 1200px;
-  margin: 5vh auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #d0d7e2;
+  max-width: 850px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
-/* Título */
-.formulario-equipo-titulo {
+/* === BOTÓN CERRAR === */
+.ingreso-equipo-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #444;
+  cursor: pointer;
+}
+
+/* === TÍTULO === */
+.ingreso-equipo-titulo {
   text-align: center;
-  font-size: 2rem;
-  color: #1c3c75;
-  margin-bottom: 2rem;
-  font-weight: 600;
+  color: #0b2f6a;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-/* Diseño mobile-first: 1 columna */
-.formulario-equipo-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-/* === Columnas de inputs === */
-
-.formulario-equipo-columna {
-  display: flex;
-  flex-direction: column;
+/* === FORMULARIO === */
+.ingreso-equipo-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* === Inputs generales === */
-.columna-ingreso input {
-  padding: 0.6rem;
-  border: 2px solid #4c5fb3;
-  border-radius: 5px;
+@media (min-width: 768px) {
+  .ingreso-equipo-form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+
+/* === CAMPOS === */
+.ingreso-equipo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ingreso-equipo-campo label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  color: #0b2f6a;
+}
+
+.ingreso-equipo-campo svg {
+  font-size: 1.2rem;
+}
+
+.ingreso-equipo-campo input {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
+}
+
+.ingreso-equipo-campo input:focus {
+  outline: none;
+  color: #0b2f6a;
   background-color: white;
 }
 
-.contenedor-boton-ingreso {
+/* === FOTO DEL EQUIPO DEBAJO === */
+.ingreso-equipo-imagen-seccion {
+  margin: 2rem auto 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(67, 67, 67, 0.2);
+  padding: 1.2rem;
+  width: 100%;
+  background-color: #fafafa;
+}
+
+@media (min-width: 768px) {
+  .ingreso-equipo-imagen-seccion {
+    max-width: 100%;
+  }
+}
+
+.ingreso-equipo-imagen-seccion label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0b2f6a;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.ingreso-equipo-imagen-seccion input[type="file"] {
+  font-size: 0.95rem;
+}
+
+.preview-imagen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.preview-imagen img {
+  width: 180px;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.preview-imagen button {
+  background-color: #ef4444;
+  color: white;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.preview-imagen button:hover {
+  background-color: #dc2626;
+}
+
+/* === BOTÓN FINAL === */
+.ingreso-equipo-boton-contenedor {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: flex-end;
   width: 100%;
 }
 
-.formulario-equipo-columna input:focus {
-  border-color: #1c3c75;
-  outline: none;
-}
-
-/* Contenedor del botón */
-.formulario-equipo-boton-contenedor {
-  display: flex;
-  justify-content: center;
-  margin-top: 2rem;
-}
-
-
-
-.boton-agregar-equipo {
+.ingreso-equipo-boton {
   background-color: #2e9f3b;
-
   color: white;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
   border: none;
-  padding: 0.85rem 2.5rem;
-  font-size: 1.1rem;
   border-radius: 0.5rem;
-  cursor: pointer;
   font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-
-
-
-
-/* === Responsive para pantallas pequeñas === */
-@media screen and (max-width: 600px) {
-
-
-.boton-agregar-equipo:hover {
-  background-color: #268933;
-  transform: translateY(-2px);
+.ingreso-equipo-boton:hover {
+  background-color: #24852e;
 }
+
+/* === MENSAJE DE ÉXITO === */
+.toast-exito {
+  position: fixed;
+  top: 1rem;
+  margin: auto;
+  right: 1rem;
+  background-color: #4caf50;
+  color: white;
+  padding: 0.75rem 1.25rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  z-index: 10000;
+  animation: slideIn 0.3s ease-out;
 }
-/* Responsive */
-@media (max-width: 768px) {
-  .formulario-ingreso-grid {
 
-
-    flex-direction: column;
+/* Animación para entrada suave */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
   }
-
-  .formulario-equipo-columna {
-    flex: 1 1 48%;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
 }
 

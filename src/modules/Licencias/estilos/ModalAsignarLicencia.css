@@ -1,23 +1,67 @@
-.filtro-busqueda {
+/* === Modal flotante === */
+.modalasignarlicencia-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
-  gap: 0.75rem;
-  margin-bottom: 1.5rem;
+  justify-content: center;
   align-items: center;
+  z-index: 1000;
 }
 
-.select-criterio {
+.modalasignarlicencia-contenido {
+  background-color: #ffffff;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  width: 92%;
+  max-width: 500px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  position: relative;
+}
+
+/* Botón cerrar */
+.btn-cerrar {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #666;
+  cursor: pointer;
+}
+
+/* Título */
+.modalasignarlicencia-titulo {
+  text-align: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #134090;
+  margin-bottom: 1rem;
+}
+
+/* Filtro búsqueda */
+.modalasignarlicencia-filtro {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+.modalasignarlicencia-select {
   padding: 0.5rem;
-  font-size: 0.95rem;
+  font-size: 1rem;
   border-radius: 0.4rem;
   border: 1px solid #ccc;
+  width: 100%;
 }
 
-.input-con-icono {
+.modalasignarlicencia-inputicono {
   position: relative;
   flex: 1;
 }
 
-.input-con-icono input {
+.modalasignarlicencia-inputicono input {
   width: 100%;
   padding: 0.6rem 2.5rem 0.6rem 1rem;
   font-size: 1rem;
@@ -25,46 +69,58 @@
   border-radius: 0.5rem;
 }
 
-.icono-busqueda {
+.modalasignarlicencia-icono {
   position: absolute;
   right: 0.8rem;
-  top:1.20rem;
+  top: 50%;
   transform: translateY(-50%);
   color: #134090;
   font-size: 1.1rem;
-  pointer-events: none;
-  line-height: 1;
 }
 
-
-.lista-resultados {
+/* Lista de resultados */
+.modalasignarlicencia-lista {
   list-style: none;
   padding: 0;
-  margin: 0 0 1.5rem 0;
+  margin-bottom: 1.5rem;
   border: 1px solid #ddd;
   border-radius: 0.5rem;
   max-height: 10rem;
   overflow-y: auto;
 }
 
-.lista-resultados li {
+.modalasignarlicencia-lista li {
   padding: 0.6rem 1rem;
   cursor: pointer;
   transition: background 0.2s;
 }
 
-.lista-resultados li:hover {
+.modalasignarlicencia-lista li:hover {
   background-color: #f0f4fc;
 }
 
-.datos-empleado {
-  background-color: #f9fafb;
-  padding: 1rem;
+/* Card de empleado */
+.modalasignarlicencia-card {
+  background-color: #f4f6fb;
   border: 1px solid #cbd5e0;
-  border-radius: 0.5rem;
-  margin-top: 1rem;
+  border-radius: 0.75rem;
+  padding: 1rem;
 }
 
+.modalasignarlicencia-card h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  color: #0b1a64;
+  text-align: center;
+}
+
+.modalasignarlicencia-datosgrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+/* Botón */
 .btn-confirmar-asignacion {
   margin-top: 1rem;
   background-color: #28a745;
@@ -74,42 +130,23 @@
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  width: 100%;
   transition: background-color 0.2s;
 }
 
 .btn-confirmar-asignacion:hover {
   background-color: #218838;
 }
-.card-empleado {
-  background-color: #f4f6fb;
-  border: 1px solid #cbd5e0;
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  margin-top: 1rem;
-}
 
-.card-empleado h4 {
-  margin-bottom: 1rem;
-  font-size: 1.2rem;
-  color: #0b1a64;
-}
-
-.datos-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 0.75rem 1.5rem;
-}
-
+/* Modal éxito */
 .modal-exito {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  inset: 0;
   background-color: rgba(13, 13, 13, 0.3);
   display: flex;
   align-items: center;
   justify-content: center;
+  z-index: 1010;
 }
 
 .modal-exito-contenido {
@@ -125,6 +162,28 @@
 }
 
 @keyframes fadeIn {
-  from { opacity: 0; transform: scale(0.95); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* === Tablet/Desktop ajustes === */
+@media (min-width: 768px) {
+  .modalasignarlicencia-filtro {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .modalasignarlicencia-datosgrid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .btn-confirmar-asignacion {
+    width: auto;
+  }
 }

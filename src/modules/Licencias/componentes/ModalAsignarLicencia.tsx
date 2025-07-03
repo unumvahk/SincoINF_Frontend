@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaSearch } from 'react-icons/fa';
-import '../estilos/LicenciaDetalle.css';
+import '../estilos/ModalAsignarLicencia.css';
 
 interface Props {
   visible: boolean;
@@ -43,14 +43,14 @@ const ModalAsignarLicencia: React.FC<Props> = ({ visible, onClose }) => {
   };
 
   return (
-    <div className="modal-overlay">
-      <div className="modal-contenido">
+    <div className="modalasignarlicencia-overlay">
+      <div className="modalasignarlicencia-contenido">
         <button className="btn-cerrar" onClick={onClose}>×</button>
-        <h3 className="modal-titulo">Asignar Licencia</h3>
+        <h3 className="modalasignarlicencia-titulo">Asignar Licencia</h3>
 
-        <div className="filtro-busqueda">
+        <div className="modalasignarlicencia-filtro">
           <select
-            className="select-criterio"
+            className="modalasignarlicencia-select"
             value={criterio}
             onChange={(e) => {
               setCriterio(e.target.value);
@@ -63,7 +63,7 @@ const ModalAsignarLicencia: React.FC<Props> = ({ visible, onClose }) => {
             <option value="nombre">Nombre</option>
           </select>
 
-          <div className="input-con-icono">
+          <div className="modalasignarlicencia-inputicono">
             <input
               type="text"
               placeholder={`Buscar por ${criterio}`}
@@ -73,12 +73,12 @@ const ModalAsignarLicencia: React.FC<Props> = ({ visible, onClose }) => {
                 setSeleccionado(null);
               }}
             />
-            <FaSearch className="icono-busqueda" />
+            <FaSearch className="modalasignarlicencia-icono" />
           </div>
         </div>
 
         {resultadosFiltrados.length > 0 && (
-          <ul className="lista-resultados">
+          <ul className="modalasignarlicencia-lista">
             {resultadosFiltrados.map((emp, index) => (
               <li key={index} onClick={() => setSeleccionado(emp)}>
                 {emp.nombre} {emp.apellido} - {emp[criterio as keyof Empleado]}
@@ -88,9 +88,9 @@ const ModalAsignarLicencia: React.FC<Props> = ({ visible, onClose }) => {
         )}
 
         {seleccionado && (
-          <div className="card-empleado">
+          <div className="modalasignarlicencia-card">
             <h4>Empleado Seleccionado</h4>
-            <div className="datos-grid">
+            <div className="modalasignarlicencia-datosgrid">
               <p><strong>Cédula:</strong> {seleccionado.cedula}</p>
               <p><strong>Nombre:</strong> {seleccionado.nombre}</p>
               <p><strong>Apellido:</strong> {seleccionado.apellido}</p>

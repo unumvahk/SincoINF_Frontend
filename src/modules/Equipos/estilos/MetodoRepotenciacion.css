@@ -1,98 +1,133 @@
-.caja-repotenciacion {
-  background-color: #f3f3f4;
-  border: 1px solid #dcdcdf;
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.08); /* 2px 6px */
-  padding: 1rem; /* 16px */
-  width: 100%;
-  max-width: 31.25rem; /* 500px */
-  margin: 1rem 0; /* 16px */
+/* ================= MOBILE FIRST ================= */
+
+.titulo-repotenciacion {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #1c3c75;
+  margin-bottom: 1rem;
   display: flex;
-  flex-direction: column;
-  gap: 1rem; /* 16px */
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.caja-repotenciacion .titulo {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #374151;
+.label-repotenciacion {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #6d7074;
+  margin-bottom: 0.25rem;
+  display: block;
 }
 
-/* Selector de método + botón */
+/* Selector de componente + botón subir */
 .selector-repotenciacion {
   display: flex;
-  flex-direction: row;
-  gap: 0.5rem; /* 8px */
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
-.selector-repotenciacion select {
-  padding: 0.625rem 0.75rem; /* 10px 12px */
-  border-radius: 0.5rem; /* 8px */
-  border: 1px solid #23539c;
-  font-size: 0.9rem;
+.select-repotenciacion {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #1c3c75;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  color: #1e293b;
+  transition: border 0.2s ease;
   width: 100%;
 }
 
-.selector-repotenciacion button {
-  padding: 0.625rem 0.875rem; /* 10px 14px */
+.select-repotenciacion:focus {
+  outline: none;
+  border-color: #1a3566;
+  background-color: white;
+}
+
+/* Botón subir */
+.boton-subir-repotenciacion {
+  padding: 0.6rem 1rem;
   background-color: #061b47;
   color: white;
   border: none;
   border-radius: 0.5rem;
-  cursor: pointer;
   font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  align-self: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
-  width: 3.125rem; /* 50px */
+  width: 100%;
+  max-width: 220px;
 }
 
-.selector-repotenciacion button:hover {
+.boton-subir-repotenciacion:hover {
   background-color: #1d4ed8;
-  transform: scale(1.03);
+  transform: scale(1.05);
 }
 
-/* Campo de aumento de repotenciación */
-.campo-aumento label {
+/* Campo para ingresar cantidad */
+.campo-aumento-repotenciacion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-repotenciacion {
+  padding: 0.55rem 0.75rem;
   font-size: 0.95rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.25rem; /* 4px */
-  display: block;
-}
-
-.campo-aumento input {
-  /* 250px */
-  padding: 0.625rem 0.75rem; /* 10px 12px */
+  border: 1px solid #4c4c4d;
   border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  font-size: 0.95rem;
-  outline: none;
+  background-color: #f9fafb;
+  color: #1e293b;
+  transition: border 0.2s ease;
+  width: 100%;
 }
 
-/* 🖥 Pantallas medianas (768px en adelante) */
-@media (min-width: 48rem) {
-  .caja-repotenciacion {
-    max-width: 25rem; /* 400px */
-  }
+.input-repotenciacion:focus {
+  outline: none;
+  border-color: #1c3c75;
+  background-color: white;
+}
 
+.unidad-repotenciacion {
+  font-size: 0.85rem;
+  color: #6b7280;
+  margin-top: -0.25rem;
+  padding-left: 0.1rem;
+  padding-bottom: 0.5rem;
+}
+
+
+/* ================= DESKTOP (min-width: 768px) ================= */
+
+@media (min-width: 768px) {
   .selector-repotenciacion {
     flex-direction: row;
+    align-items: center;
   }
 
-  .selector-repotenciacion select {
-    padding: 0.625rem 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #23539c;
-    font-size: 0.9rem;
-    width: 100%;
+  .select-repotenciacion {
     flex: 1;
   }
 
-  .selector-repotenciacion button {
-    padding: 0.625rem 0.875rem;
-    width: 3.125rem; /* 50px */
+  .boton-subir-repotenciacion {
+    margin-left: 0.5rem;
+    align-self: flex-start;
+    width: auto;
   }
 
-  .campo-aumento input {
-    width: 20rem; /* 320px */
+  .campo-aumento-repotenciacion {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .input-repotenciacion {
+    width: 60%;
+  }
+
+  .unidad-repotenciacion {
+    margin-top: 0;
+    padding-bottom: 0;
   }
 }
