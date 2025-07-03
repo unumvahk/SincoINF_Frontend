@@ -1,13 +1,12 @@
 import React, { useState } from "react";
 import "../estilos/EstiloFormularioIngresoEquipo.css";
-<<<<<<< HEAD
 import {
   FaIdBadge,
   FaDesktop,
   FaBarcode,
   FaMicrochip,
   FaMemory,
-  FaCog ,
+  FaCog,
   FaHdd,
   FaCalendarAlt,
   FaCamera,
@@ -48,21 +47,7 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
       <div className="ingreso-equipo-modal">
         <button className="ingreso-equipo-cerrar" onClick={onClose}>✕</button>
         <h2 className="ingreso-equipo-titulo">Ingreso de Equipos</h2>
-=======
 
-const FormularioIngresoEquipo: React.FC = () => {
-  return (
-    <div className="contenedor-ingreso-equipo">
-      <h2 className="titulo-ingreso-equipo">Registro de Equipos</h2>
-
-      <form className="formulario-ingreso-grid">
-        {/* Columna izquierda */}
-        <div className="columna-ingreso">
-          <label>Serial</label>
-          <input type="text" placeholder="Ingrese el serial" required />
->>>>>>> 9e316caed352cada5aab533f07e8f20881856434
-
-        {/* === Formulario === */}
         <form className="ingreso-equipo-form-grid" onSubmit={handleSubmit}>
           <div className="ingreso-equipo-campo">
             <label><FaIdBadge /> Serial</label>
@@ -89,7 +74,7 @@ const FormularioIngresoEquipo: React.FC = () => {
             <input type="number" placeholder="Ej. 8" required />
           </div>
           <div className="ingreso-equipo-campo">
-            <label><FaCog  /> Núcleos</label>
+            <label><FaCog /> Núcleos</label>
             <input type="number" placeholder="Ej. 4" required />
           </div>
           <div className="ingreso-equipo-campo">
@@ -100,54 +85,27 @@ const FormularioIngresoEquipo: React.FC = () => {
             <label><FaCalendarAlt /> Fecha de Ingreso</label>
             <input type="date" required />
           </div>
+
+          <div className="ingreso-equipo-imagen-seccion">
+            <label><FaCamera /> Foto del equipo</label>
+            <input type="file" accept="image/*" onChange={handleImagenChange} />
+            {previewURL && (
+              <div className="preview-imagen">
+                <img src={previewURL} alt="Vista previa" />
+                <button type="button" onClick={quitarImagen}>
+                  <FaTimesCircle /> Quitar imagen
+                </button>
+              </div>
+            )}
+          </div>
+
+          <div className="ingreso-equipo-boton-contenedor">
+            <button type="submit" className="ingreso-equipo-boton">
+              ✅ Agregar Dispositivo
+            </button>
+          </div>
         </form>
 
-        {/* === Imagen abajo del formulario === */}
-        <div className="ingreso-equipo-imagen-seccion">
-          <label><FaCamera /> Foto del equipo</label>
-          <input type="file" accept="image/*" onChange={handleImagenChange} />
-
-          {previewURL && (
-            <div className="preview-imagen">
-              <img src={previewURL} alt="Vista previa" />
-              <button type="button" onClick={quitarImagen}>
-                <FaTimesCircle /> Quitar imagen
-              </button>
-            </div>
-          )}
-        </div>
-<<<<<<< HEAD
-
-        {/* === Botón debajo de todo === */}
-        <div className="ingreso-equipo-boton-contenedor">
-          <button onClick={handleSubmit} className="ingreso-equipo-boton">
-            ✅ Agregar Dispositivo
-=======
-
-        {/* Columna derecha */}
-        <div className="columna-ingreso">
-          <label>RAM (GB)</label>
-          <input type="number" placeholder="Ej. 8" required />
-
-          <label>Núcleos</label>
-          <input type="number" placeholder="Ej. 4" required />
-
-          <label>Disco Duro (GB)</label>
-          <input type="number" placeholder="Ej. 512" required />
-
-          <label>Fecha de Ingreso</label>
-          <input type="date" required />
-        </div>
-
-        {/* Botón */}
-        <div className="contenedor-boton-ingreso">
-          <button type="submit" className="boton-agregar-equipo">
-            Registrar Equipo
->>>>>>> 9e316caed352cada5aab533f07e8f20881856434
-          </button>
-        </div>
-
-        {/* === Mensaje de éxito === */}
         {mensajeExito && (
           <div className="toast-exito">
             <FaCheckCircle className="icono-exito" />
