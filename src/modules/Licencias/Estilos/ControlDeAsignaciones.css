@@ -41,16 +41,17 @@
 
 .lic-input-con-icono input {
   width: 100%;
-  padding: 0.5rem 2.2rem 0.5rem 0.75rem;
+  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 0.95rem;
 }
 
+/* ÍCONO DE LUPA */
 .lic-icono-lupa {
   position: absolute;
   right: 10px;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
   color: #888;
@@ -70,7 +71,6 @@
   align-items: center;
 }
 
-/* === TABLA === */
 /* === TABLA === */
 .lic-tabla {
   width: 100%;
@@ -92,20 +92,23 @@
   border: 1px solid #ccc;
   padding: 0.7rem;
   text-align: left;
+  vertical-align: middle;
+  word-break: break-word;
 }
 
-
 /* === BOTÓN REVOCAR === */
-.lic-btn-Revocar{
+.lic-btn-Revocar {
   background-color: #d93025;
   color: white;
   border: none;
-  padding: 0.4rem 0.8rem;
+  padding: 0.4rem 1rem;
   border-radius: 4px;
   cursor: pointer;
+  display: block;
+  margin: 0 auto;
 }
 
-.lic-btn-eliminar:hover {
+.lic-btn-Revocar:hover {
   background-color: #b0201c;
 }
 
@@ -118,10 +121,7 @@
   .lic-filtros-barra {
     flex-direction: column;
     align-items: stretch;
-  }
-
-  .lic-input-con-icono {
-    width: 100%;
+    gap: 0.8rem;
   }
 
   .lic-btn-buscar {
@@ -130,37 +130,36 @@
   }
 
   .lic-tabla {
-    border: none;
-  }
-
-  .lic-tabla thead {
-    display: none;
-  }
-
-  .lic-tabla tr {
     display: block;
-    margin-bottom: 1rem;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    padding: 0.5rem;
-    background-color: #fff;
+    overflow-x: auto;
+    white-space: nowrap;
   }
 
+  .lic-tabla table {
+    width: 100%;
+  }
+
+  .lic-tabla th,
   .lic-tabla td {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 1rem;
-    border: none;
-    border-bottom: 1px solid #eee;
+    padding: 0.6rem 0.8rem;
+    font-size: 0.9rem;
+  }
+}
+
+/* EXTRA: Muy pequeño (móviles) */
+@media screen and (max-width: 480px) {
+  .lic-filtros-barra select,
+  .lic-input-con-icono input,
+  .lic-btn-buscar {
+    font-size: 0.85rem;
   }
 
-  .lic-tabla td::before {
-    content: attr(data-label);
-    font-weight: bold;
-    color: #555;
+  .lic-input-con-icono input {
+    padding: 0.5rem 2.2rem 0.5rem 0.75rem;
   }
 
-  .lic-tabla td:last-child {
-    border-bottom: none;
+  .lic-tabla th,
+  .lic-tabla td {
+    font-size: 0.85rem;
   }
 }
