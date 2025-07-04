@@ -1,4 +1,7 @@
+import React, { useState } from "react";
+import { FaSearch } from "react-icons/fa"; // ✅ CAMBIO: ícono de lupa con react-icons
 import "../Estilos/ControlDeAsignaciones.css";
+import ModalConfirmarRevocacion from "./ModalRevocarConfirmacion"; // Ajusta la ruta según tu estructura
 
 const ControlDeAsignaciones = () => {
   const licencias = [
@@ -21,6 +24,17 @@ const ControlDeAsignaciones = () => {
       fechaAsignacion: "2024-04-12",
     },
   ];
+
+  // Estado para controlar el modal
+  const [mostrarModal, setMostrarModal] = useState(false);
+
+  // Estado para guardar la licencia seleccionada
+  const [licenciaSeleccionada, setLicenciaSeleccionada] = useState({
+    placa: "",
+    nombreColaborador: "",
+    nombreLicencia: "",
+    fechaAsignacion: "",
+  });
 
   return (
     <div className="lic-container">
@@ -47,7 +61,9 @@ const ControlDeAsignaciones = () => {
               placeholder="Nombre de Colaborador / Cédula"
               className="lic-input-busqueda"
             />
-            <span className="lic-icono-lupa">🔍</span>
+            <span className="lic-icono-lupa">
+              <FaSearch /> {/* ✅ CAMBIO: nuevo ícono */}
+            </span>
           </div>
 
           <button className="lic-btn-buscar">Buscar</button>
@@ -72,13 +88,37 @@ const ControlDeAsignaciones = () => {
                 <td>{lic.nombreLicencia}</td>
                 <td>{lic.fechaAsignacion}</td>
                 <td>
-                  <button className="lic-btn-Revocar">Revocar</button>
+                  <button
+                    className="lic-btn-Revocar"
+                    onClick={() => {
+                      setLicenciaSeleccionada(lic);
+                      setMostrarModal(true);
+                    }}
+                  >
+                    Revocar
+                  </button>
                 </td>
               </tr>
             ))}
           </tbody>
         </table>
       </main>
+
+      {/* Modal de confirmación */}
+      {mostrarModal && (
+        <ModalConfirmarRevocacion
+          placa={licenciaSeleccionada.placa}
+          colaborador={licenciaSeleccionada.nombreColaborador}
+          licencia={licenciaSeleccionada.nombreLicencia}
+          fechaAsignacion={licenciaSeleccionada.fechaAsignacion}
+          onClose={() => setMostrarModal(false)}
+          onConfirm={() => {
+            console.log("Revocando:", licenciaSeleccionada);
+            // Aquí puedes hacer un fetch al backend
+            setMostrarModal(false);
+          }}
+        />
+      )}
     </div>
   );
 };
