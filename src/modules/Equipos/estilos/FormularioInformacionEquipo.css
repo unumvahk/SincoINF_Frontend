@@ -1,0 +1,68 @@
+.tarjeta-equipo {
+  background-color: #fcfcfc;
+  padding: 1.5rem;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.50);
+  margin: 2rem auto;              /* Centra horizontalmente */
+  width: 100%;
+  max-width: 980px;
+  box-sizing: border-box;
+}
+
+.titulo-equipo {
+  text-align: center;
+  color: #134090;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+}
+
+.grid-equipo {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.2rem;
+  padding: 0 0.5rem;
+}
+
+.campo-equipo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo-equipo label {
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+  color: #134090;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.campo-equipo input {
+  padding: 0.6rem 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  font-size: 1rem;
+  color: #333;
+}
+
+/* Responsive desde pantallas pequeñas hacia grandes */
+@media (min-width: 600px) {
+  .grid-equipo {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .tarjeta-equipo {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+  }
+}
+
+@media (min-width: 900px) {
+  .grid-equipo {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+}

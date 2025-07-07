@@ -1,5 +1,4 @@
-/* === Fondo oscuro del modal === */
-.overlay-inactivar-usuario {
+.modal-inactivar-usuario-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,108 +13,118 @@
   overflow-y: auto;
 }
 
-/* === Contenedor del modal === */
-.modal-inactivar-usuario {
+.modal-inactivar-usuario-contenedor {
   background-color: #ffffff;
   padding: 2rem 1.5rem;
   border-radius: 1rem;
   max-width: 500px;
   width: 100%;
   position: relative;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.2);
 }
 
-/* === Botón X de cerrar === */
-.cerrar-modal {
+.modal-inactivar-usuario-cerrar {
   position: absolute;
   top: 0.8rem;
   right: 1rem;
   font-size: 1.5rem;
   background: none;
   border: none;
-  color: #444;
+  color: #000;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
-/* === Título === */
-.titulo-modal {
+.modal-inactivar-usuario-cerrar:hover {
+  transform: scale(1.2);
+}
+
+.modal-inactivar-usuario-titulo {
   text-align: center;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   font-weight: bold;
   color: #d32f2f;
-  margin-bottom: 1rem;
+  margin-bottom: 1.2rem;
 }
 
-/* === Información del usuario === */
-.info-usuario p {
-  margin: 0.3rem 0;
+.modal-inactivar-usuario-info p {
+  margin: 0.4rem 0;
   font-size: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.modal-inactivar-usuario-info strong {
+  color: #0d47a1;
+}
+
+.modal-inactivar-usuario-info span {
   color: #333;
 }
 
-/* === Label del select === */
-.label-motivo {
+.modal-inactivar-usuario-label {
   display: block;
-  margin-top: 1.2rem;
+  margin-top: 1.5rem;
   margin-bottom: 0.5rem;
   font-weight: 600;
-  color: #0b2f6a;
+  color: #0d47a1;
 }
 
-/* === Select === */
-.modal-inactivar-usuario select {
+.modal-inactivar-usuario-select {
   width: 100%;
   padding: 0.6rem 1rem;
   font-size: 1rem;
   border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  background-color: #f9f9f9;
+  border: 1.5px solid #0d47a1;
+  background-color: #f0f8ff;
+  color: #000;
+  outline: none;
 }
 
-/* === Botones Confirmar y Cancelar === */
-.botones-modal {
+.modal-inactivar-usuario-botones {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
-  margin-top: 1.5rem;
+  margin-top: 1.8rem;
 }
 
-.btn-cancelar,
-.btn-confirmar {
+.modal-inactivar-usuario-btn-cancelar,
+.modal-inactivar-usuario-btn-confirmar {
   flex: 1;
-  padding: 0.6rem 1rem;
+  padding: 0.65rem 1rem;
   font-size: 1rem;
   font-weight: 600;
   border: none;
   border-radius: 0.5rem;
   cursor: pointer;
+  transition: background-color 0.2s ease;
 }
 
-.btn-cancelar {
-  background-color: #ccc;
+.modal-inactivar-usuario-btn-cancelar {
+  background-color: #e0e0e0;
   color: #333;
 }
 
-.btn-cancelar:hover {
-  background-color: #b3b3b3;
+.modal-inactivar-usuario-btn-cancelar:hover {
+  background-color: #c2c2c2;
 }
 
-.btn-confirmar {
+.modal-inactivar-usuario-btn-confirmar {
   background-color: #2e7d32;
   color: white;
 }
 
-.btn-confirmar:disabled {
+.modal-inactivar-usuario-btn-confirmar:disabled {
   background-color: #a5d6a7;
   cursor: not-allowed;
 }
 
-.btn-confirmar:hover:not(:disabled) {
+.modal-inactivar-usuario-btn-confirmar:hover:not(:disabled) {
   background-color: #256128;
 }
 
-/* === Mensaje de éxito === */
-.mensaje-exito-inactivar {
+.modal-inactivar-usuario-mensaje {
   margin-top: 1.5rem;
   background-color: #dff0d8;
   color: #2e7d32;
@@ -127,18 +136,17 @@
   text-align: center;
 }
 
-/* === Responsive mayor a 768px === */
 @media (min-width: 768px) {
-  .modal-inactivar-usuario {
+  .modal-inactivar-usuario-contenedor {
     padding: 2.5rem;
   }
 
-  .titulo-modal {
+  .modal-inactivar-usuario-titulo {
     font-size: 1.6rem;
   }
 
-  .btn-cancelar,
-  .btn-confirmar {
+  .modal-inactivar-usuario-btn-cancelar,
+  .modal-inactivar-usuario-btn-confirmar {
     font-size: 1.05rem;
   }
 }

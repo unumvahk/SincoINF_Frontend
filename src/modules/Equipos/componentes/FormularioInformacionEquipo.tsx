@@ -1,30 +1,59 @@
-import React from 'react'; // Testing
-import '../estilos/FormularioInformacion.css'; // Cambia el nombre del archivo también
+import React from 'react';
+import {
+  FaHashtag,
+  FaLaptop,
+  FaBarcode,
+  FaMicrochip,
+  FaMemory,
+  FaHdd,
+  FaWindows,
+  FaMapMarkerAlt,
+  FaMapSigns,
+  FaToggleOn,
+} from 'react-icons/fa';
+import '../estilos/FormularioInformacionEquipo.css';
 
 const FormularioInformacionEquipo: React.FC = () => {
+  const datosEquipo = {
+    serial: 'ABC123',
+    tipo: 'Portátil',
+    marca: 'Lenovo',
+    procesador: 'Intel i5',
+    ram: '8 GB',
+    disco: '512 GB SSD',
+    sistema: 'Windows 10',
+    sede: 'Oficina 2',
+    ubicacion: 'Oficina 2B',
+    estado: 'Activo',
+  };
+
+  const campos = [
+    { id: 'serial', label: 'Serial', icono: <FaHashtag /> },
+    { id: 'tipo', label: 'Tipo', icono: <FaLaptop /> },
+    { id: 'marca', label: 'Marca', icono: <FaBarcode /> },
+    { id: 'procesador', label: 'Procesador', icono: <FaMicrochip /> },
+    { id: 'ram', label: 'Memoria RAM', icono: <FaMemory /> },
+    { id: 'disco', label: 'Disco', icono: <FaHdd /> },
+    { id: 'sistema', label: 'Sistema operativo', icono: <FaWindows /> },
+    { id: 'sede', label: 'Sede', icono: <FaMapMarkerAlt /> },
+    { id: 'ubicacion', label: 'Ubicación', icono: <FaMapSigns /> },
+    { id: 'estado', label: 'Estado', icono: <FaToggleOn /> },
+  ];
+
   return (
-      <div className="tarjeta-infoequipo">
-        <h2 className="titulo-infoequipo">Información del equipo</h2>
-        <form className="grid-infoequipo">
-          {[
-            ['serial', 'Serial', 'Ej: ABC123'],
-            ['tipo', 'Tipo', 'Ej: Portátil'],
-            ['marca', 'Marca', 'Ej: Lenovo'],
-            ['procesador', 'Procesador', 'Ej: Intel i5'],
-            ['ram', 'Memoria RAM', 'Ej: 8 GB'],
-            ['disco', 'Disco', 'Ej: 512 GB SSD'],
-            ['sistema', 'Sistema operativo', 'Ej: Windows 10'],
-            ['sede', 'Sede', 'Ej: Medellín'],
-            ['ubicacion', 'Ubicación', 'Ej: Oficina 2B'],
-            ['estado', 'Estado', 'Ej: Activo']
-          ].map(([id, label, placeholder]) => (
-            <div className="campo-infoequipo" key={id}>
-              <label htmlFor={id}>{label}</label>
-              <input type="text" id={id} placeholder={placeholder} />
-            </div>
-          ))}
-        </form>
-      </div>
+    <div className="tarjeta-equipo">
+      <h2 className="titulo-equipo">Información del equipo</h2>
+      <form className="grid-equipo">
+        {campos.map(({ id, label, icono }) => (
+          <div className="campo-equipo" key={id}>
+            <label htmlFor={id}>
+              {icono} {label}
+            </label>
+            <input type="text" id={id} value={datosEquipo[id as keyof typeof datosEquipo]} readOnly />
+          </div>
+        ))}
+      </form>
+    </div>
   );
 };
 

@@ -3,6 +3,7 @@ import "../estilos/EstiloTablaEquipos.css";
 import ConfirmacionInactivar from "./ConfirmacionInactivarEquipo";
 import FormularioIngresoEquipo from "./FormularioIngresoEquipo";
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 interface Equipo {
   placa: string;
@@ -50,7 +51,10 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
               value={filtro}
               onChange={(e) => setFiltro(e.target.value)}
             />
-            <span className="equipos-icono-busqueda">🔍</span>
+            <span className="equipos-icono-busqueda">
+              <FaSearch />
+            </span>
+
           </div>
         </div>
 

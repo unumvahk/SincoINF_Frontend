@@ -36,11 +36,16 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
     setPreviewURL(null);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault();
-    setMensajeExito("Equipo agregado exitosamente.");
-    setTimeout(() => setMensajeExito(""), 3000);
+    setMensajeExito("✅ Equipo agregado exitosamente.");
+    
+    setTimeout(() => {
+      setMensajeExito("");
+      onClose();
+    }, 1000);
   };
+
 
   return (
     <div className="ingreso-equipo-modal-overlay">
@@ -81,12 +86,12 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
             <label><FaHdd /> Disco Duro (GB)</label>
             <input type="number" placeholder="Ej. 512" required />
           </div>
-          <div className="ingreso-equipo-campo">
+          <div className="ingreso-equipo-campo ingreso-equipo-campo-fecha">
             <label><FaCalendarAlt /> Fecha de Ingreso</label>
             <input type="date" required />
           </div>
-
-          <div className="ingreso-equipo-imagen-seccion">
+        </form>
+        <div className="ingreso-equipo-imagen-seccion">
             <label><FaCamera /> Foto del equipo</label>
             <input type="file" accept="image/*" onChange={handleImagenChange} />
             {previewURL && (
@@ -98,20 +103,19 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
               </div>
             )}
           </div>
-
           <div className="ingreso-equipo-boton-contenedor">
-            <button type="submit" className="ingreso-equipo-boton">
-              ✅ Agregar Dispositivo
+            <button type="button" className="ingreso-equipo-boton" onClick={handleSubmit}>
+              Agregar Dispositivo
             </button>
           </div>
-        </form>
 
         {mensajeExito && (
-          <div className="toast-exito">
-            <FaCheckCircle className="icono-exito" />
+          <div className="mensaje-exito-formulario-ingreso">
+            <FaCheckCircle style={{ marginRight: "0.5rem" }} />
             {mensajeExito}
           </div>
         )}
+
       </div>
     </div>
   );

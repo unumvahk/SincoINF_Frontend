@@ -1,21 +1,28 @@
 import React, { useState } from 'react';
-import './Login.css'; // Asegúrate que este archivo tenga el nombre correcto
+import { useNavigate } from 'react-router-dom';
+import './Login.css';
 
 export const Login = () => {
   const [email, setEmail] = useState('');
   const [contraseña, setContraseña] = useState('');
   const [mensaje, setMensaje] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     const usuarioFalso = {
-      email: 'usuario@ejemplo.com',
+      email: 'admin@gmail.com',
       contraseña: '123456',
     };
 
     if (email === usuarioFalso.email && contraseña === usuarioFalso.contraseña) {
       setMensaje('Inicio de sesión exitoso');
+      
+      // Redirigir a /equipos después de 1 segundo
+      setTimeout(() => {
+        navigate('/equipos');
+      }, 1000);
     } else {
       setMensaje('Credenciales incorrectas');
     }
@@ -61,7 +68,11 @@ export const Login = () => {
             <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
 
-          {mensaje && <p className="mensaje">{mensaje}</p>}
+          {mensaje && (
+            <p className={`mensaje ${mensaje === 'Inicio de sesión exitoso' ? 'exito' : 'error'}`}>
+              {mensaje}
+            </p>
+          )}
         </form>
       </div>
     </div>

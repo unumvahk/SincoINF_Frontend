@@ -19,13 +19,12 @@
   padding: 2rem;
   border-radius: 0.75rem;
   width: 92%;
-  max-width: 500px;
+  max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1001;
-  margin: 1rem;
 }
 
 /* === TÍTULO DEL MODAL === */
@@ -33,7 +32,7 @@
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color:#0b2f6a;
+  color: #0b2f6a;
   text-align: center;
 }
 
@@ -46,13 +45,13 @@
   background: none;
   border: none;
   cursor: pointer;
+  color: #333;
 }
 
-/* === INPUTS, SELECTS === */
+/* === INPUTS Y SELECTS === */
 .traslado-input,
 .traslado-select {
   width: 100%;
-  min-width: 0;
   padding: 0.6rem 1rem;
   font-size: 0.95rem;
   margin-bottom: 0.8rem;
@@ -70,7 +69,7 @@
 
 .traslado-input:focus,
 .traslado-select:focus {
-  border-color: #9aa4b5;
+  border-color: #0b2f6a;
   outline: none;
   background-color: #ffffff;
 }
@@ -82,7 +81,7 @@
   display: block;
   font-size: 0.9rem;
   color: #374151;
-  margin-top:1rem;
+  margin-top: 1rem;
 }
 
 /* === BLOQUES DE INFORMACIÓN === */
@@ -92,11 +91,41 @@
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
+  text-align: center;
 }
 
-.traslado-vista-equipo p {
-  font-size: 0.9rem;
-  margin: 0.25rem 0;
+/* === TÍTULO DE BLOQUES === */
+.traslado-titulo-bloque {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+/* === LÍNEAS DE INFORMACIÓN === */
+.traslado-info-linea {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+  font-size: 0.92rem;
+  flex-wrap: wrap;
+}
+
+.traslado-icono {
+  color: #0b2f6a;
+  font-size: 1rem;
+}
+
+.traslado-info-etiqueta {
+  font-weight: 600;
+  color: #0b2f6a;
+  margin-right: 0.3rem;
+}
+
+.traslado-info-valor {
+  color: #111827;
 }
 
 /* === MENSAJE DE SALIDA === */
@@ -108,11 +137,12 @@
   border-radius: 0.5rem;
   padding: 0.7rem;
   font-size: 0.87rem;
+  text-align: center;
 }
 
 /* === CAMPO ADJUNTAR ARCHIVO === */
 .traslado-campo-adjuntar {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
 }
 
 .traslado-adjuntar-area {
@@ -159,14 +189,14 @@
 }
 
 .traslado-estado-select:focus {
-  border-color:#0b2f6a;
+  border-color: #0b2f6a;
   background-color: #ffffff;
   outline: none;
 }
 
 /* === BOTÓN PRINCIPAL === */
 .traslado-btn-principal {
-  background-color: #0b2f6a;
+  background-color: #16a34a;
   color: white;
   border: none;
   padding: 0.7rem 1.2rem;
@@ -180,7 +210,20 @@
 }
 
 .traslado-btn-principal:hover {
-  background-color:#0b2f6a;
+  background-color: #15803d;
+}
+
+/* === MENSAJE DE ÉXITO === */
+.traslado-mensaje-exito {
+  margin-top: 1rem;
+  text-align: center;
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
 /* === ERRORES === */
@@ -191,42 +234,31 @@
   margin-bottom: 0.8rem;
 }
 
-/* === RESPONSIVE GRID DE FORMULARIO === */
-.traslado-formulario-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 0.8rem;
-}
-
-.traslado-formulario-grid > div {
-  width: 100%;
-}
- .traslado-vista-equipo {
-  text-align: center;
-}
-.traslado-titulo-bloque {
-  font-size: 1.05rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #1e293b;
-  text-align: center;
-}
-
-@media (min-width: 600px) {
-  .traslado-formulario-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .traslado-columna-completa {
-    grid-column: span 2;
-  }
-  .traslado-bloque-equipo {
-  background-color: #f8f9fa;
-  border: 1px solid #ddd;
-  padding: 1rem;
-  margin-top: 1rem;
+/* === COINCIDENCIAS === */
+.traslado-lista-coincidencias {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
   border-radius: 0.5rem;
-  text-align: center;
+  max-height: 150px;
+  overflow-y: auto;
 }
 
+.traslado-lista-coincidencias li {
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.traslado-lista-coincidencias li:hover {
+  background-color: #e2e8f0;
+}
+
+/* === RESPONSIVE === */
+@media (min-width: 600px) {
+  .traslado-info-linea {
+    justify-content: flex-start;
+  }
 }

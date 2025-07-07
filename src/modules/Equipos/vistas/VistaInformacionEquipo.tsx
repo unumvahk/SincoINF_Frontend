@@ -5,14 +5,14 @@ import Layout from '../../../layout/Layout';
 import FormularioInformacionEquipo from '../componentes/FormularioInformacionEquipo';
 import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
 import HistorialMaquina from '../componentes/HistorialEquipoEspecifico';
-import ModalTraslado from '../componentes/TrasladoModal'; 
+import ModalTraslado from '../componentes/TrasladoEquipo'; 
 
 // Estilos
-import '../estilos/EquipoInfoGeneral.css';
-import '../estilos/HistorialMaquina.css';
+import '../estilos/FormularioInformacionEquipo.css';
+import '../estilos/HistorialEquiposEspecifico.css';
 import '../estilos/BotonesEquipoAccion.css';
 import '../estilos/MetodoRepotenciacion.css';
-import '../estilos/TrasladoModal.css';
+import '../estilos/TrasladoEquipo.css';
 
 const VistaInformacionEquipo: React.FC = () => {
   const [mostrarModalTraslado, setMostrarModalTraslado] = useState(false); 
@@ -20,7 +20,7 @@ const VistaInformacionEquipo: React.FC = () => {
 
   return (
     <Layout>
-      {/* 🔙 Botón de regreso */}
+      {/*  Botón de regreso */}
       <button className="btn-volver" onClick={() => navigate('/equipos')}>
         <FaArrowLeft />
       </button>
@@ -37,7 +37,7 @@ const VistaInformacionEquipo: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ Modal de traslado */}
+      {/*  Modal de traslado */}
       <ModalTraslado
         visible={mostrarModalTraslado}
         onClose={() => setMostrarModalTraslado(false)}

@@ -73,6 +73,7 @@
   background: transparent;
 }
 
+/* === Botón de login === */
 .boton-login {
   width: 40%;
   padding: 10px;
@@ -96,21 +97,31 @@
   font-size: 14px;
 }
 
-/* === Mensaje de error o estado === */
+/* === Mensaje de estado === */
 .mensaje {
   text-align: center;
-  color: red;
   margin-top: 10px;
   font-weight: bold;
 }
 
-/* === Responsive === */
+/* Verde si es exitoso */
+.mensaje.exito {
+  color: green;
+}
+
+/* Rojo si hay error */
+.mensaje.error {
+  color: red;
+}
+
+/* === Responsive para pantallas pequeñas === */
 @media (max-width: 768px) {
   .login-page {
     flex-direction: column;
   }
 
-  .login-left, .login-right {
+  .login-left,
+  .login-right {
     flex: none;
     width: 100%;
     padding: 20px;

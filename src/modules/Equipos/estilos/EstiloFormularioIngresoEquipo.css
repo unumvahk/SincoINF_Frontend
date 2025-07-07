@@ -59,6 +59,11 @@
     gap: 1.5rem;
   }
 }
+@media (min-width: 1024px) {
+  .ingreso-equipo-form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
 
 /* === CAMPOS === */
 .ingreso-equipo-campo {
@@ -96,21 +101,14 @@
 
 /* === FOTO DEL EQUIPO DEBAJO === */
 .ingreso-equipo-imagen-seccion {
-  margin: 2rem auto 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: 0.8rem;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
   border-radius: 1rem;
-  border: 1px solid rgba(67, 67, 67, 0.2);
-  padding: 1.2rem;
   width: 100%;
-  background-color: #fafafa;
-}
-
-@media (min-width: 768px) {
-  .ingreso-equipo-imagen-seccion {
-    max-width: 100%;
-  }
+  box-sizing: border-box;
 }
 
 .ingreso-equipo-imagen-seccion label {
@@ -123,14 +121,21 @@
 }
 
 .ingreso-equipo-imagen-seccion input[type="file"] {
+  width: 100%;
   font-size: 0.95rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
 }
 
+/* === PREVIEW DE IMAGEN === */
 .preview-imagen {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: 0.5rem;
+  margin-top: 0.5rem;
 }
 
 .preview-imagen img {
@@ -156,12 +161,12 @@
   background-color: #dc2626;
 }
 
-/* === BOTÓN FINAL === */
+/* === BOTÓN FINAL CENTRADO === */
 .ingreso-equipo-boton-contenedor {
-  margin-top: 2rem;
   display: flex;
-  justify-content: flex-end;
+  justify-content: center;
   width: 100%;
+  margin-top: 1.5rem;
 }
 
 .ingreso-equipo-boton {
@@ -181,30 +186,34 @@
 }
 
 /* === MENSAJE DE ÉXITO === */
-.toast-exito {
+.mensaje-exito-formulario-ingreso {
   position: fixed;
-  top: 1rem;
-  margin: auto;
-  right: 1rem;
-  background-color: #4caf50;
-  color: white;
-  padding: 0.75rem 1.25rem;
-  border-radius: 0.5rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  font-size: 0.9rem;
-  z-index: 10000;
-  animation: slideIn 0.3s ease-out;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #dff0d8;
+  color: #2e7d32;
+  padding: 1rem 2.2rem;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 99999;
+  animation: fadeInCenter 0.3s ease-out;
 }
 
-/* Animación para entrada suave */
-@keyframes slideIn {
+@keyframes fadeInCenter {
   from {
     opacity: 0;
-    transform: translateY(-10px);
+    transform: translate(-50%, -60%);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate(-50%, -50%);
   }
 }
+
+
+
 

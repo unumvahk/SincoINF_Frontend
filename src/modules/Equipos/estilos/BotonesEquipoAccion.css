@@ -107,9 +107,9 @@
   background-color: transparent;
   border: none;
   color: #0b2f6a;
-  font-size: 1.25rem; /* más grande */
+  font-size: 1.25rem; 
   font-weight: 600;
-  margin: 1.5rem 0 1rem 2rem; /* más separado de la izquierda */
+  margin: 1.5rem 0 1rem 2rem; 
   cursor: pointer;
   transition: color 0.2s;
 }

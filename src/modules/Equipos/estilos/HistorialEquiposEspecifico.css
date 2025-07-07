@@ -58,8 +58,24 @@
   gap: 0.75rem;
 }
 
-.busqueda-historial input {
-  padding: 0.625rem 0.75rem;
+.input-con-icono {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-con-icono .icono-input {
+  position: absolute;
+  left: 0.75rem;
+  color: #183363;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+.input-con-icono input {
+  padding-left: 2.25rem !important;
+  padding-right: 0.75rem;
   border: 1px solid #aaaaab;
   border-radius: 0.5rem;
   font-size: 0.95rem;
@@ -67,9 +83,10 @@
   color: #374151;
   transition: border 0.2s;
   height: 2.5rem;
+  width: 100%;
 }
 
-.busqueda-historial input:focus {
+.input-con-icono input:focus {
   outline: none;
   border-color: #183363;
 }
@@ -131,7 +148,7 @@
 }
 
 /* RESPONSIVE: COLUMNAS AL LADO EN PANTALLAS GRANDES */
-@media (min-width: 768px) {
+@media (min-width: 1230px) {
   .contenedor-info-equipo {
     flex-direction: row;
     align-items: flex-start;
@@ -146,7 +163,7 @@
 
   .columna-derecha {
     width: 30%;
-    margin-top:2rem;
+    margin-top: 2rem;
     margin-right: 1rem;
     max-width: none;
   }

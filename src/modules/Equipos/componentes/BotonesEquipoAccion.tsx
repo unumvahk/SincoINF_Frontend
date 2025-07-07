@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModalTraslado from './TrasladoModal';
+import ModalTraslado from './TrasladoEquipo';
 import ModalMantenimiento from './ModalMantenimiento';
 import MetodoRepotenciacionEquipo from './MetodoRepotenciacionEquipo';
 
