@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../estilos/EstilosTablalicencias.css";
 import ModalLicenciaFlotante from "./ModalLicenciaFlotante";
 import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 interface Licencia {
   nombreLicencia: string;
@@ -32,16 +33,27 @@ const Tablalicencias: React.FC<Props> = ({ licencias }) => {
 
   return (
     <div className="licencia-contenido">
+      <h2 className="licencia-titulo">🧾 Control de Licencias</h2>
+
       <div className="licencia-tab-nav">
         <button className="active">Inventario Licencias</button>
         <button onClick={irAControlAsignacion}>Control Asignación</button>
       </div>
 
+      {/* ✅ BARRA DE FILTRO + INPUT + BOTÓN AÑADIR */}
       <div className="licencia-barra-superior">
+        <select className="licencia-select-filtro">
+          <option value="">Filtrar por:</option>
+          <option value="nombre">Nombre</option>
+          <option value="proveedor">Proveedor</option>
+          <option value="fecha">Fecha de vencimiento</option>
+        </select>
+
         <div className="licencia-input-con-icono">
           <input type="text" placeholder="Nombre de licencia / proveedor" />
-          <span className="licencia-icono-lupa">🔍</span>
+          <span className="licencia-icono-lupa"><FaSearch /></span>
         </div>
+
         <button className="licencia-btn-agregar" onClick={() => setMostrarFormulario(true)}>
           Añadir licencia
         </button>
