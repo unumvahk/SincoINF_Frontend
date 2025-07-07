@@ -1,11 +1,11 @@
-.perfil-container {
+.perfil-card-container {
   display: flex;
   justify-content: center;
   padding: 1rem;
   background: #f5f7fa;
 }
 
-.perfil-card {
+.perfil-card-box {
   background: #fff;
   border-radius: 1rem;
   padding: 1.5rem;
@@ -17,14 +17,14 @@
   gap: 1.5rem;
 }
 
-.perfil-foto {
+.perfil-card-foto {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.perfil-foto img,
-.foto-placeholder {
+.perfil-card-foto img,
+.foto-card-placeholder {
   width: 120px;
   height: 120px;
   border-radius: 50%;
@@ -32,7 +32,7 @@
   border: 3px solid #134090;
 }
 
-.foto-placeholder {
+.foto-card-placeholder {
   background: #e2e8f0;
   display: flex;
   align-items: center;
@@ -41,11 +41,11 @@
   color: #134090;
 }
 
-.icon-placeholder {
+.icon-card-placeholder {
   font-size: 3rem;
 }
 
-.cambiar-foto {
+.card-cambiar-foto {
   margin-top: 0.5rem;
   cursor: pointer;
   color: #134090;
@@ -55,13 +55,13 @@
   gap: 0.4rem;
 }
 
-.perfil-datos {
+.perfil-card-datos {
   display: grid;
   grid-template-columns: 1fr;
   gap: 1rem;
 }
 
-.campo label {
+.card-campo label {
   font-weight: bold;
   margin-bottom: 0.3rem;
   display: flex;
@@ -70,7 +70,7 @@
   color: #134090;
 }
 
-.campo input {
+.card-campo input {
   width: 100%;
   padding: 0.6rem 1rem;
   background: #f9f9f9;
@@ -80,36 +80,57 @@
   color: #333;
 }
 
-.perfil-historial {
+.perfil-card-historial {
   margin-top: 1rem;
 }
 
-.perfil-historial h3 {
+.perfil-card-historial h3 {
   color: #134090;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
-.historial-filtros {
+.card-historial-filtros {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
   margin-bottom: 1rem;
 }
 
-.historial-filtros input {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
+.card-campo-filtro {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
   border: 1px solid #ccc;
-  font-size: 0.95rem;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
 }
 
-.historial-lista {
+.card-campo-filtro input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  padding-left: 0.5rem;
+}
+
+.card-campo-filtro input:focus {
+  outline: none;
+}
+
+.card-icono-filtro {
+  color: #888;
+}
+
+.card-historial-lista {
   list-style: none;
   padding: 0;
   margin: 0;
 }
 
-.historial-lista li {
+.card-historial-lista li {
   background-color: #f1f5ff;
   border: 1px solid #dbeafe;
   border-radius: 0.5rem;
@@ -122,12 +143,34 @@
   transition: background-color 0.2s;
 }
 
-.historial-lista li:hover {
+.card-historial-lista li:hover {
   background-color: #e0ecff;
 }
 
-/* MODAL */
-.modal {
+.card-cerrar-sesion {
+  padding: 0.5rem 1rem;
+  background-color: #e11d48;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  align-self: flex-end;
+  transition: background-color 0.2s ease;
+  width: auto;
+  margin-top: 0.5rem;
+}
+
+
+.card-cerrar-sesion:hover {
+  background-color: #be123c;
+}
+
+.card-modal {
   position: fixed;
   inset: 0;
   background-color: rgba(20, 20, 20, 0.5);
@@ -136,7 +179,7 @@
   align-items: center;
 }
 
-.modal-contenido {
+.card-modal-contenido {
   background: #fff;
   padding: 2rem;
   border-radius: 1rem;
@@ -147,16 +190,20 @@
   text-align: center;
 }
 
-.modal-contenido h4 {
+.card-modal-contenido h4 {
   color: #134090;
   margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 }
 
-.modal-contenido p {
+.card-modal-contenido p {
   margin: 0.5rem 0;
 }
 
-.cerrar-modal {
+.card-cerrar-modal {
   position: absolute;
   top: 1rem;
   right: 1rem;
@@ -166,14 +213,34 @@
   font-size: 1.2rem;
   cursor: pointer;
 }
+.input-fecha-personalizada {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
 
-/* Responsive */
+.input-fecha-personalizada:focus {
+  border-color: #134090;
+  background-color: #fff;
+  outline: none;
+}
+
+
+
 @media (min-width: 640px) {
-  .perfil-datos {
+  .perfil-card-datos {
     grid-template-columns: repeat(2, 1fr);
   }
 
-  .historial-filtros {
+  .card-historial-filtros {
     flex-direction: row;
   }
 }

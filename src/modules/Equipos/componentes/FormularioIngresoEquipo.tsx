@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import "../estilos/EstiloFormularioIngresoEquipo.css";
 import {
   FaIdBadge,
   FaDesktop,
@@ -12,7 +11,10 @@ import {
   FaCamera,
   FaTimesCircle,
   FaCheckCircle,
+  FaShieldAlt,
+  FaChartBar,
 } from "react-icons/fa";
+import "../estilos/EstiloFormularioIngresoEquipo.css";
 
 interface Props {
   onClose: () => void;
@@ -39,13 +41,12 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
   const handleSubmit = (e: React.FormEvent | React.MouseEvent) => {
     e.preventDefault();
     setMensajeExito("✅ Equipo agregado exitosamente.");
-    
+
     setTimeout(() => {
       setMensajeExito("");
       onClose();
     }, 1000);
   };
-
 
   return (
     <div className="ingreso-equipo-modal-overlay">
@@ -86,28 +87,45 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
             <label><FaHdd /> Disco Duro (GB)</label>
             <input type="number" placeholder="Ej. 512" required />
           </div>
+          <div className="ingreso-equipo-campo">
+            <label><FaChartBar /> Tarjeta Gráfica</label>
+            <input type="text" placeholder="Ej. NVIDIA GTX 1650" required />
+          </div>
           <div className="ingreso-equipo-campo ingreso-equipo-campo-fecha">
             <label><FaCalendarAlt /> Fecha de Ingreso</label>
             <input type="date" required />
           </div>
+          <div className="ingreso-equipo-campo">
+              <label><FaCheckCircle /> Estado</label>
+              <select required>
+                <option value="">Seleccione estado</option>
+                <option value="Activo">Activo</option>
+                <option value="Inactivo">Inactivo</option>
+                <option value="Mantenimiento">Mantenimiento</option>
+                <option value="Archivo">Archivo</option>
+              </select>
+          </div>
+
         </form>
+
         <div className="ingreso-equipo-imagen-seccion">
-            <label><FaCamera /> Foto del equipo</label>
-            <input type="file" accept="image/*" onChange={handleImagenChange} />
-            {previewURL && (
-              <div className="preview-imagen">
-                <img src={previewURL} alt="Vista previa" />
-                <button type="button" onClick={quitarImagen}>
-                  <FaTimesCircle /> Quitar imagen
-                </button>
-              </div>
-            )}
-          </div>
-          <div className="ingreso-equipo-boton-contenedor">
-            <button type="button" className="ingreso-equipo-boton" onClick={handleSubmit}>
-              Agregar Dispositivo
-            </button>
-          </div>
+          <label><FaCamera /> Foto del equipo</label>
+          <input type="file" accept="image/*" onChange={handleImagenChange} />
+          {previewURL && (
+            <div className="preview-imagen">
+              <img src={previewURL} alt="Vista previa" />
+              <button type="button" onClick={quitarImagen}>
+                <FaTimesCircle /> Quitar imagen
+              </button>
+            </div>
+          )}
+        </div>
+
+        <div className="ingreso-equipo-boton-contenedor">
+          <button type="button" className="ingreso-equipo-boton" onClick={handleSubmit}>
+            Agregar Dispositivo
+          </button>
+        </div>
 
         {mensajeExito && (
           <div className="mensaje-exito-formulario-ingreso">
@@ -115,7 +133,6 @@ const FormularioIngresoEquipo: React.FC<Props> = ({ onClose }) => {
             {mensajeExito}
           </div>
         )}
-
       </div>
     </div>
   );

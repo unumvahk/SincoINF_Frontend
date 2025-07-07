@@ -4,8 +4,9 @@ import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
-  FaMicrochip, FaUserTie, FaEnvelope, FaBuilding, FaMapMarkerAlt, FaLaptop,
-  FaBarcode, FaMemory, FaHdd, FaWindows, FaMapSigns, FaToggleOn, FaHashtag, FaIdCard
+  FaMicrochip, FaUserTie, FaEnvelope, FaBuilding, FaMapMarkerAlt,
+  FaLaptop, FaBarcode, FaMemory, FaHdd, FaWindows, FaMapSigns,
+  FaToggleOn, FaHashtag, FaIdCard, FaCalendar
 } from 'react-icons/fa';
 
 interface Props {
@@ -25,10 +26,15 @@ const equipoActual = {
   serial: 'ABC123',
   tipo: 'Portátil',
   marca: 'Lenovo',
+  modelo: 'ThinkPad',
   procesador: 'Intel i5',
+  nucleos: 4,
   ram: '8 GB',
   disco: '512 GB SSD',
+  tarj_grafica: 'Integrada',
   sistema: 'Windows 10',
+  fecha_ingreso: '2023-05-10',
+  garantia: 12,
   sede: 'Oficina 2',
   ubicacion: 'Oficina 2B',
   estado: 'Activo',
@@ -39,10 +45,15 @@ const equiposSimulados: Record<string, any> = {
     serial: 'ABC2',
     tipo: 'Torre',
     marca: 'Dell',
+    modelo: 'OptiPlex',
     procesador: 'Intel i7',
+    nucleos: 8,
     ram: '16 GB',
     disco: '1 TB HDD',
+    tarj_grafica: 'NVIDIA GTX 1050',
     sistema: 'Windows 11',
+    fecha_ingreso: '2024-01-15',
+    garantia: 24,
     sede: 'Oficina 3',
     ubicacion: 'Oficina 3A',
     estado: 'Activo',
@@ -79,9 +90,8 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
   const [estadoFinal, setEstadoFinal] = useState('');
   const [tipoBusqueda, setTipoBusqueda] = useState('cedula');
   const [coincidencias, setCoincidencias] = useState<any[]>([]);
-  const [mensajeExito, setMensajeExito] = useState('');
+  const [coincidenciasEquipos, setCoincidenciasEquipos] = useState<any[]>([]);
   const [trasladoExitoso, setTrasladoExitoso] = useState(false);
-
 
   const {
     register,
@@ -100,22 +110,25 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
 
   const onSubmit = (data: TrasladoFormData) => {
     console.log('Datos enviados:', { ...data, estadoFinal });
-
     setTrasladoExitoso(true);
-
     setTimeout(() => {
       setTrasladoExitoso(false);
-      onClose(); 
+      onClose();
     }, 1000);
   };
-
-
 
   const buscarInfoEmpleado = (valor: string) => {
     const resultados = Object.entries(empleadosSimulados)
       .filter(([clave]) => clave.toLowerCase().includes(valor.toLowerCase()))
       .map(([clave, info]) => ({ id: clave, ...info }));
     setCoincidencias(resultados);
+  };
+
+  const buscarInfoEquipoNuevo = (valor: string) => {
+    const resultados = Object.entries(equiposSimulados)
+      .filter(([clave]) => clave.toLowerCase().includes(valor.toLowerCase()))
+      .map(([clave, info]) => ({ id: clave, ...info }));
+    setCoincidenciasEquipos(resultados);
   };
 
   const seleccionarEmpleado = (id: string) => {
@@ -125,9 +138,35 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
     setCoincidencias([]);
   };
 
-  const buscarEquipoNuevo = () => {
-    const resultado = equiposSimulados[serialNuevo || ''];
+  const seleccionarEquipoNuevo = (id: string) => {
+    const resultado = equiposSimulados[id];
     setEquipoNuevo(resultado || null);
+    setValue('serialNuevo', id);
+    setCoincidenciasEquipos([]);
+  };
+
+  const camposEquipo = [
+    'serial', 'tipo', 'marca', 'modelo', 'procesador', 'nucleos',
+    'ram', 'disco', 'tarj_grafica', 'sistema', 'fecha_ingreso',
+    'garantia', 'sede', 'ubicacion', 'estado',
+  ];
+
+  const iconos = {
+    serial: <FaHashtag />,
+    tipo: <FaLaptop />,
+    marca: <FaBarcode />,
+    modelo: <FaBarcode />,
+    procesador: <FaMicrochip />,
+    nucleos: <FaMicrochip />,
+    ram: <FaMemory />,
+    disco: <FaHdd />,
+    tarj_grafica: <FaMicrochip />,
+    sistema: <FaWindows />,
+    fecha_ingreso: <FaCalendar />,
+    garantia: <FaToggleOn />,
+    sede: <FaMapMarkerAlt />,
+    ubicacion: <FaMapSigns />,
+    estado: <FaToggleOn />,
   };
 
   return (
@@ -148,6 +187,7 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
               setValue('serialNuevo', '');
               setEstadoFinal('');
               setCoincidencias([]);
+              setCoincidenciasEquipos([]);
             }}
           >
             <option value="">Seleccione tipo de traslado</option>
@@ -160,41 +200,23 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
           {/* Equipo actual */}
           <div className="traslado-bloque-equipo">
             <h4 className="traslado-titulo-bloque">Equipo Actual</h4>
-            {Object.entries(equipoActual).map(([key, val]) => (
+            {camposEquipo.map((key) => (
               <div className="traslado-info-linea" key={key}>
-                <span className="traslado-icono">
-                  {{
-                    serial: <FaHashtag />,
-                    tipo: <FaLaptop />,
-                    marca: <FaBarcode />,
-                    procesador: <FaMicrochip />,
-                    ram: <FaMemory />,
-                    disco: <FaHdd />,
-                    sistema: <FaWindows />,
-                    sede: <FaMapMarkerAlt />,
-                    ubicacion: <FaMapSigns />,
-                    estado: <FaToggleOn />,
-                  }[key]}
-                </span>
-                <span className="traslado-info-etiqueta">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
-                <span className="traslado-info-valor">{String(val)}</span>
+                <span className="traslado-icono">{iconos[key as keyof typeof iconos]}</span>
+                <span className="traslado-info-etiqueta">{key.replace(/_/g, ' ').toUpperCase()}:</span>
+                <span className="traslado-info-valor">{String(equipoActual[key as keyof typeof equipoActual] ?? '—')}</span>
               </div>
             ))}
           </div>
 
-          {/* Entrada o cambio */}
           {(tipoTraslado === 'ENTRADA' || tipoTraslado === 'CAMBIO') && (
             <>
               <label className="traslado-label">Buscar por:</label>
-              <select
-                className="traslado-select"
-                value={tipoBusqueda}
-                onChange={(e) => {
-                  setTipoBusqueda(e.target.value);
-                  setEmpleado(null);
-                  setCoincidencias([]);
-                }}
-              >
+              <select className="traslado-select" value={tipoBusqueda} onChange={(e) => {
+                setTipoBusqueda(e.target.value);
+                setEmpleado(null);
+                setCoincidencias([]);
+              }}>
                 <option value="cedula">Cédula</option>
                 <option value="correo">Correo</option>
                 <option value="hostname">Hostname</option>
@@ -210,7 +232,6 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
                   buscarInfoEmpleado(e.target.value);
                 }}
               />
-
               {coincidencias.length > 0 && (
                 <ul className="traslado-lista-coincidencias">
                   {coincidencias.map((item, index) => (
@@ -235,7 +256,7 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
                           cargo: <FaUserTie />,
                         }[key]}
                       </span>
-                      <span className="traslado-info-etiqueta">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
+                      <span className="traslado-info-etiqueta">{key.toUpperCase()}:</span>
                       <span className="traslado-info-valor">{String(val)}</span>
                     </div>
                   ))}
@@ -244,37 +265,37 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
             </>
           )}
 
-          {/* Cambio: nuevo equipo */}
           {tipoTraslado === 'CAMBIO' && (
             <div className="traslado-bloque-equipo">
               <h4 className="traslado-titulo-bloque">Equipo Nuevo</h4>
               <input
                 type="text"
-                placeholder="Serial nuevo"
+                placeholder="Buscar serial nuevo..."
                 className="traslado-input"
                 {...register('serialNuevo')}
-                onBlur={buscarEquipoNuevo}
+                onChange={(e) => {
+                  setValue('serialNuevo', e.target.value);
+                  buscarInfoEquipoNuevo(e.target.value);
+                }}
               />
+
+              {coincidenciasEquipos.length > 0 && (
+                <ul className="traslado-lista-coincidencias">
+                  {coincidenciasEquipos.map((item, index) => (
+                    <li key={index} onClick={() => seleccionarEquipoNuevo(item.id)}>
+                      <strong>{item.serial}</strong> – {item.tipo} – {item.marca}
+                    </li>
+                  ))}
+                </ul>
+              )}
+
               {equipoNuevo && (
                 <>
-                  {Object.entries(equipoNuevo).map(([key, val]) => (
+                  {camposEquipo.map((key) => (
                     <div className="traslado-info-linea" key={key}>
-                      <span className="traslado-icono">
-                        {{
-                          serial: <FaHashtag />,
-                          tipo: <FaLaptop />,
-                          marca: <FaBarcode />,
-                          procesador: <FaMicrochip />,
-                          ram: <FaMemory />,
-                          disco: <FaHdd />,
-                          sistema: <FaWindows />,
-                          sede: <FaMapMarkerAlt />,
-                          ubicacion: <FaMapSigns />,
-                          estado: <FaToggleOn />,
-                        }[key]}
-                      </span>
-                      <span className="traslado-info-etiqueta">{key.charAt(0).toUpperCase() + key.slice(1)}:</span>
-                      <span className="traslado-info-valor">{String(val)}</span>
+                      <span className="traslado-icono">{iconos[key as keyof typeof iconos]}</span>
+                      <span className="traslado-info-etiqueta">{key.replace(/_/g, ' ').toUpperCase()}:</span>
+                      <span className="traslado-info-valor">{String(equipoNuevo[key] ?? '—')}</span>
                     </div>
                   ))}
                 </>
@@ -282,7 +303,6 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
             </div>
           )}
 
-          {/* Salida */}
           {tipoTraslado === 'SALIDA' && (
             <>
               <div className="traslado-mensaje-salida">
@@ -305,7 +325,6 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
             </>
           )}
 
-          {/* Adjuntar soporte */}
           <div className="traslado-campo-adjuntar">
             <label className="traslado-label" htmlFor="archivo">Adjuntar soporte:</label>
             <div className="traslado-adjuntar-area">
@@ -314,7 +333,6 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
             </div>
           </div>
 
-          {/* Botón enviar */}
           <button className="traslado-btn-principal" type="submit">
             Generar Traslado
           </button>
@@ -324,7 +342,6 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
               ✅ El traslado fue generado exitosamente.
             </div>
           )}
-
         </form>
       </div>
     </div>

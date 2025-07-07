@@ -1,14 +1,15 @@
 import React, { useState } from 'react';
 import '../estilos/MetodoRepotenciacion.css';
+import { FaTools, FaMicrochip, FaHdd, FaArrowUp } from 'react-icons/fa';
 
 const MetodoRepotenciacionEquipo: React.FC = () => {
   const [metodo, setMetodo] = useState('RAM');
   const [cantidad, setCantidad] = useState('');
 
   return (
-    <div>
-      <h3 className="titulo-repotenciacion">
-        🛠 <span>Método de Repotenciación</span>
+    <div className="modal-repotenciacion-contenedor">
+      <h3 className="modal-titulo-repotenciacion">
+        <FaTools /> <span>Método de Repotenciación</span>
       </h3>
 
       <label className="label-repotenciacion">Seleccione el componente:</label>
@@ -18,11 +19,13 @@ const MetodoRepotenciacionEquipo: React.FC = () => {
           onChange={(e) => setMetodo(e.target.value)}
           className="select-repotenciacion"
         >
-          <option value="RAM">💻 RAM (GB)</option>
-          <option value="DISCO">💾 Disco (GB)</option>
+          <option value="RAM">RAM (GB)</option>
+          <option value="DISCO">Disco (GB)</option>
         </select>
 
-        <button className="boton-subir-repotenciacion" title="Aplicar aumento">↑</button>
+        <button className="boton-subir-repotenciacion" title="Aplicar aumento">
+          <FaArrowUp />
+        </button>
       </div>
 
       <div className="campo-aumento-repotenciacion">
@@ -34,7 +37,9 @@ const MetodoRepotenciacionEquipo: React.FC = () => {
           placeholder="Ej: 8"
           className="input-repotenciacion"
         />
-        <span className="unidad-repotenciacion">{metodo === "RAM" ? "GB RAM" : "GB Disco"}</span>
+        <span className="unidad-repotenciacion">
+          {metodo === "RAM" ? "GB RAM" : "GB Disco"}
+        </span>
       </div>
     </div>
   );

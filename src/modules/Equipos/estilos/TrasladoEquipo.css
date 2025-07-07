@@ -106,12 +106,13 @@
 .traslado-info-linea {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start; /* <-- alineado a la izquierda */
   gap: 0.5rem;
   margin: 0.3rem 0;
   font-size: 0.92rem;
   flex-wrap: wrap;
 }
+
 
 .traslado-icono {
   color: #0b2f6a;
@@ -256,9 +257,4 @@
   background-color: #e2e8f0;
 }
 
-/* === RESPONSIVE === */
-@media (min-width: 600px) {
-  .traslado-info-linea {
-    justify-content: flex-start;
-  }
-}
+

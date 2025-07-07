@@ -7,9 +7,12 @@ import { FaSearch } from "react-icons/fa";
 
 interface Equipo {
   placa: string;
-  colaborador: string;
-  fechaMantenimiento: string;
+  marca: string;
+  modelo: string;
+  fechaIngreso: string;
   ubicacion: string;
+  estado?: string;
+  colaborador?: string; // si lo necesitas en algún componente futuro
 }
 
 interface Props {
@@ -19,15 +22,14 @@ interface Props {
 const TablaEquipos: React.FC<Props> = ({ equipos }) => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const [filtro, setFiltro] = useState("");
-  const [campoFiltro, setCampoFiltro] = useState("colaborador");
+  const [campoFiltro, setCampoFiltro] = useState("placa");
   const [equipoSeleccionado, setEquipoSeleccionado] = useState<Equipo | null>(null);
-  const [mensajeExito, setMensajeExito] = useState("");
-
+  
 
   const navigate = useNavigate();
 
   const equiposFiltrados = equipos.filter((equipo) =>
-    equipo[campoFiltro as keyof Equipo].toLowerCase().includes(filtro.toLowerCase())
+    equipo[campoFiltro as keyof Equipo]?.toLowerCase().includes(filtro.toLowerCase())
   );
 
   return (
@@ -40,8 +42,9 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
             value={campoFiltro}
             onChange={(e) => setCampoFiltro(e.target.value)}
           >
-            <option value="colaborador">Nombre del Colaborador</option>
             <option value="placa">Placa</option>
+            <option value="marca">Marca</option>
+            <option value="modelo">Modelo</option>
             <option value="ubicacion">Ubicación</option>
           </select>
           <div className="equipos-busqueda">
@@ -54,7 +57,6 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
             <span className="equipos-icono-busqueda">
               <FaSearch />
             </span>
-
           </div>
         </div>
 
@@ -71,9 +73,10 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
         <thead>
           <tr>
             <th>PLACA</th>
-            <th>COLABORADOR</th>
-            <th>FECHA MANTENIMIENTO</th>
+            <th>MARCA</th>
+            <th>MODELO</th>
             <th>UBICACIÓN</th>
+            <th>FECHA DE INGRESO</th>
             <th colSpan={2}>ACCIONES</th>
           </tr>
         </thead>
@@ -81,9 +84,10 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
           {equiposFiltrados.map((equipo, index) => (
             <tr key={index}>
               <td data-label="PLACA">{equipo.placa}</td>
-              <td data-label="COLABORADOR">{equipo.colaborador}</td>
-              <td data-label="FECHA MANTENIMIENTO">{equipo.fechaMantenimiento}</td>
+              <td data-label="MARCA">{equipo.marca}</td>
+              <td data-label="MODELO">{equipo.modelo}</td>
               <td data-label="UBICACIÓN">{equipo.ubicacion}</td>
+              <td data-label="FECHA DE INGRESO">{equipo.fechaIngreso}</td>
               <td className="equipos-acciones">
                 <button
                   className="equipos-btn-detalles"
@@ -119,21 +123,14 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
         <ConfirmacionInactivar
           equipo={equipoSeleccionado}
           onCancelar={() => setEquipoSeleccionado(null)}
-          onConfirmar={() => {
-            setMensajeExito(`Equipo con placa ${equipoSeleccionado?.placa} inactivado exitosamente.`);
-            setEquipoSeleccionado(null);
-
-            // Ocultar la notificación después de 3 segundos
-            setTimeout(() => setMensajeExito(""), 3000);
+          onConfirmar={(motivo) => {
+            console.log(`Inactivado con motivo: ${motivo}`);
           }}
 
         />
+
       )}
-      {mensajeExito && (
-        <div className="toast-exito">
-          {mensajeExito}
-        </div>
-      )}
+
     </div>
   );
 };

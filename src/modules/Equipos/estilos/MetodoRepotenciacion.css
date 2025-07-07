@@ -1,24 +1,33 @@
-/* ================= MOBILE FIRST ================= */
+.modal-repotenciacion-contenedor {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 550px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
 
-.titulo-repotenciacion {
-  font-size: 1.1rem;
-  font-weight: 700;
-  color: #1c3c75;
-  margin-bottom: 1rem;
+.modal-titulo-repotenciacion {
   display: flex;
   align-items: center;
   gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #0b2f6a;
+  margin-bottom: 1.5rem;
+  justify-content: center;
 }
+
+/* ================= CONTROLES ================= */
 
 .label-repotenciacion {
   font-size: 0.95rem;
-  font-weight: 500;
-  color: #6d7074;
+  font-weight: 600;
+  color: #333;
   margin-bottom: 0.25rem;
   display: block;
 }
 
-/* Selector de componente + botón subir */
 .selector-repotenciacion {
   display: flex;
   flex-direction: column;
@@ -33,25 +42,24 @@
   border-radius: 0.5rem;
   background-color: #f9fafb;
   color: #1e293b;
-  transition: border 0.2s ease;
   width: 100%;
+  transition: border 0.2s ease;
 }
 
 .select-repotenciacion:focus {
   outline: none;
-  border-color: #1a3566;
+  border-color: #0b2f6a;
   background-color: white;
 }
 
-/* Botón subir */
 .boton-subir-repotenciacion {
   padding: 0.6rem 1rem;
-  background-color: #061b47;
+  background-color: #0b2f6a;
   color: white;
   border: none;
   border-radius: 0.5rem;
   font-weight: bold;
-  font-size: 1rem;
+  font-size: 1.1rem;
   cursor: pointer;
   align-self: center;
   transition: background-color 0.2s ease, transform 0.2s ease;
@@ -64,7 +72,7 @@
   transform: scale(1.05);
 }
 
-/* Campo para ingresar cantidad */
+/* Campo cantidad */
 .campo-aumento-repotenciacion {
   display: flex;
   flex-direction: column;
@@ -92,14 +100,11 @@
 .unidad-repotenciacion {
   font-size: 0.85rem;
   color: #6b7280;
-  margin-top: -0.25rem;
   padding-left: 0.1rem;
-  padding-bottom: 0.5rem;
+  margin-top: -0.25rem;
 }
 
-
-/* ================= DESKTOP (min-width: 768px) ================= */
-
+/* ================= DESKTOP ================= */
 @media (min-width: 768px) {
   .selector-repotenciacion {
     flex-direction: row;
@@ -112,8 +117,8 @@
 
   .boton-subir-repotenciacion {
     margin-left: 0.5rem;
-    align-self: flex-start;
     width: auto;
+    align-self: flex-start;
   }
 
   .campo-aumento-repotenciacion {
@@ -128,6 +133,5 @@
 
   .unidad-repotenciacion {
     margin-top: 0;
-    padding-bottom: 0;
   }
 }

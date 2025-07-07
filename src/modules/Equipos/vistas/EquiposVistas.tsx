@@ -5,8 +5,9 @@ import "../estilos/EquiposVista.css";
 
 interface Equipo {
   placa: string;
-  colaborador: string;
-  fechaMantenimiento: string;
+  marca: string;
+  modelo: string;
+  fechaIngreso: string;
   ubicacion: string;
 }
 
@@ -15,12 +16,12 @@ const EquiposVista: React.FC = () => {
 
   useEffect(() => {
     const data: Equipo[] = [
-      { placa: "EQ-001", colaborador: "Juan Pérez", fechaMantenimiento: "2025-06-10", ubicacion: "Oficina 1" },
-      { placa: "EQ-002", colaborador: "Ana Gómez", fechaMantenimiento: "2025-06-15", ubicacion: "Oficina 2" },
-      { placa: "EQ-003", colaborador: "Carlos López", fechaMantenimiento: "2025-06-20", ubicacion: "Oficina 1" },
-      { placa: "EQ-004", colaborador: "Mariana Torres", fechaMantenimiento: "2025-06-18", ubicacion: "Oficina 2" },
-      { placa: "EQ-005", colaborador: "Luis Rodríguez", fechaMantenimiento: "2025-06-12", ubicacion: "Oficina 1" },
-      { placa: "EQ-006", colaborador: "Sofía Ramírez", fechaMantenimiento: "2025-06-22", ubicacion: "Oficina 2" },
+      { placa: "EQ-001", marca: "Dell", modelo: "OptiPlex 3080", fechaIngreso: "2025-06-10", ubicacion: "Oficina 1" },
+      { placa: "EQ-002", marca: "HP", modelo: "EliteBook 840", fechaIngreso: "2025-06-12", ubicacion: "Oficina 2" },
+      { placa: "EQ-003", marca: "Lenovo", modelo: "ThinkPad T14", fechaIngreso: "2025-06-14", ubicacion: "Oficina 1" },
+      { placa: "EQ-004", marca: "Asus", modelo: "Vivobook 15", fechaIngreso: "2025-06-16", ubicacion: "Oficina 2" },
+      { placa: "EQ-005", marca: "Acer", modelo: "Aspire 5", fechaIngreso: "2025-06-18", ubicacion: "Bodega" },
+      { placa: "EQ-006", marca: "Apple", modelo: "MacBook Pro", fechaIngreso: "2025-06-20", ubicacion: "Oficina 1" },
     ];
     setEquipos(data);
   }, []);
