@@ -1,6 +1,6 @@
 import { useState, type ReactNode } from 'react';
-import Header from './Header';
-import Sidebar from './sidebar';
+import Header from './components/header/Header';
+import Sidebar from './components/sidebar/sidebar';
 import './Layout.css';
 
 interface LayoutProps {

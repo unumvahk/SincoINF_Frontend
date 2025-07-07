@@ -1,0 +1,34 @@
+.alert-container {
+  width: 180px;
+  height: 50px;
+  border: none;
+  border-radius: 15px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.alert-content {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.alert-content > * {
+  font-size: 18px;
+}
+
+.alert-loading {
+  background-color: rgba(0, 0, 255, 0.398);
+}
+
+.alert-valid {
+  background-color: rgba(0, 128, 0, 0.200);
+  color: green;
+}
+
+.alert-invalid {
+  background-color: rgba(255, 0, 0, 0.200);
+  color: rgb(234, 0, 0);
+}
