@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
-import { CalendarDays } from 'lucide-react'; // Puedes usar lucide-react o fontawesome
-import '../estilos/HistorialMaquina.css';
+import { FaSearch, FaCalendarAlt } from 'react-icons/fa';
+import { CalendarDays } from 'lucide-react'; // Este lo mantenemos para los eventos
+import '../estilos/HistorialEquiposEspecifico.css';
 
 const HistorialMaquina: React.FC = () => {
   const [busqueda, setBusqueda] = useState('');
   const [fechaFiltro, setFechaFiltro] = useState('');
+
   const historial = [
     { fecha: '2025-06-10', descripcion: 'Cambio de disco duro a SSD 500GB' },
     { fecha: '2025-05-20', descripcion: 'Mantenimiento general y limpieza' },
@@ -20,30 +22,38 @@ const HistorialMaquina: React.FC = () => {
   return (
     <div className="contenedor-historial">
       <h3>Historial de la Máquina</h3>
+
       <div className="busqueda-historial">
-        <input 
-          type="text"
-          placeholder="Buscar..."
-          className="busquedaint"
-          value={busqueda}
-          onChange={(e) => setBusqueda(e.target.value)}
-        />
-        <input
-          type="date"
-          value={fechaFiltro}
-          onChange={(e) => setFechaFiltro(e.target.value)}
-        />
+        <div className="input-con-icono">
+          <FaSearch className="icono-input" />
+          <input
+            type="text"
+            placeholder="Nombre del movimiento"
+            className="busquedaint"
+            value={busqueda}
+            onChange={(e) => setBusqueda(e.target.value)}
+          />
+        </div>
+
+        <div className="input-con-icono">
+          <FaCalendarAlt className="icono-input" />
+          <input
+            type="date"
+            value={fechaFiltro}
+            onChange={(e) => setFechaFiltro(e.target.value)}
+          />
+        </div>
       </div>
+
       <ul className="lista-historial">
         {historialFiltrado.length > 0 ? (
           historialFiltrado.map((item, index) => (
             <li className="historial-caja" key={index}>
               <div className="historial-icono">
                 <CalendarDays size={18} />
-                <span>{item.fecha}</span>
+                <span>  {item.fecha}</span>
               </div>
               <div className="historial-descripcion">
-                
                 <p>{item.descripcion}</p>
               </div>
             </li>

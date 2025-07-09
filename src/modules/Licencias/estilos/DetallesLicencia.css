@@ -118,3 +118,31 @@
   background-color: #0b1a64;
   transform: translateY(-1px);
 }
+.contenedor-licencia {
+  position: relative;
+  padding-top: 3rem; /* espacio para la flecha */
+}
+
+.contenedor-flecha-volver {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  z-index: 100;
+}
+
+.btn-volver-icono {
+  background: none;
+  border: none;
+  font-size: 1.3rem;
+  color: #1c3c75;
+  cursor: pointer;
+  transition: color 0.2s ease;
+  margin-left:1rem;
+}
+
+.btn-volver-icono:hover {
+  color: #1c3c75;
+}
+
+
+

@@ -1,5 +1,5 @@
 /* === FONDO OSCURO DEL MODAL === */
-.modal-overlay {
+.traslado-modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
@@ -14,31 +14,30 @@
 }
 
 /* === CONTENIDO DEL MODAL === */
-.modal-contenido {
+.traslado-modal-contenido {
   background-color: #fff;
   padding: 2rem;
   border-radius: 0.75rem;
   width: 92%;
-  max-width: 500px;
+  max-width: 600px;
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
   position: relative;
   z-index: 1001;
-  margin: 1rem;
 }
 
 /* === TÍTULO DEL MODAL === */
-.modal-titulo {
+.traslado-modal-titulo {
   font-size: 1.6rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  color: #134070;
+  color: #0b2f6a;
   text-align: center;
 }
 
 /* === BOTÓN DE CERRAR === */
-.btn-cerrar {
+.traslado-btn-cerrar {
   position: absolute;
   top: 10px;
   right: 15px;
@@ -46,12 +45,12 @@
   background: none;
   border: none;
   cursor: pointer;
+  color: #333;
 }
 
-/* === INPUTS, SELECTS, FILE === */
-input[type="text"],
-select,
-input[type="file"] {
+/* === INPUTS Y SELECTS === */
+.traslado-input,
+.traslado-select {
   width: 100%;
   padding: 0.6rem 1rem;
   font-size: 0.95rem;
@@ -63,43 +62,75 @@ input[type="file"] {
   box-sizing: border-box;
 }
 
-input[type="text"]::placeholder {
+.traslado-input::placeholder {
   color: #9ca3af;
   font-style: italic;
 }
 
-input[type="text"]:focus,
-select:focus {
-  border-color: #3b82f6;
+.traslado-input:focus,
+.traslado-select:focus {
+  border-color: #0b2f6a;
   outline: none;
   background-color: #ffffff;
 }
 
 /* === LABELS === */
-label {
+.traslado-label {
   font-weight: 600;
   margin-bottom: 0.3rem;
   display: block;
   font-size: 0.9rem;
   color: #374151;
+  margin-top: 1rem;
 }
 
 /* === BLOQUES DE INFORMACIÓN === */
-.bloque-equipo {
+.traslado-bloque-equipo {
   background-color: #f8f9fa;
   border: 1px solid #ddd;
   padding: 1rem;
   margin-top: 1rem;
   border-radius: 0.5rem;
+  text-align: center;
 }
 
-.vista-equipo p {
-  font-size: 0.9rem;
-  margin: 0.25rem 0;
+/* === TÍTULO DE BLOQUES === */
+.traslado-titulo-bloque {
+  font-size: 1.05rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+/* === LÍNEAS DE INFORMACIÓN === */
+.traslado-info-linea {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; /* <-- alineado a la izquierda */
+  gap: 0.5rem;
+  margin: 0.3rem 0;
+  font-size: 0.92rem;
+  flex-wrap: wrap;
+}
+
+
+.traslado-icono {
+  color: #0b2f6a;
+  font-size: 1rem;
+}
+
+.traslado-info-etiqueta {
+  font-weight: 600;
+  color: #0b2f6a;
+  margin-right: 0.3rem;
+}
+
+.traslado-info-valor {
+  color: #111827;
 }
 
 /* === MENSAJE DE SALIDA === */
-.mensaje-salida {
+.traslado-mensaje-salida {
   margin-top: 1rem;
   background-color: #fff3cd;
   color: #856404;
@@ -107,14 +138,15 @@ label {
   border-radius: 0.5rem;
   padding: 0.7rem;
   font-size: 0.87rem;
+  text-align: center;
 }
 
 /* === CAMPO ADJUNTAR ARCHIVO === */
-.campo-adjuntar {
-  margin-top: 1rem;
+.traslado-campo-adjuntar {
+  margin-top: 1.5rem;
 }
 
-.adjuntar-area {
+.traslado-adjuntar-area {
   background-color: #f9f9f9;
   padding: 0.6rem 0.8rem;
   border-radius: 0.4rem;
@@ -126,16 +158,19 @@ label {
   margin-top: 0.3rem;
 }
 
-.adjuntar-area input[type="file"] {
+.traslado-input-file {
   font-size: 0.85rem;
   padding: 0.2rem;
+  width: 100%;
 }
-.estado-contenedor {
+
+/* === ESTADO DEL EQUIPO === */
+.traslado-estado-contenedor {
   margin-top: 1.5rem;
   text-align: center;
 }
 
-.estado-label {
+.traslado-estado-label {
   font-size: 1rem;
   font-weight: 600;
   color: #374151;
@@ -143,7 +178,7 @@ label {
   display: block;
 }
 
-.estado-select {
+.traslado-estado-select {
   width: 100%;
   padding: 0.6rem 1rem;
   font-size: 0.95rem;
@@ -154,47 +189,15 @@ label {
   transition: border-color 0.3s ease;
 }
 
-.estado-select:focus {
-  border-color: #007bff;
+.traslado-estado-select:focus {
+  border-color: #0b2f6a;
   background-color: #ffffff;
   outline: none;
 }
 
-.slider {
-  position: absolute;
-  cursor: pointer;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background-color: #ccc;
-  transition: 0.4s;
-  border-radius: 34px;
-}
-
-.slider:before {
-  position: absolute;
-  content: "";
-  height: 16px;
-  width: 16px;
-  left: 2px;
-  bottom: 2px;
-  background-color: white;
-  transition: 0.4s;
-  border-radius: 50%;
-}
-
-.switch input:checked + .slider {
-  background-color: #007bff;
-}
-
-.switch input:checked + .slider:before {
-  transform: translateX(20px);
-}
-
 /* === BOTÓN PRINCIPAL === */
-.btn-principal {
-  background-color: #007bff;
+.traslado-btn-principal {
+  background-color: #16a34a;
   color: white;
   border: none;
   padding: 0.7rem 1.2rem;
@@ -207,40 +210,51 @@ label {
   transition: background-color 0.3s ease;
 }
 
-.btn-principal:hover {
-  background-color: #0056b3;
+.traslado-btn-principal:hover {
+  background-color: #15803d;
 }
 
-/* === RESPONSIVE: MEDIANAS === */
-@media (min-width: 600px) {
-  .switch-label {
-    font-size: 1rem;
-  }
-
-  .switch-opcion {
-    font-size: 0.95rem;
-  }
-
-  .formulario-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.8rem;
-  }
+/* === MENSAJE DE ÉXITO === */
+.traslado-mensaje-exito {
+  margin-top: 1rem;
+  text-align: center;
+  background-color: #d1fae5;
+  color: #065f46;
+  border: 1px solid #10b981;
+  padding: 0.6rem 1rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
 }
 
-/* === RESPONSIVE: GRANDES === */
-@media (min-width: 1024px) {
-  .switch-wrapper {
-    gap: 14px;
-  }
-
-  .switch {
-    width: 50px;
-    height: 24px;
-  }
-
-  .slider:before {
-    height: 20px;
-    width: 20px;
-  }
+/* === ERRORES === */
+.traslado-error {
+  color: #dc2626;
+  font-size: 0.85rem;
+  margin-top: -0.5rem;
+  margin-bottom: 0.8rem;
 }
+
+/* === COINCIDENCIAS === */
+.traslado-lista-coincidencias {
+  list-style: none;
+  padding: 0;
+  margin-top: 0.5rem;
+  background: #f1f5f9;
+  border: 1px solid #cbd5e1;
+  border-radius: 0.5rem;
+  max-height: 150px;
+  overflow-y: auto;
+}
+
+.traslado-lista-coincidencias li {
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.traslado-lista-coincidencias li:hover {
+  background-color: #e2e8f0;
+}
+
+

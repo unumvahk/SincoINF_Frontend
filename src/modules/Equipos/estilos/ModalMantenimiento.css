@@ -1,3 +1,4 @@
+/* Ya existentes */
 .modal-mantenimiento.modal-overlay {
   font-family: 'Segoe UI', sans-serif;
 }
@@ -15,7 +16,7 @@
 .modal-mantenimiento .modal-titulo {
   text-align: center;
   font-size: 1.5rem;
-  color: #134070;
+  color: #0b2f6a;
   margin-bottom: 1.5rem;
 }
 
@@ -28,16 +29,16 @@
 
 .tabs-mantenimiento button {
   padding: 0.5rem 1rem;
-  border: 1px solid #007bff;
+  border: 1px solid #0b2f6a;
   background-color: white;
-  color: #007bff;
+  color: #0b2f6a;
   cursor: pointer;
   border-radius: 5px;
   font-weight: 500;
 }
 
 .tabs-mantenimiento button.activo {
-  background-color: #007bff;
+  background-color: #0b2f6a;
   color: white;
 }
 
@@ -53,16 +54,18 @@
 }
 
 .formulario-mant input,
-.formulario-mant textarea {
+.formulario-mant textarea,
+.formulario-mant select {
   padding: 0.6rem 0.8rem;
   border-radius: 5px;
   border: 1px solid #ccc;
   font-size: 0.95rem;
+  width: 100%;
 }
 
 .btn-principal {
   margin-top: 1rem;
-  background-color: #007bff;
+  background-color: #0b2f6a;
   color: white;
   padding: 0.7rem;
   border: none;
@@ -79,4 +82,71 @@
   border: none;
   font-size: 20px;
   cursor: pointer;
+}
+
+/* 🔍 Lista de coincidencias */
+.lista-coincidencias {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  max-height: 150px;
+  overflow-y: auto;
+  background-color: #fff;
+  z-index: 10;
+}
+
+.lista-coincidencias li {
+  padding: 0.5rem 0.75rem;
+  cursor: pointer;
+  border-bottom: 1px solid #eee;
+}
+
+.lista-coincidencias li:hover {
+  background-color: #f0f0f0;
+}
+
+/* 🧾 Bloque de proveedor seleccionado */
+.bloque-info {
+  background-color: #f9f9f9;
+  padding: 0.8rem 1rem;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+.bloque-info p {
+  margin: 0.3rem 0;
+}
+
+/* 📱 Responsive */
+@media (max-width: 480px) {
+  .modal-mantenimiento.modal-contenido {
+    width: 90%;
+    padding: 1.2rem;
+  }
+
+  .formulario-mant input,
+  .formulario-mant textarea,
+  .formulario-mant select {
+    font-size: 0.9rem;
+  }
+
+  .tabs-mantenimiento {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}
+.mensaje-exito {
+  margin-top: 1rem;
+  background-color: #d4edda;
+  color: #155724;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  font-weight: 500;
+  border: 1px solid #c3e6cb;
+  text-align: center;
 }

@@ -1,0 +1,253 @@
+/* === CONTENEDOR GENERAL === */
+.licencia-contenido {
+  padding: 1.5rem;
+  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  margin-left: 5rem;
+  margin-top: -1rem;    
+  min-height: calc(100vh - 4rem);
+  box-sizing: border-box;
+  overflow-x: auto;
+}
+
+/* === TÍTULO PRINCIPAL CENTRADO CON ÍCONO === */
+.licencia-titulo {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #0b2f6a;
+  margin-bottom: 6.0rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* === NAVEGACIÓN DE PESTAÑAS === */
+.licencia-tab-nav {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.licencia-tab-nav button {
+  flex: 1;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  border: 1px solid #1c3c75;
+  background-color: white;
+  color: #1c3c75;
+  cursor: pointer;
+  border-radius: 6px; /* 🔄 Suaviza bordes */
+}
+
+.licencia-tab-nav button.active {
+  background-color: #1c3c75;
+  color: white;
+}
+
+/* === BARRA DE BÚSQUEDA Y BOTÓN AÑADIR === */
+.licencia-barra-superior {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.licencia-input-con-icono {
+  position: relative;
+  flex: 1;
+  min-width: 300px;
+}
+
+.licencia-input-con-icono input {
+  width: 100%;
+  padding: 0.55rem 2.5rem 0.55rem 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 6px; /* 🔄 Menos cuadrado */
+  font-size: 0.95rem;
+  line-height: 1.2rem;
+}
+
+.licencia-icono-lupa {
+  position: absolute;
+  right: 0.8rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #888;
+  font-size: 1rem;
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+}
+
+.licencia-btn-agregar {
+  background-color: darkgreen;
+  color: white;
+  border: none;
+  padding: 0.55rem 1.2rem;
+  font-size: 0.9rem;
+  border-radius: 8px; /* 🔄 Menos cuadrado */
+  font-weight: 500;
+  cursor: pointer;
+  white-space: nowrap;
+  height: 2.3rem;
+  display: flex;
+  align-items: center;
+}
+
+/* === CAJAS RESUMEN === */
+.licencia-cajas-resumen {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.licencia-caja {
+  flex: 1 1 200px;
+  background-color: #f2f5fb;
+  padding: 1rem 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.licencia-caja h4 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+  color: #1c3c75;
+}
+
+.licencia-caja p {
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: #333;
+}
+
+/* === TABLA === */
+.tabla-licencia {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+  background-color: white;
+  font-size: 0.9rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  border-radius: 10px; /* ✅ Bordes redondeados */
+  overflow: hidden;     /* ✅ Evita que sobresalga contenido */
+}
+
+.tabla-licencia thead {
+  background-color: #0b2f6a;
+  color: white;
+  border-bottom: 2px solid #0b2f6a;
+}
+
+.tabla-licencia th,
+.tabla-licencia td {
+  padding: 0.75rem;
+  text-align: left;
+  border: none;
+}
+
+.tabla-licencia tbody tr {
+  border-bottom: 1px solid #eee;
+}
+
+.tabla-licencia tbody tr:hover {
+  background-color: #f9f9f9;
+}
+
+/* === BOTÓN DETALLES === */
+.licencia-btn-detalles {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  padding: 0.45rem 1rem;
+  border-radius: 8px; /* ✅ Más suave */
+  white-space: nowrap;
+  min-width: 100px;
+  display: block;
+  margin: 0 auto;
+  text-align: center;
+}
+
+/* === RESPONSIVE === */
+@media screen and (max-width: 768px) {
+  .licencia-contenido {
+    padding: 1rem;
+    margin-left: 0;
+  }
+
+  .licencia-barra-superior {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .licencia-tab-nav {
+    flex-direction: column;
+  }
+
+  .licencia-tab-nav button {
+    width: 100%;
+  }
+
+  .tabla-licencia {
+    border: none;
+  }
+
+  .tabla-licencia thead {
+    display: none;
+  }
+
+  .tabla-licencia tr {
+    display: block;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    padding: 0.5rem;
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
+
+  .tabla-licencia td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-bottom: 1px solid #eee;
+  }
+
+  .tabla-licencia td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #555;
+  }
+
+  .tabla-licencia td:last-child {
+    border-bottom: none;
+  }
+
+  .licencia-cajas-resumen {
+    flex-direction: column;
+  }
+}
+/* === NUEVO: ESTILO PARA EL SELECT DE FILTRO === */
+.licencia-select-filtro {
+  padding: 0.55rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #333;
+  min-width: 140px;
+  height: 2.3rem;
+}
+
+/* RESPONSIVE PARA EL SELECT DE FILTRO */
+@media screen and (max-width: 768px) {
+  .licencia-select-filtro {
+    width: 100%;
+  }
+}

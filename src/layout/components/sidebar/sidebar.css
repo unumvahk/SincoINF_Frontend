@@ -1,4 +1,5 @@
-.sidebar {
+/* === Contenedor principal del sidebar === */
+.sidebar-contenedor {
   display: none;
   width: 60px;
   background-color: #fefefe;
@@ -17,53 +18,51 @@
   transition: width 0.3s ease;
 }
 
-.sidebar.expandido {
+.sidebar-expandido {
   display: flex;
   width: 150px;
 }
 
+/* Mostrar letras cuando esté expandido, en cualquier pantalla */
+.sidebar-contenedor .sidebar-texto {
+  display: none;
+}
+
+.sidebar-expandido .sidebar-texto {
+  display: inline;
+}
+
+/* === Pantallas grandes === */
 @media (min-width: 1024px) {
-  .sidebar {
+  .sidebar-contenedor {
     display: flex;
-    width: 70px; /* ancho mínimo más cómodo */
+    width: 70px;
   }
 
-  .sidebar:hover {
-    width: 200px; /* mayor tamaño al expandirse */
+  .sidebar-contenedor:hover {
+    width: 200px;
   }
 
-  .sidebar .texto {
-    display: none;
-  }
-
-  .sidebar:hover .texto {
+  .sidebar-contenedor:hover .sidebar-texto {
     display: inline;
   }
 
-  .icono {
+  .sidebar-icono {
     font-size: 22px;
-    width: 50px; /* más espacio para ícono */
+    width: 50px;
   }
 
-  .texto {
+  .sidebar-texto {
     font-size: 17px;
   }
 }
 
-.sidebar-item {
-  padding: 12px 10px;
-  gap: 8px;
-}
-
-
-.sidebar.expandido .texto {
-  display: inline;
-}
-
+/* === Ítems del Sidebar === */
 .sidebar-item {
   display: flex;
   align-items: center;
-  padding: 10px;
+  gap: 8px;
+  padding: 12px 10px;
   color: #333;
   cursor: pointer;
   width: 100%;
@@ -76,27 +75,28 @@
   transform: scale(1.05);
 }
 
-.sidebar-item.activo {
+.sidebar-item-activo {
   background-color: #060471;
-  transform: scale(0.9);
+  transform: scale(0.95);
 }
 
-.sidebar-item.activo .texto,
-.sidebar-item.activo .icono {
+.sidebar-item-activo .sidebar-icono,
+.sidebar-item-activo .sidebar-texto {
   color: white;
 }
 
-.icono {
+/* === Íconos === */
+.sidebar-icono {
   font-size: 20px;
   color: #060471;
-  margin-right: 10px;
   transition: color 0.2s ease;
   width: 40px;
+  pointer-events: none; /* permite que el clic lo reciba el div padre */
 }
 
-.texto {
+/* === Texto === */
+.sidebar-texto {
   font-size: 16px;
   color: #000000;
   transition: color 0.3s ease;
-  display: none;
 }

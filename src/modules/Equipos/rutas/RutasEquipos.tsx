@@ -5,8 +5,12 @@ import EquiposVista from "../vistas/EquiposVistas";
 const RutasEquipos = () => {
   return (
     <Routes>
+      {/* Ruta por defecto al entrar a /equipos */}
+      <Route path="" element={<EquiposVista />} />
+      
+      {/* Otras rutas */}
       <Route path="informacion" element={<VistaInformacionEquipo />} />
-      <Route path="info" element={<EquiposVista />} />
+    
     </Routes>
   );
 };

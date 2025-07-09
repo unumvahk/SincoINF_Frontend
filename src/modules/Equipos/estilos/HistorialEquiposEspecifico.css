@@ -1,24 +1,26 @@
-/* CONTENEDOR GENERAL */
 .contenedor-info-equipo {
   display: flex;
   flex-direction: column;
   gap: 1.5rem;
-  
+
   width: 100%;
   box-sizing: border-box;
-  max-width: 1200px;       /* Limita el ancho máximo */
-  margin: 0 auto;          /* Centra horizontalmente */
+  max-width: 1200px;
+  margin: 0 auto;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
-
 
 /* COLUMNA IZQUIERDA */
 .columna-izquierda {
   display: flex;
   flex-direction: column;
   gap: 1.25rem;
-  flex: 2;
   padding-left: 0.25rem;
   align-items: center;
+  width: 100%;
+  max-width: 95%;
 }
 
 /* COLUMNA DERECHA */
@@ -29,10 +31,9 @@
   border: 0.093rem solid #b9b7b7;
   box-shadow: 0 0.25rem 0.5rem rgba(118, 118, 118, 0.05);
   transition: all 0.3s ease;
-
   width: 100%;
-  max-width: 400px;         /* Limita el ancho incluso en móvil */
-  margin: 0 auto;           /* Centra en pantallas pequeñas */
+  max-width: 85%;
+  margin-top: 1.5rem;
 }
 
 /* HISTORIAL: CONTENEDOR */
@@ -57,8 +58,24 @@
   gap: 0.75rem;
 }
 
-.busqueda-historial input {
-  padding: 0.625rem 0.75rem;
+.input-con-icono {
+  position: relative;
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.input-con-icono .icono-input {
+  position: absolute;
+  left: 0.75rem;
+  color: #183363;
+  pointer-events: none;
+  font-size: 1rem;
+}
+
+.input-con-icono input {
+  padding-left: 2.25rem !important;
+  padding-right: 0.75rem;
   border: 1px solid #aaaaab;
   border-radius: 0.5rem;
   font-size: 0.95rem;
@@ -66,9 +83,10 @@
   color: #374151;
   transition: border 0.2s;
   height: 2.5rem;
+  width: 100%;
 }
 
-.busqueda-historial input:focus {
+.input-con-icono input:focus {
   outline: none;
   border-color: #183363;
 }
@@ -130,29 +148,23 @@
 }
 
 /* RESPONSIVE: COLUMNAS AL LADO EN PANTALLAS GRANDES */
-@media (min-width: 48rem) {
+@media (min-width: 1230px) {
   .contenedor-info-equipo {
     flex-direction: row;
     align-items: flex-start;
+    justify-content: space-between;
+    text-align: left;
   }
 
   .columna-izquierda {
-    flex: 2;
+    width: 65%;
+    align-items: flex-start;
   }
 
   .columna-derecha {
-    margin-left: 1.5rem;
-    max-width: 350px;
-    margin-top:2rem;
-  }
-
-  .busqueda-historial {
-    flex-direction: row;
-    gap: 0.75rem;
-  }
-
-  .busqueda-historial input {
-    flex: 1;
+    width: 30%;
+    margin-top: 2rem;
+    margin-right: 1rem;
+    max-width: none;
   }
 }
-

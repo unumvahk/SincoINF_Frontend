@@ -1,0 +1,11 @@
+.equipos-vista-contenedor {
+  padding: 1rem;
+  text-align: center;
+}
+
+.titulo-equipos {
+  font-size: 1.8rem;
+  color: #0b2f6a;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}

@@ -1,98 +1,137 @@
-.caja-repotenciacion {
-  background-color: #f3f3f4;
-  border: 1px solid #dcdcdf;
-  border-radius: 0.75rem; /* 12px */
-  box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.08); /* 2px 6px */
-  padding: 1rem; /* 16px */
-  width: 100%;
-  max-width: 31.25rem; /* 500px */
-  margin: 1rem 0; /* 16px */
+.modal-repotenciacion-contenedor {
+  background: white;
+  padding: 2rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  max-width: 550px;
+  margin: auto;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.modal-titulo-repotenciacion {
   display: flex;
-  flex-direction: column;
-  gap: 1rem; /* 16px */
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.5rem;
+  color: #0b2f6a;
+  margin-bottom: 1.5rem;
+  justify-content: center;
 }
 
-.caja-repotenciacion .titulo {
-  font-weight: 600;
-  font-size: 1rem;
-  color: #374151;
-}
+/* ================= CONTROLES ================= */
 
-/* Selector de método + botón */
-.selector-repotenciacion {
-  display: flex;
-  flex-direction: row;
-  gap: 0.5rem; /* 8px */
-}
-
-.selector-repotenciacion select {
-  padding: 0.625rem 0.75rem; /* 10px 12px */
-  border-radius: 0.5rem; /* 8px */
-  border: 1px solid #23539c;
-  font-size: 0.9rem;
-  width: 100%;
-}
-
-.selector-repotenciacion button {
-  padding: 0.625rem 0.875rem; /* 10px 14px */
-  background-color: #061b47;
-  color: white;
-  border: none;
-  border-radius: 0.5rem;
-  cursor: pointer;
-  font-weight: bold;
-  transition: background-color 0.2s ease, transform 0.2s ease;
-  width: 3.125rem; /* 50px */
-}
-
-.selector-repotenciacion button:hover {
-  background-color: #1d4ed8;
-  transform: scale(1.03);
-}
-
-/* Campo de aumento de repotenciación */
-.campo-aumento label {
+.label-repotenciacion {
   font-size: 0.95rem;
-  font-weight: 500;
-  color: #374151;
-  margin-bottom: 0.25rem; /* 4px */
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 0.25rem;
   display: block;
 }
 
-.campo-aumento input {
-  /* 250px */
-  padding: 0.625rem 0.75rem; /* 10px 12px */
-  border-radius: 0.5rem;
-  border: 1px solid #d1d5db;
-  font-size: 0.95rem;
-  outline: none;
+.selector-repotenciacion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1.5rem;
 }
 
-/* 🖥 Pantallas medianas (768px en adelante) */
-@media (min-width: 48rem) {
-  .caja-repotenciacion {
-    max-width: 25rem; /* 400px */
-  }
+.select-repotenciacion {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #1c3c75;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  color: #1e293b;
+  width: 100%;
+  transition: border 0.2s ease;
+}
 
+.select-repotenciacion:focus {
+  outline: none;
+  border-color: #0b2f6a;
+  background-color: white;
+}
+
+.boton-subir-repotenciacion {
+  padding: 0.6rem 1rem;
+  background-color: #0b2f6a;
+  color: white;
+  border: none;
+  border-radius: 0.5rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  cursor: pointer;
+  align-self: center;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  width: 100%;
+  max-width: 220px;
+}
+
+.boton-subir-repotenciacion:hover {
+  background-color: #1d4ed8;
+  transform: scale(1.05);
+}
+
+/* Campo cantidad */
+.campo-aumento-repotenciacion {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.input-repotenciacion {
+  padding: 0.55rem 0.75rem;
+  font-size: 0.95rem;
+  border: 1px solid #4c4c4d;
+  border-radius: 0.5rem;
+  background-color: #f9fafb;
+  color: #1e293b;
+  transition: border 0.2s ease;
+  width: 100%;
+}
+
+.input-repotenciacion:focus {
+  outline: none;
+  border-color: #1c3c75;
+  background-color: white;
+}
+
+.unidad-repotenciacion {
+  font-size: 0.85rem;
+  color: #6b7280;
+  padding-left: 0.1rem;
+  margin-top: -0.25rem;
+}
+
+/* ================= DESKTOP ================= */
+@media (min-width: 768px) {
   .selector-repotenciacion {
     flex-direction: row;
+    align-items: center;
   }
 
-  .selector-repotenciacion select {
-    padding: 0.625rem 0.75rem;
-    border-radius: 0.5rem;
-    border: 1px solid #23539c;
-    font-size: 0.9rem;
-    width: 100%;
+  .select-repotenciacion {
     flex: 1;
   }
 
-  .selector-repotenciacion button {
-    padding: 0.625rem 0.875rem;
-    width: 3.125rem; /* 50px */
+  .boton-subir-repotenciacion {
+    margin-left: 0.5rem;
+    width: auto;
+    align-self: flex-start;
   }
 
-  .campo-aumento input {
-    width: 20rem; /* 320px */
+  .campo-aumento-repotenciacion {
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .input-repotenciacion {
+    width: 60%;
+  }
+
+  .unidad-repotenciacion {
+    margin-top: 0;
   }
 }

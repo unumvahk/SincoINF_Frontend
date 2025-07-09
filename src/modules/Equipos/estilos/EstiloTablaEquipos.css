@@ -1,205 +1,294 @@
-/* === Contenedor general === */
-.contenido {
+/* === Contenedor General === */
+.equipos-contenedor {
   padding: 1rem;
-  background-color: #f2f2f2;
-  max-width: 90%;
-  margin: 0 auto;
-  font-family: Arial, sans-serif;
+  background-color: #ffffff;
+  font-family: sans-serif;
+  max-width: 100%;
+  margin: auto;
 }
 
-/* === Navegación de pestañas === */
-.tab-nav {
+/* === Barra Superior === */
+.equipos-barra-superior {
   display: flex;
-  gap: 1rem;
-  margin-bottom: 1.5rem;
-  flex-wrap: wrap;
-}
-
-.tab-nav button {
-  flex: 1;
-  padding: 0.6rem 1rem;
-  font-size: clamp(0.9rem, 2.5vw, 1rem);
-  border: 1px solid #1c3c75;
-  background-color: white;
-  color: #1c3c75;
-  cursor: pointer;
-  border-radius: 0.25rem;
-}
-
-.tab-nav button.active {
-  background-color: #1c3c75;
-  color: white;
-}
-
-/* === Barra de búsqueda y botones === */
-.barra-superior {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
+  flex-direction: column;
+  gap: 0.75rem;
   margin-bottom: 1rem;
-  flex-wrap: wrap;
 }
 
-.input-con-icono {
+/* === Filtros === */
+.equipos-filtros {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.equipos-filtros select {
+  padding: 0.4rem 0.6rem;
+  font-size: 0.9rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+}
+
+/* === Input Búsqueda === */
+.equipos-busqueda {
   position: relative;
   flex: 1;
-  min-width: min(100%, 15rem);
+  min-width: 180px;
 }
 
-.input-con-icono input {
+.equipos-busqueda input {
   width: 100%;
-  padding: 0.5rem 2.5rem 0.5rem 0.75rem;
+  padding: 0.4rem 2rem 0.4rem 0.75rem;
   border: 1px solid #ccc;
-  border-radius: 0.25rem;
-  font-size: clamp(0.9rem, 2vw, 1rem);
+  border-radius: 0.4rem;
+  font-size: 0.9rem;
+  background-color: white;
+  color: #333;
 }
 
-.icono-lupa {
+.equipos-busqueda input:focus {
+  outline: none;
+  border-color: #1c3c75;
+}
+
+.equipos-icono-busqueda {
   position: absolute;
-  right: 0.8rem;
+  right: 0.75rem;
   top: 50%;
   transform: translateY(-50%);
   pointer-events: none;
-  color: #888;
   font-size: 1rem;
+  color: #888;
 }
 
-/* Botón de añadir */
-.barra-superior .agregar-btn {
-  background-color: darkgreen;
+/* === Botón Añadir === */
+.equipos-btn-agregar {
+  background-color: #2e7d32;
   color: white;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
   border: none;
-  padding: 0.45rem 1rem;
-  font-size: clamp(0.85rem, 2vw, 1rem);
-  border-radius: 0.25rem;
+  border-radius: 0.4rem;
   font-weight: 500;
   cursor: pointer;
+  width:200px;
+  margin: auto;
 }
 
 /* === Tabla === */
-.tabla-equipos {
+.equipos-tabla {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 1rem;
   background-color: white;
-  box-shadow: 0 0 0.625rem rgba(0, 0, 0, 0.1); /* 10px */
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
+  border-radius: 0.75rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  font-size: 0.9rem;
 }
 
-.tabla-equipos th,
-.tabla-equipos td {
-  padding: 0.75rem;
-  text-align: left;
-  border: 1px solid #ddd;
+/* === Encabezado Azul === */
+.equipos-tabla thead {
+  background-color: #0b2f6a;
+  color: white;
+}
+.filtrar-equipos {
+  padding: 0.4rem 0.75rem;
+  font-size: 0.9rem;
+  border-radius: 0.4rem;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #333;
+  transition: border-color 0.2s ease-in-out;
+  margin-bottom:1rem;
 }
 
-.tabla-equipos thead {
-  background-color: #f0f0f0;
+.filtrar-equipos:focus {
+  outline: none;
+  border-color: #1c3c75;
+  box-shadow: 0 0 0 2px rgba(28, 60, 117, 0.15);
 }
-
-/* === Botones dentro de la tabla === */
-.info,
-.inactivar {
-  font-size: clamp(0.85rem, 2vw, 0.95rem);
-  padding: 0.45rem 1rem;
-  border-radius: 0.25rem;
-  white-space: nowrap;
-  min-width: 6rem;
-  text-align: center;
-}
-
-.info {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.inactivar {
-  background-color: #dc3545;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-/* === RESPONSIVE (MÓVILES) === */
-@media screen and (max-width: 768px) {
-  .contenido {
-    padding: 1rem;
-  }
-
-  .barra-superior {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .tab-nav {
-    flex-direction: column;
-  }
-
-  .tab-nav button {
-    width: 100%;
-  }
-
-  .tabla-equipos thead {
+/* === Responsive para móviles === */
+@media (max-width: 767px) {
+  .equipos-tabla thead {
     display: none;
   }
 
-  .tabla-equipos tr {
+  .equipos-tabla tr {
     display: block;
     margin-bottom: 1rem;
-    border: 1px solid #ccc;
+    border: 1px solid #ddd;
     border-radius: 0.5rem;
+    background-color: white;
     padding: 0.5rem;
-    background-color: #fff;
   }
 
-  .tabla-equipos td {
+  .equipos-tabla td {
     display: flex;
     justify-content: space-between;
     padding: 0.5rem 1rem;
-    border: none;
     border-bottom: 1px solid #eee;
   }
 
-  .tabla-equipos td::before {
+  .equipos-tabla td::before {
     content: attr(data-label);
     font-weight: bold;
     color: #555;
   }
 
-  .tabla-equipos td:last-child {
+  .equipos-tabla td:last-child {
     border-bottom: none;
+  }
+
+  .equipos-acciones {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.5rem;
+  }
+
+  .equipos-btn-detalles,
+  .equipos-btn-inactivar {
+    width: 90%;
+    font-size: 0.85rem;
+    padding: 0.3rem 0.6rem;
   }
 }
 
-/* === ESCALADO EN PANTALLAS GRANDES === */
-@media screen and (min-width: 1440px) {
-  .contenido {
-    padding: 2rem 4rem;
-    max-width: 80%;
+@media (min-width: 768px) {
+  .equipos-contenedor {
+    padding: 2rem;
+    max-width: 1500px;
+    margin: 0 auto;
   }
 
-  .tabla-equipos {
+  .equipos-barra-superior {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    background-color: #ffffff;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+
+  .equipos-filtro-contenedor {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .filtrar-equipos {
+    flex: 0 0 200px;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-top:1rem;
+  }
+
+  .equipos-busqueda {
+    flex: 1;
+    min-width: 240px;
+  }
+
+  .equipos-busqueda input {
+    font-size: 1rem;
+    padding: 0.5rem 2rem 0.5rem 0.75rem;
+  }
+
+  .equipos-btn-agregar {
+    font-size: 1rem;
+    padding: 0.55rem 1.2rem;
+    border: none;
+    border-radius: 0.4rem;
+    font-weight: 500;
+    cursor: pointer;
+    background-color: #2e7d32;
+    color: white;
+    white-space: nowrap;
+    align-self: flex-start;
+  }
+
+  .equipos-tabla {
+    font-size: 0.95rem;
+    border-radius: 0.6rem;
+  }
+
+  .equipos-tabla thead {
+    display: table-header-group;
     font-size: 1rem;
   }
 
-  .barra-superior .agregar-btn {
-    font-size: 1rem;
+  .equipos-tabla tr {
+    display: table-row;
   }
 
-  /* === Modal flotante === */
+  .equipos-tabla td,
+  .equipos-tabla th {
+    display: table-cell;
+    padding: 0.9rem 1rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+  }
+
+  .equipos-tabla td::before {
+    display: none;
+  }
+
+  .equipos-acciones {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .equipos-btn-detalles,
+  .equipos-btn-inactivar {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.75rem;
+    min-width: 80px;
+    border-radius: 0.3rem;
+    white-space: nowrap;
+    width:0.7rem !important;
+  }
+}
+
+
+/* === Botones de Acción === */
+.equipos-btn-detalles {
+  background-color: #1c3c75;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  width: 12rem;
+}
+
+.equipos-btn-inactivar {
+  background-color: #c62828;
+  color: white;
+  border: none;
+  border-radius: 0.3rem;
+  cursor: pointer;
+  width: 12rem;
+}
+
+
+/* === Modal flotante === */
 .modal-overlay {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
-  align-items: center;
   justify-content: center;
-  z-index: 1000;
+  align-items: center;
+  z-index: 9999;
 }
 
 .modal-contenido {
@@ -210,30 +299,7 @@
   width: 600px;
   position: relative;
   box-shadow: 0 0 2rem rgba(0, 0, 0, 0.3);
-}
 
-/* Botón para cerrar modal */
-.cerrar-modal {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: crimson;
-  border: none;
-  color: white;
-  font-size: 1.2rem;
-  width: 2rem;
-  height: 2rem;
-  border-radius: 50%;
-  cursor: pointer;
-}
-
-/* Responsive para modal */
-@media screen and (max-width: 600px) {
-  .modal-contenido {
-    width: 90%;
-    padding: 1.5rem;
-  }
 }
 
 
-}

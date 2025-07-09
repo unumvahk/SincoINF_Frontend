@@ -5,7 +5,7 @@ import AuthLayout from "../../../layout/auth-layout/AuthLayout";
 const IsAuthenticated = () => {
   const { usuario } = useAuth();
 
-  return usuario ? <Navigate to={'/equipos/info'} replace /> : <AuthLayout />
+  return usuario ? <Navigate to={'/equipos/'} replace /> : <AuthLayout />
 };
 
 export default IsAuthenticated;

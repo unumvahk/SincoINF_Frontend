@@ -1,111 +1,237 @@
-/* Estilos generales */
-body {
-  margin: 0;
-  padding: 0;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #f4f6f9;
+/* === CONTENEDOR MODAL === */
+.ingreso-equipo-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 5vh;
+  overflow-y: auto;
+  z-index: 9999;
 }
 
-/* Contenedor del formulario */
-.formulario-equipo-contenedor {
-  background-color: #ffffff;
-  padding: 2rem;
+.ingreso-equipo-modal {
+  background-color: #fff;
   border-radius: 1rem;
+  padding: 2rem 2.5rem;
   width: 95%;
-  max-width: 1200px;
-  margin: 5vh auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-  border: 1px solid #d0d7e2;
+  max-width: 850px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
 }
 
-/* Título */
-.formulario-equipo-titulo {
+/* === BOTÓN CERRAR === */
+.ingreso-equipo-cerrar {
+  position: absolute;
+  top: 1rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #444;
+  cursor: pointer;
+}
+
+/* === TÍTULO === */
+.ingreso-equipo-titulo {
   text-align: center;
-  font-size: 2rem;
-  color: #1c3c75;
-  margin-bottom: 2rem;
-  font-weight: 600;
+  color: #0b2f6a;
+  margin-bottom: 1.5rem;
+  font-size: 1.6rem;
+  font-weight: 700;
 }
 
-/* Diseño mobile-first: 1 columna */
-.formulario-equipo-grid {
-  display: flex;
-  flex-direction: column;
-  gap: 2rem;
-}
-/* === Columnas de inputs === */
-
-.formulario-equipo-columna {
-  display: flex;
-  flex-direction: column;
+/* === FORMULARIO === */
+.ingreso-equipo-form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
   gap: 1rem;
+  margin-bottom: 2rem;
 }
 
-/* === Inputs generales === */
-.columna-ingreso input {
-  padding: 0.6rem;
-  border: 2px solid #4c5fb3;
-  border-radius: 5px;
+@media (min-width: 768px) {
+  .ingreso-equipo-form-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+}
+@media (min-width: 1024px) {
+  .ingreso-equipo-form-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* === CAMPOS === */
+.ingreso-equipo-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.ingreso-equipo-campo label {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 600;
   font-size: 1rem;
-  border: 1px solid #ccc;
+  color: #0b2f6a;
+}
+
+.ingreso-equipo-campo svg {
+  font-size: 1.2rem;
+}
+
+.ingreso-equipo-campo input {
+  padding: 0.55rem 0.75rem;
+  border: 1px solid #d1d5db;
   border-radius: 0.5rem;
+  font-size: 0.95rem;
+  background-color: #f9fafb;
+}
+
+.ingreso-equipo-campo input:focus {
+  outline: none;
+  color: #0b2f6a;
   background-color: white;
 }
 
-.contenedor-boton-ingreso {
-  width: 100%;
-}
-
-.formulario-equipo-columna input:focus {
-  border-color: #1c3c75;
-  outline: none;
-}
-
-/* Contenedor del botón */
-.formulario-equipo-boton-contenedor {
-  display: flex;
-  justify-content: center;
+/* === FOTO DEL EQUIPO DEBAJO === */
+.ingreso-equipo-imagen-seccion {
   margin-top: 2rem;
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 1rem;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.ingreso-equipo-imagen-seccion label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #0b2f6a;
+  font-weight: 600;
+  font-size: 1rem;
+}
 
+.ingreso-equipo-imagen-seccion input[type="file"] {
+  width: 100%;
+  font-size: 0.95rem;
+  padding: 0.5rem;
+  background-color: white;
+  border: 1px solid #ccc;
+  border-radius: 0.4rem;
+}
 
-.boton-agregar-equipo {
-  background-color: #2e9f3b;
+/* === PREVIEW DE IMAGEN === */
+.preview-imagen {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
 
+.preview-imagen img {
+  width: 180px;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+}
+
+.preview-imagen button {
+  background-color: #ef4444;
   color: white;
   border: none;
-  padding: 0.85rem 2.5rem;
-  font-size: 1.1rem;
-  border-radius: 0.5rem;
+  border-radius: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.9rem;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.preview-imagen button:hover {
+  background-color: #dc2626;
+}
+
+/* === BOTÓN FINAL CENTRADO === */
+.ingreso-equipo-boton-contenedor {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1.5rem;
+}
+
+.ingreso-equipo-boton {
+  background-color: #2e9f3b;
+  color: white;
+  padding: 0.7rem 1.8rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 0.5rem;
   font-weight: 600;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
 
-
-
-
-
-/* === Responsive para pantallas pequeñas === */
-@media screen and (max-width: 600px) {
-
-
-.boton-agregar-equipo:hover {
-  background-color: #268933;
-  transform: translateY(-2px);
+.ingreso-equipo-boton:hover {
+  background-color: #24852e;
 }
+
+/* === MENSAJE DE ÉXITO === */
+.mensaje-exito-formulario-ingreso {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #dff0d8;
+  color: #2e7d32;
+  padding: 1rem 2.2rem;
+  border-radius: 0.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 99999;
+  animation: fadeInCenter 0.3s ease-out;
 }
-/* Responsive */
-@media (max-width: 768px) {
-  .formulario-ingreso-grid {
 
-
-    flex-direction: column;
+@keyframes fadeInCenter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -60%);
   }
-
-  .formulario-equipo-columna {
-    flex: 1 1 48%;
-  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
 }
+}
+
+.ingreso-equipo-campo select {
+  width: 100%;
+  height:39px;
+  padding: 0.6rem 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  background-color: white;
+  color: #333;
+  font-family: 'Segoe UI', sans-serif;
+  box-sizing: border-box;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+.ingreso-equipo-campo select:focus {
+  border-color: #4CAF50; /* Puedes cambiar el color al de tu sistema */
+}
+
+
 

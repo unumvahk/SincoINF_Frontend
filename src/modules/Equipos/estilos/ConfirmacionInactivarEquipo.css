@@ -1,0 +1,162 @@
+/* Fondo oscuro del modal */
+.inactivar-equipo-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Contenedor principal del modal */
+.inactivar-equipo-modal {
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 2rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+  position: relative;
+}
+
+/* Botón de cerrar (X) */
+.inactivar-equipo-cerrar {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  color: #000;
+  cursor: pointer;
+}
+
+/* Título del modal */
+.inactivar-equipo-titulo {
+  color: #d32f2f;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Detalles del equipo */
+.inactivar-equipo-detalles p {
+  font-size: 1rem;
+  margin: 0.6rem 0;
+  color: #1a237e;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.inactivar-equipo-detalles strong {
+  color: #1a237e;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.inactivar-equipo-detalles span {
+  color: #000;
+  font-weight: normal;
+}
+
+.inactivar-equipo-detalles svg {
+  color: #1a237e;
+  min-width: 20px;
+}
+
+/* Motivo de inactivación */
+.inactivar-equipo-motivo {
+  margin-top: 1.5rem;
+}
+
+.inactivar-equipo-motivo label {
+  font-weight: bold;
+  color: #1a237e;
+  display: block;
+  margin-bottom: 0.4rem;
+}
+
+.inactivar-equipo-motivo select {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  background-color: white;
+}
+
+/* Cajita de error */
+.inactivar-equipo-error {
+  margin-top: 0.5rem;
+  background-color: #ffcdd2;
+  color: #c62828;
+  padding: 0.5rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.95rem;
+}
+
+/* Botones */
+.inactivar-equipo-botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2rem;
+}
+
+.inactivar-equipo-boton-cancelar,
+.inactivar-equipo-boton-confirmar {
+  width: 48%;
+  padding: 0.7rem 1rem;
+  border: none;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* Botón cancelar */
+.inactivar-equipo-boton-cancelar {
+  background-color: #eeeeee;
+  color: #333;
+}
+
+.inactivar-equipo-boton-cancelar:hover {
+  background-color: #d5d5d5;
+}
+
+/* Botón confirmar */
+.inactivar-equipo-boton-confirmar {
+  background-color: #a5d6a7;
+  color: #1b5e20;
+}
+
+.inactivar-equipo-boton-confirmar:hover {
+  background-color: #81c784;
+}
+.inactivar-equipo-mensaje-exito {
+  margin-top: 1.5rem;
+  padding: 0.9rem 1rem;
+  background-color: #d4edda;
+  border-left: 5px solid #28a745;
+  color: #155724;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  font-size: 1rem;
+  gap: 0.6rem;
+  animation: fadeIn 0.4s ease-in-out;
+}
+
+.icono-exito {
+  font-size: 1.2rem;
+  color: #28a745;
+}
+
+/* Animación opcional */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
