@@ -46,6 +46,61 @@
   font-size: 1rem;
   color: #333;
 }
+.galeria-equipo {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.imagen-equipo {
+  width: 180px;
+  height: 130px;
+  border-radius: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  border: 1px solid #d1d5db;
+}
+/* Modal para vista de imagen ampliada */
+.modal-imagen-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-imagen-contenido {
+  position: relative;
+  background: white;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+  max-width: 90%;
+  max-height: 90vh;
+}
+
+.imagen-ampliada {
+  max-width: 100%;
+  max-height: 75vh;
+  border-radius: 0.5rem;
+  display: block;
+  margin: auto;
+}
+
+.btn-cerrar-imagen {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #111;
+  cursor: pointer;
+}
 
 /* Responsive desde pantallas pequeñas hacia grandes */
 @media (min-width: 600px) {
@@ -66,3 +121,4 @@
   }
   
 }
+

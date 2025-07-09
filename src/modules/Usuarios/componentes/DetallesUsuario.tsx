@@ -6,7 +6,7 @@ interface DetallesUsuarioProps {
     nombre: string;
     cedula: string;
     correo: string;
-    rol: string;
+    cargo: string;
     estado: string;
     area: string;
     permisos: string[];
@@ -28,7 +28,7 @@ const DetallesUsuario: React.FC<DetallesUsuarioProps> = ({ usuario, onClose }) =
           <p><strong>Nombre:</strong> {usuario.nombre}</p>
           <p><strong>Cédula:</strong> {usuario.cedula}</p>
           <p><strong>Correo:</strong> {usuario.correo}</p>
-          <p><strong>Rol:</strong> {usuario.rol}</p>
+          <p><strong>cargo:</strong> {usuario.cargo}</p>
           <p><strong>Estado:</strong> {usuario.estado}</p>
           <p><strong>Área:</strong> {usuario.area}</p>
         </div>

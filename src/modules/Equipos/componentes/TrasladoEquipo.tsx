@@ -5,8 +5,8 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
   FaMicrochip, FaUserTie, FaEnvelope, FaBuilding, FaMapMarkerAlt,
-  FaLaptop, FaBarcode, FaMemory, FaHdd, FaWindows, FaMapSigns,
-  FaToggleOn, FaHashtag, FaIdCard, FaCalendar
+  FaMicrophoneAlt, FaBarcode, FaMemory, FaHdd, FaWindows, FaMapSigns,
+  FaToggleOn, FaHashtag, FaIdCard, FaCalendarAlt,FaClipboardCheck,FaDesktop,FaPuzzlePiece,FaShieldAlt
 } from 'react-icons/fa';
 
 interface Props {
@@ -152,22 +152,21 @@ const ModalTraslado: React.FC<Props> = ({ visible, onClose }) => {
   ];
 
   const iconos = {
-    serial: <FaHashtag />,
-    tipo: <FaLaptop />,
-    marca: <FaBarcode />,
-    modelo: <FaBarcode />,
-    procesador: <FaMicrochip />,
-    nucleos: <FaMicrochip />,
-    ram: <FaMemory />,
+    placa: <FaHashtag /> ,
+    serial: <FaBarcode />,
+    marca: <FaClipboardCheck />,
+    modelo: <FaDesktop />,
     disco: <FaHdd />,
-    tarj_grafica: <FaMicrochip />,
-    sistema: <FaWindows />,
-    fecha_ingreso: <FaCalendar />,
-    garantia: <FaToggleOn />,
-    sede: <FaMapMarkerAlt />,
+    procesador: <FaMicrochip />,
+    nucleos: <FaMicrophoneAlt />,
+    ram: <FaMemory />,
+    tarj_grafica: <FaPuzzlePiece />,
+    fecha_ingreso: <FaCalendarAlt />,
+    garantia: <FaShieldAlt />,
     ubicacion: <FaMapSigns />,
     estado: <FaToggleOn />,
   };
+
 
   return (
     <div className="traslado-modal-overlay">

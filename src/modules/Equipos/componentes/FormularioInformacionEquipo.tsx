@@ -1,21 +1,14 @@
-import React from 'react';
+import React, { useState } from 'react';
 import {
-  FaBarcode,
-  FaDesktop,
-  FaMicrochip,
-  FaMemory,
-  FaHdd,
-  FaCalendarAlt,
-  FaToggleOn,
-  FaMicrophoneAlt,
-  FaPuzzlePiece,
-  FaShieldAlt,
-  FaClipboardCheck,
-  FaHashtag,
+  FaBarcode, FaDesktop, FaMicrochip, FaMemory, FaHdd, FaCalendarAlt,
+  FaToggleOn, FaMicrophoneAlt, FaPuzzlePiece, FaShieldAlt,
+  FaClipboardCheck, FaHashtag, FaTimes
 } from 'react-icons/fa';
 import '../estilos/FormularioInformacionEquipo.css';
 
 const FormularioInformacionEquipo: React.FC = () => {
+  const [imagenModal, setImagenModal] = useState<string | null>(null);
+
   const datosEquipo = {
     placa: 'EQ-001',
     serial: 'ABC123456',
@@ -30,6 +23,12 @@ const FormularioInformacionEquipo: React.FC = () => {
     garantia: '12 meses',
     estado: 'Activo',
   };
+
+ const imagenes = [
+  '/img/logo.png',
+  '/img/logo.png',
+  '/img/logo.png',
+];
 
   const campos = [
     { id: 'placa', label: 'Placa', icono: <FaHashtag /> },
@@ -49,6 +48,19 @@ const FormularioInformacionEquipo: React.FC = () => {
   return (
     <div className="tarjeta-equipo">
       <h2 className="titulo-equipo">Información del equipo</h2>
+
+      <div className="galeria-equipo">
+        {imagenes.map((url, index) => (
+          <img
+            key={index}
+            src={url}
+            alt={`Imagen ${index + 1}`}
+            className="imagen-equipo"
+            onClick={() => setImagenModal(url)}
+          />
+        ))}
+      </div>
+
       <form className="grid-equipo">
         {campos.map(({ id, label, icono }) => (
           <div className="campo-equipo" key={id}>
@@ -59,6 +71,18 @@ const FormularioInformacionEquipo: React.FC = () => {
           </div>
         ))}
       </form>
+
+      {/* Modal de imagen */}
+      {imagenModal && (
+        <div className="modal-imagen-overlay" onClick={() => setImagenModal(null)}>
+          <div className="modal-imagen-contenido" onClick={(e) => e.stopPropagation()}>
+            <button className="btn-cerrar-imagen" onClick={() => setImagenModal(null)}>
+              <FaTimes />
+            </button>
+            <img src={imagenModal} alt="Vista ampliada" className="imagen-ampliada" />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

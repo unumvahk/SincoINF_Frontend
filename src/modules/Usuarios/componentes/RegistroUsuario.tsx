@@ -10,7 +10,6 @@ const RegistroUsuario: React.FC<Props> = ({ onClose }) => {
   const [nombre, setNombre] = useState('');
   const [cedula, setCedula] = useState('');
   const [correo, setCorreo] = useState('');
-  const [rol, setRol] = useState('');
   const [area, setArea] = useState('');
   const [cargo, setCargo] = useState('');
   const [exito, setExito] = useState(false);
@@ -71,19 +70,10 @@ const RegistroUsuario: React.FC<Props> = ({ onClose }) => {
             </select>
           </div>
 
-          <div className="campo-formulario">
-            <label>Rol</label>
-            <select value={rol} onChange={(e) => setRol(e.target.value)} required>
-              <option value="">Seleccione un rol</option>
-              <option value="Administrador">Administrador</option>
-              <option value="Técnico">Técnico</option>
-            </select>
-          </div>
-
           <button type="submit" className="btn-guardar-usuario">Guardar</button>
 
           {exito && (
-            <div className="mensaje-exito">✅ Usuario agregado exitosamente</div>
+            <div className="mensaje-exito"> Usuario agregado exitosamente</div>
           )}
         </form>
       </div>
