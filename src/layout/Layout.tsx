@@ -1,22 +1,23 @@
-import { useState, type ReactNode } from 'react';
+import { useState } from 'react';
 import Header from './components/header/Header';
 import Sidebar from './components/sidebar/sidebar';
 import './Layout.css';
+import { Outlet } from 'react-router-dom';
 
-interface LayoutProps {
-  children: ReactNode;
-}
-
-const Layout = ({ children }: LayoutProps) => {
+const Layout = () => {
   const [sidebarExpandido, setSidebarExpandido] = useState(false);
 
   return (
     <div className="layout-contenedor">
-      <Header toggleSidebar={() => setSidebarExpandido(!sidebarExpandido)} />
+      <Header
+        toggleSidebar={() => setSidebarExpandido(!sidebarExpandido)}
+      />
+
       <div className="layout-principal">
         <Sidebar expandido={sidebarExpandido} />
+
         <div className={`layout-contenido ${sidebarExpandido ? 'layout-contenido-expandido' : ''}`}>
-          {children}
+          <Outlet/>
         </div>
       </div>
     </div>

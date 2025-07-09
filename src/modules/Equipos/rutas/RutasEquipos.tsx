@@ -6,7 +6,7 @@ const RutasEquipos = () => {
   return (
     <Routes>
       <Route path="informacion" element={<VistaInformacionEquipo />} />
-      <Route path="Info" element={<EquiposVista />} />
+      <Route path="info" element={<EquiposVista />} />
     </Routes>
   );
 };

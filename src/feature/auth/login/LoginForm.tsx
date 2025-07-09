@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useMutation } from '@tanstack/react-query';
 import { login } from '../../../lib/api';
 import './LoginForm.css';
-import SubmitBtn from '../../../components/submit_btn/SubmitBtn';
+import Spinner from '../../../components/spinner/Spinner';
 
 const LoginForm = () => {
   const navigate = useNavigate();
@@ -70,12 +70,7 @@ const LoginForm = () => {
         />
       </div>
 
-      {/* <button className="boton-login" type="submit"> { isPending ? <Spinner /> : 'Acceder' } </button> */}
-      <SubmitBtn
-        isValid={ !loginData.correo || !loginData.contrasena }
-        isPending={isPending}
-        text='Acceder'
-      />
+      <button className="boton-login" type="submit"> { isPending ? <Spinner /> : 'Acceder' } </button>
       
       <div className="login-links">
         <Link to={"/password/forgot"}>¿Olvidaste tu contraseña?</Link>

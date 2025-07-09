@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Layout from '../../../layout/Layout'; 
 import FormularioInformacionEquipo from '../componentes/FormularioInformacionEquipo';
 import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
 import HistorialMaquina from '../componentes/HistorialEquipoEspecifico';
@@ -16,7 +15,7 @@ const VistaInformacionEquipo: React.FC = () => {
   const [mostrarModalTraslado, setMostrarModalTraslado] = useState(false); 
 
   return (
-    <Layout>
+    <>
       <div className="contenedor-info-equipo">
         {/* Columna izquierda */}
         <div className="columna-izquierda">
@@ -34,7 +33,7 @@ const VistaInformacionEquipo: React.FC = () => {
         visible={mostrarModalTraslado}
         onClose={() => setMostrarModalTraslado(false)}
       />
-    </Layout>
+    </> 
   );
 };
 

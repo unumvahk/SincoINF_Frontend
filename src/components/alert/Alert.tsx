@@ -1,41 +1,31 @@
-import { FaTimesCircle } from "react-icons/fa";
-import { IoIosCheckmarkCircle } from "react-icons/io";
+import { FaCheckCircle } from 'react-icons/fa';
+import Spinner from '../spinner/Spinner';
 import './Alert.css';
-import Spinner from "../spinner/Spinner";
+import { FaCircleXmark } from 'react-icons/fa6';
+
+type Status = 'success' | 'error';
 
 interface AlertProps {
   isPending: boolean,
-  isSuccess: boolean,
-  successMessage: string,
-  errorMessage: string,
+  status: Status,
+  text: string
 }
 
-const Alert = ({ isPending, isSuccess, successMessage, errorMessage }: AlertProps) => {
+const Alert = ({ isPending, status, text }: AlertProps) => {
   return (
-    isPending ?
-    (
-      <h3 className={`alert-container alert-loading`}>
+    isPending ? (
+      <h3 className='alert-container alert-loading'>
         <Spinner />
       </h3>
-    ) :
-    (
-      <h3 className={`alert-container ${ isSuccess ? 'alert-valid' : 'alert-invalid'}`}>
+    ) : (
+      <h3 className={`alert-container alert-${status}`}>
         {
-          isSuccess ?
-          (
-            <span className="alert-content">
-              <IoIosCheckmarkCircle /> { successMessage }
-            </span> 
-          ) :
-          (
-            <span className="alert-content">
-              <FaTimesCircle /> { errorMessage }
-            </span>
-          )
-       }
+          status === 'success' ? <FaCheckCircle className='icon'/> : <FaCircleXmark className='icon'/>
+        }
+        { text }
       </h3>
     )
   )
 }
 
-export default Alert
+export default Alert;
