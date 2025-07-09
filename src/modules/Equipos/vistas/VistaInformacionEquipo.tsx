@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-import Layout from '../../../layout/Layout'; 
 import FormularioInformacionEquipo from '../componentes/FormularioInformacionEquipo';
 import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
 import HistorialMaquina from '../componentes/HistorialEquipoEspecifico';
@@ -19,7 +18,7 @@ const VistaInformacionEquipo: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <Layout>
+    <>
       {/*  Botón de regreso */}
       <button className="btn-volver" onClick={() => navigate('/equipos')}>
         <FaArrowLeft />
@@ -42,8 +41,8 @@ const VistaInformacionEquipo: React.FC = () => {
         visible={mostrarModalTraslado}
         onClose={() => setMostrarModalTraslado(false)}
       />
-    </Layout>
-  );
+    </>
+  )
 };
 
 export default VistaInformacionEquipo;

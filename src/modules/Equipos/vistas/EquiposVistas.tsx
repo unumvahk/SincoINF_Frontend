@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import TablaEquipos from "../componentes/TablaEquipos";
-import Layout from "../../../layout/Layout";
 import "../estilos/EquiposVista.css";
 
 interface Equipo {
@@ -27,12 +26,7 @@ const EquiposVista: React.FC = () => {
   }, []);
 
   return (
-    <Layout>
-      <div className="equipos-vista-contenedor">
-        <h2 className="titulo-equipos">🖥️ Equipos Registrados</h2>
-        <TablaEquipos equipos={equipos} />
-      </div>
-    </Layout>
+    <TablaEquipos equipos={equipos} />
   );
 };
 

@@ -1,0 +1,42 @@
+.alert-container {
+  width: auto;
+  max-width: 650px;
+  height: 50px;
+  padding: 0 15px;
+  border: none;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.alert-content {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.alert-content > * {
+  font-size: 18px;
+}
+
+.icon {
+  font-size: 16px;
+}
+
+.alert-loading {
+  background-color: rgba(0, 0, 255, 0.398);
+}
+
+.alert-success {
+  background-color: rgba(0, 128, 0, 0.200);
+  color: green;
+}
+
+.alert-error {
+  background-color: rgba(255, 0, 0, 0.200);
+  color: rgb(234, 0, 0);
+}
