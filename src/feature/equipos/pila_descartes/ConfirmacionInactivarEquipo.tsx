@@ -7,7 +7,7 @@ import {
   FaTimes,
   FaCheckCircle,
 } from "react-icons/fa";
-import "../estilos/ConfirmacionInactivarEquipo.css";
+import "./ConfirmacionInactivarEquipo.css";
 
 interface Props {
   equipo: {

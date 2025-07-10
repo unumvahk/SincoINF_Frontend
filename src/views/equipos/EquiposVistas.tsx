@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
-import TablaEquipos from "../componentes/TablaEquipos";
-import "../estilos/EquiposVista.css";
+import TablaEquipos from "../../feature/equipos/tabla/TablaEquipos";
+import "./EquiposVista.css";
 
 interface Equipo {
   placa: string;

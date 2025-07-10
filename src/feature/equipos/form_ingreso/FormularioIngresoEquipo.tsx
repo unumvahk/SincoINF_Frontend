@@ -11,10 +11,9 @@ import {
   FaCamera,
   FaTimesCircle,
   FaCheckCircle,
-  FaShieldAlt,
   FaChartBar,
 } from "react-icons/fa";
-import "../estilos/EstiloFormularioIngresoEquipo.css";
+import "./EstiloFormularioIngresoEquipo.css";
 
 interface Props {
   onClose: () => void;

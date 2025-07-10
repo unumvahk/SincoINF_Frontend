@@ -11,7 +11,7 @@ const LoginForm = () => {
   const { mutate: SingIn, isPending, isError } = useMutation({
     mutationFn: login,
     onSuccess: () => {
-      navigate('/equipos/info', {
+      navigate('/equipos/', {
         replace: true,
       });
     }

@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import '../estilos/TrasladoEquipo.css';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import {
-  FaMicrochip, FaUserTie, FaEnvelope, FaBuilding, FaMapMarkerAlt,
-  FaMicrophoneAlt, FaBarcode, FaMemory, FaHdd, FaWindows, FaMapSigns,
+  FaMicrochip, FaUserTie, FaEnvelope, FaBuilding,
+  FaMicrophoneAlt, FaBarcode, FaMemory, FaHdd, FaMapSigns,
   FaToggleOn, FaHashtag, FaIdCard, FaCalendarAlt,FaClipboardCheck,FaDesktop,FaPuzzlePiece,FaShieldAlt
 } from 'react-icons/fa';
+import './TrasladoEquipo.css';
 
 interface Props {
   visible: boolean;

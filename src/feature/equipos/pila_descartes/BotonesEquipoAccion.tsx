@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import ModalTraslado from './TrasladoEquipo';
-import ModalMantenimiento from './ModalMantenimiento';
-import MetodoRepotenciacionEquipo from './MetodoRepotenciacionEquipo';
+import ModalTraslado from '../../../feature/equipos/form_traslado/TrasladoEquipo';
+import ModalMantenimiento from '../../../feature/equipos/form_mantenimiento/ModalMantenimiento';
+import MetodoRepotenciacionEquipo from '../../../feature/equipos/form_repotenciacion/MetodoRepotenciacionEquipo';
+import './BotonesEquipoAccion.css';
 
 const BotonesEquipoAccion: React.FC = () => {
   const [mostrarTraslado, setMostrarTraslado] = useState(false);

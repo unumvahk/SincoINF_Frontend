@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaSearch, FaCalendarAlt } from 'react-icons/fa';
 import { CalendarDays } from 'lucide-react'; // Este lo mantenemos para los eventos
-import '../estilos/HistorialEquiposEspecifico.css';
+import './HistorialEquiposEspecifico.css';
 
 const HistorialMaquina: React.FC = () => {
   const [busqueda, setBusqueda] = useState('');

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "../estilos/EstiloTablaEquipos.css";
-import ConfirmacionInactivar from "./ConfirmacionInactivarEquipo";
-import FormularioIngresoEquipo from "./FormularioIngresoEquipo";
+import FormularioIngresoEquipo from "../../../feature/equipos/form_ingreso/FormularioIngresoEquipo";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import ConfirmacionInactivar from "../pila_descartes/ConfirmacionInactivarEquipo";
+import "./EstiloTablaEquipos.css";
 
 interface Equipo {
   placa: string;

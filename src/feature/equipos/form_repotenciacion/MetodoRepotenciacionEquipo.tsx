@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../estilos/MetodoRepotenciacion.css';
-import { FaTools, FaMicrochip, FaHdd, FaArrowUp } from 'react-icons/fa';
+import { FaTools, FaArrowUp } from 'react-icons/fa';
+import './MetodoRepotenciacion.css';
 
 const MetodoRepotenciacionEquipo: React.FC = () => {
   const [metodo, setMetodo] = useState('RAM');

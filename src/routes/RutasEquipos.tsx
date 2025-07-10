@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
-import VistaInformacionEquipo from "../vistas/VistaInformacionEquipo";
-import EquiposVista from "../vistas/EquiposVistas";
+import EquiposVista from "../views/equipos/EquiposVistas";
+import VistaInformacionEquipo from "../views/equipos/VistaInformacionEquipo";
 
 const RutasEquipos = () => {
   return (

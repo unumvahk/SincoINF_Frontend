@@ -1,5 +1,4 @@
 import React from 'react';
-import Layout from '../../../layout/Layout';
 import Tablalicencias from '../componentes/Tablalicencias';
 
 // Datos simulados de licencias
@@ -23,9 +22,9 @@ const licenciasPrueba = [
 const VistaPrincipal: React.FC = () => {
   return (
     <div className="pagina">
-      <Layout>
+      <>
         <Tablalicencias licencias={licenciasPrueba} />
-      </Layout>
+      </>
     </div>
   );
 };

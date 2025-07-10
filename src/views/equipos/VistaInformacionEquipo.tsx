@@ -1,17 +1,11 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowLeft } from 'react-icons/fa';
-import FormularioInformacionEquipo from '../componentes/FormularioInformacionEquipo';
-import BotonesEquipoAccion from '../componentes/BotonesEquipoAccion';
-import HistorialMaquina from '../componentes/HistorialEquipoEspecifico';
-import ModalTraslado from '../componentes/TrasladoEquipo'; 
-
-// Estilos
-import '../estilos/FormularioInformacionEquipo.css';
-import '../estilos/HistorialEquiposEspecifico.css';
-import '../estilos/BotonesEquipoAccion.css';
-import '../estilos/MetodoRepotenciacion.css';
-import '../estilos/TrasladoEquipo.css';
+import FormularioInformacionEquipo from '../../feature/equipos/detalles/FormularioInformacionEquipo';
+import BotonesEquipoAccion from '../../feature/equipos/pila_descartes/BotonesEquipoAccion';
+import HistorialMaquina from '../../feature/equipos/historial/HistorialEquipoEspecifico';
+import ModalTraslado from '../../feature/equipos/form_traslado/TrasladoEquipo';
+import './EquiposVista.css'
 
 const VistaInformacionEquipo: React.FC = () => {
   const [mostrarModalTraslado, setMostrarModalTraslado] = useState(false); 

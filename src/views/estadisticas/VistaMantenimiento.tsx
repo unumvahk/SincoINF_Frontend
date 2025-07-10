@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import GraficoMantenimiento from "../componentes/GraficoMantenimiento";
-import "../estilos/VistaMantenimiento.css";
+import GraficoMantenimiento from "../../feature/estadisticas/grafico_mantenimiento/GraficoMantenimiento";
+import "./VistaMantenimiento.css";
 import { FaUser } from "react-icons/fa"; // ✅ Ícono tipo "personita"
 
 const VistaMantenimiento: React.FC = () => {

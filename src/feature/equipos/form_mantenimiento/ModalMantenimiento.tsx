@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../estilos/ModalMantenimiento.css';
+import './ModalMantenimiento.css';
 
 interface Props {
   visible: boolean;

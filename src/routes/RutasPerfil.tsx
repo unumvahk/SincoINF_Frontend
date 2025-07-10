@@ -1,10 +1,10 @@
 import { Routes, Route } from 'react-router-dom';
-import PerfilVista from '../vistas/PerfilVista';
+import PerfilUsuarioVista from '../modules/Perfil/vistas/PerfilVista';
 
 const RutasPerfil = () => {
   return (
     <Routes>
-      <Route path="" element={<PerfilVista />} /> {/* ruta por defecto */}
+      <Route path="" element={<PerfilUsuarioVista />} /> {/* ruta por defecto */}
     </Routes>
   );
 };

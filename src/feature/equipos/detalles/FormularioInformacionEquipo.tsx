@@ -4,11 +4,11 @@ import {
   FaToggleOn, FaMicrophoneAlt, FaPuzzlePiece, FaShieldAlt,
   FaClipboardCheck, FaHashtag, FaTimes
 } from 'react-icons/fa';
-import '../estilos/FormularioInformacionEquipo.css';
-
+import './FormularioInformacionEquipo.css';
+ 
 const FormularioInformacionEquipo: React.FC = () => {
   const [imagenModal, setImagenModal] = useState<string | null>(null);
-
+ 
   const datosEquipo = {
     placa: 'EQ-001',
     serial: 'ABC123456',
@@ -23,13 +23,13 @@ const FormularioInformacionEquipo: React.FC = () => {
     garantia: '12 meses',
     estado: 'Activo',
   };
-
+ 
  const imagenes = [
   '/img/logo.png',
   '/img/logo.png',
   '/img/logo.png',
 ];
-
+ 
   const campos = [
     { id: 'placa', label: 'Placa', icono: <FaHashtag /> },
     { id: 'serial', label: 'Serial', icono: <FaBarcode /> },
@@ -44,11 +44,11 @@ const FormularioInformacionEquipo: React.FC = () => {
     { id: 'garantia', label: 'Garantía', icono: <FaShieldAlt /> },
     { id: 'estado', label: 'Estado', icono: <FaToggleOn /> },
   ];
-
+ 
   return (
     <div className="tarjeta-equipo">
       <h2 className="titulo-equipo">Información del equipo</h2>
-
+ 
       <div className="galeria-equipo">
         {imagenes.map((url, index) => (
           <img
@@ -60,7 +60,7 @@ const FormularioInformacionEquipo: React.FC = () => {
           />
         ))}
       </div>
-
+ 
       <form className="grid-equipo">
         {campos.map(({ id, label, icono }) => (
           <div className="campo-equipo" key={id}>
@@ -71,7 +71,7 @@ const FormularioInformacionEquipo: React.FC = () => {
           </div>
         ))}
       </form>
-
+ 
       {/* Modal de imagen */}
       {imagenModal && (
         <div className="modal-imagen-overlay" onClick={() => setImagenModal(null)}>
@@ -86,5 +86,5 @@ const FormularioInformacionEquipo: React.FC = () => {
     </div>
   );
 };
-
+ 
 export default FormularioInformacionEquipo;
