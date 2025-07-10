@@ -12,9 +12,8 @@ import {
   FaTimes,
   FaSearch
 } from 'react-icons/fa';
-import '../estilos/PerfilUsuario.css';
 import { useNavigate } from 'react-router-dom';
-
+import './PerfilUsuario.css';
 
 const PerfilUsuarioCard: React.FC = () => {
   const [imagen, setImagen] = useState<string | null>(null);

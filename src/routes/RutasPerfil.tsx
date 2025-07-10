@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import PerfilUsuarioVista from '../modules/Perfil/vistas/PerfilVista';
+import PerfilUsuarioVista from '../views/perfil/PerfilVista';
 
 const RutasPerfil = () => {
   return (
