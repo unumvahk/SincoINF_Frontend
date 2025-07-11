@@ -1,11 +1,8 @@
-
-
 import React, { useState } from 'react';
 import './DetallesLicencia.css';
-import ModalAsignarLicencia from '../Form-licencias/ModalLicenciaFlotante';
-import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
-
+import { FaSearch } from 'react-icons/fa';
+import ModalLicenciaFlotante from '../Form-licencias/ModalLicenciaFlotante';
 
 interface Licencia {
   nombreLicencia: string;
