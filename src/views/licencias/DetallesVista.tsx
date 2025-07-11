@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from 'react-router-dom';
-import LicenciaDetalle from '../componentes/DetallesLicencia';
+import LicenciaDetalle from '../../feature/Licencias/Detalles-lic/DetallesLicencia';
+
 
 const DetallesVista: React.FC = () => {
   const location = useLocation();

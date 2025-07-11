@@ -1,11 +1,16 @@
 import React from "react";
 import "../estilos/EstilosModalLicencia.css";
 
+// ✅ INTERFACE CON `visible`
 interface Props {
+  visible: boolean;
   onClose: () => void;
 }
 
-const ModalLicenciaFlotante: React.FC<Props> = ({ onClose }) => {
+const ModalLicenciaFlotante: React.FC<Props> = ({ visible, onClose }) => {
+  // ✅ NO RENDERIZAR SI `visible === false`
+  if (!visible) return null;
+
   return (
     <div className="modal-fondo">
       <div className="modal-contenedor">
