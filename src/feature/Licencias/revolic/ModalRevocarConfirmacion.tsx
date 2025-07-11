@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { FaDesktop, FaUser, FaKey, FaCalendarAlt } from "react-icons/fa";
-import "../estilos/EstilosModalRevocarConfirmacion.css";
+import "./EstilosModalRevocarConfirmacion.css";
 
 interface Props {
   placa: string;

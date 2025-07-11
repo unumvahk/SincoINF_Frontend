@@ -1,5 +1,5 @@
 import React from 'react';
-import ControlDeAsignaciones from '../componentes/ControlDeAsignaciones';
+import ControlDeAsignaciones from '../../feature/Licencias/ControlAs/ControlDeAsignaciones';
 
 const VistaAsignaciones: React.FC = () => {
   return (
