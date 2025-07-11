@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa"; // ✅ CAMBIO: ícono de lupa con react-icons
-import "../Estilos/ControlDeAsignaciones.css";
-import ModalConfirmarRevocacion from "./ModalRevocarConfirmacion"; // Ajusta la ruta según tu estructura
-
+import { FaSearch } from "react-icons/fa"; 
+import ModalConfirmarRevocacion from "../revolic/ModalRevocarConfirmacion"; 
+import "./ControlDeAsignaciones.css";
 const ControlDeAsignaciones = () => {
   const licencias = [
     {

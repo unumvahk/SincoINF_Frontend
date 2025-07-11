@@ -1,5 +1,5 @@
 import React from "react";
-import "../estilos/EstilosModalLicencia.css";
+import "./EstilosModalLicencia.css";
 
 // ✅ INTERFACE CON `visible`
 interface Props {

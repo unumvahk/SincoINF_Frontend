@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../estilos/DetallesLicencia.css';
+import './DetallesLicencia.css';
 import ModalAsignarLicencia from '../Form-licencias/ModalLicenciaFlotante';
 import { FaArrowLeft } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';

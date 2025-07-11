@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import "../estilos/EstilosTablalicencias.css";
-import ModalLicenciaFlotante from "./ModalLicenciaFlotante";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import ModalLicenciaFlotante from "../Form-licencias/ModalLicenciaFlotante";
+import "./EstilosTablalicencias.css";
 
 interface Licencia {
   nombreLicencia: string;
