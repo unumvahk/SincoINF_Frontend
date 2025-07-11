@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "../estilos/EstilosTablalicencias.css";
-import ModalLicenciaFlotante from "./ModalLicenciaFlotante";
+import ModalLicenciaFlotante from "../Form-licencias/ModalLicenciaFlotante";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
 

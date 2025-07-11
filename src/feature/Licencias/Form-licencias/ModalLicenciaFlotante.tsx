@@ -1,16 +1,11 @@
 import React from "react";
 import "../estilos/EstilosModalLicencia.css";
 
-// ✅ INTERFACE CON `visible`
 interface Props {
-  visible: boolean;
   onClose: () => void;
 }
 
-const ModalLicenciaFlotante: React.FC<Props> = ({ visible, onClose }) => {
-  // ✅ NO RENDERIZAR SI `visible === false`
-  if (!visible) return null;
-
+const ModalLicenciaFlotante: React.FC<Props> = ({ onClose }) => {
   return (
     <div className="modal-fondo">
       <div className="modal-contenedor">
@@ -20,6 +15,7 @@ const ModalLicenciaFlotante: React.FC<Props> = ({ visible, onClose }) => {
         </button>
 
         <h2 className="modal-titulo">Añadir Licencia</h2>
+
         <input
           type="text"
           placeholder="Nombre de licencia"
@@ -35,6 +31,7 @@ const ModalLicenciaFlotante: React.FC<Props> = ({ visible, onClose }) => {
           placeholder="Proveedor"
           className="modal-input"
         />
+
         <button className="modal-boton" onClick={onClose}>
           Agregar Licencia
         </button>

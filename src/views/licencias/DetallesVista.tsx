@@ -19,7 +19,7 @@ const DetallesVista: React.FC = () => {
 
   return (
     <>
-      <LicenciaDetalle licencia={licencia} />
+      <LicenciaDetalle licencias={licencia} />
     </>
   );
 };

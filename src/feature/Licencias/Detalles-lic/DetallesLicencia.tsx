@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import '../estilos/DetallesLicencia.css';
-import ModalAsignarLicencia from '../Form-licencias/ModalLicenciaFlotante';
-import { FaArrowLeft } from 'react-icons/fa';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "../estilos/EstilosTablalicencias.css";
+import ModalLicenciaFlotante from "../Form-licencias/ModalLicenciaFlotante";
+import { useNavigate } from "react-router-dom";
+import { FaSearch } from "react-icons/fa";
 
 interface Licencia {
   nombreLicencia: string;
@@ -10,97 +10,103 @@ interface Licencia {
   fechaAdquisicionLicencia: string;
   fechaVencimientoLicencia: string;
   cantidadLicencia: number;
-  plataforma?: string;
-  esSoftware?: string;
-  openSource?: string;
-  enUso?: number;
-  version?: string;
-  estado?: string;
 }
 
 interface Props {
-  licencia: Licencia;
+  licencias: Licencia[];
 }
 
-const LicenciaDetalle: React.FC<Props> = ({ licencia }) => {
-  const [mostrarAsignar, setMostrarAsignar] = useState(false);
+const Tablalicencias: React.FC<Props> = ({ licencias }) => {
+  const [mostrarFormulario, setMostrarFormulario] = useState(false);
   const navigate = useNavigate();
 
+  const irAControlAsignacion = () => {
+    navigate("/licencias/licenciaAsignacion");
+  };
+
+  const licenciasPorVencer = licencias.filter((lic) => {
+    const vencimiento = new Date(lic.fechaVencimientoLicencia);
+    const hoy = new Date();
+    const diasRestantes = (vencimiento.getTime() - hoy.getTime()) / (1000 * 3600 * 24);
+    return diasRestantes >= 0 && diasRestantes <= 60;
+  });
+
   return (
-    <div className="contenedor-licencia">
-      {/* 🔙 Botón de regreso con ícono */}
-      <div className="contenedor-flecha-volver">
-        <button className="btn-volver-icono" onClick={() => navigate('/licencias')}>
-          <FaArrowLeft />
+    <div className="licencia-contenido">
+      <h2 className="licencia-titulo">🧾 Control de Licencias</h2>
+
+      <div className="licencia-tab-nav">
+        <button className="active">Inventario Licencias</button>
+        <button onClick={irAControlAsignacion}>Control Asignación</button>
+      </div>
+
+      <div className="licencia-barra-superior">
+        <select className="licencia-select-filtro">
+          <option value="">Filtrar por:</option>
+          <option value="nombre">Nombre</option>
+          <option value="proveedor">Proveedor</option>
+          <option value="fecha">Fecha de vencimiento</option>
+        </select>
+
+        <div className="licencia-input-con-icono">
+          <input type="text" placeholder="Nombre de licencia / proveedor" />
+          <span className="licencia-icono-lupa"><FaSearch /></span>
+        </div>
+
+        <button className="licencia-btn-agregar" onClick={() => setMostrarFormulario(true)}>
+          Añadir licencia
         </button>
       </div>
 
-      <div className="tarjeta-licencia">
-        <h2 className="titulo-licencia">Detalles de la Licencia</h2>
-
-        <div className="grid-licencia">
-          <div className="campo-licencia">
-            <label>Nombre</label>
-            <input type="text" value={licencia.nombreLicencia} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Licencias Disponibles</label>
-            <input type="text" value={licencia.cantidadLicencia} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Plataforma</label>
-            <input type="text" value={licencia.plataforma || 'N/A'} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Proveedor</label>
-            <input type="text" value={licencia.proveedorLicencia} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Fecha de Ingreso</label>
-            <input type="text" value={licencia.fechaAdquisicionLicencia} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>¿Es Software?</label>
-            <input type="text" value={licencia.esSoftware || 'N/A'} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Fecha de Vencimiento</label>
-            <input type="text" value={licencia.fechaVencimientoLicencia} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Open Source</label>
-            <input type="text" value={licencia.openSource || 'N/A'} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>En Uso</label>
-            <input type="text" value={licencia.enUso || 0} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Versión</label>
-            <input type="text" value={licencia.version || 'N/A'} readOnly />
-          </div>
-          <div className="campo-licencia">
-            <label>Estado</label>
-            <input type="text" value={licencia.estado || 'Activa'} readOnly />
-          </div>
+      <div className="licencia-cajas-resumen">
+        <div className="licencia-caja">
+          <h4>Total de licencias</h4>
+          <p>{licencias.length}</p>
         </div>
-
-        <div className="contenedor-boton-asignar">
-          <button
-            className="btn-asignar-licencia"
-            onClick={() => setMostrarAsignar(true)}
-          >
-            Asignar Licencia
-          </button>
+        <div className="licencia-caja">
+          <h4>Licencias por vencer</h4>
+          <p>{licenciasPorVencer.length}</p>
         </div>
       </div>
 
-      <ModalAsignarLicencia
-        visible={mostrarAsignar}
-        onClose={() => setMostrarAsignar(false)}
-      />
+      {/* ✅ Modal renderizado solo si mostrarFormulario es true */}
+      {mostrarFormulario && (
+        <ModalLicenciaFlotante onClose={() => setMostrarFormulario(false)} />
+      )}
+
+      <table className="tabla-licencia">
+        <thead>
+          <tr>
+            <th>NOMBRE</th>
+            <th>PROVEEDOR</th>
+            <th>FECHA ADQUISICIÓN</th>
+            <th>FECHA VENCIMIENTO</th>
+            <th>CANTIDAD</th>
+            <th>DETALLES</th>
+          </tr>
+        </thead>
+        <tbody>
+          {licencias.map((licencia) => (
+            <tr key={licencia.nombreLicencia}>
+              <td>{licencia.nombreLicencia}</td>
+              <td>{licencia.proveedorLicencia}</td>
+              <td>{licencia.fechaAdquisicionLicencia}</td>
+              <td>{licencia.fechaVencimientoLicencia}</td>
+              <td>{licencia.cantidadLicencia}</td>
+              <td style={{ textAlign: "center" }}>
+                <button
+                  className="licencia-btn-detalles"
+                  onClick={() => navigate("/licencias/licenciaDetalles", { state: { licencia } })}
+                >
+                  Detalles
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
   );
 };
 
-export default LicenciaDetalle;
+export default Tablalicencias;
