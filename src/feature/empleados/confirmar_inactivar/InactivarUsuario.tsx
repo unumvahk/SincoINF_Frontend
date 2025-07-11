@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import '../estilos/InactivarUsuarios.css';
-import type { Usuario } from './TablaUsuarios';
+import type { Usuario } from '../../../feature/empleados/tabla_empleados/TablaUsuarios';
 import { FaUser, FaIdCard, FaEnvelope, FaTimes } from 'react-icons/fa';
+import './InactivarUsuarios.css';
 
 interface Props {
   usuario: Usuario | null;

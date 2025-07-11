@@ -1,5 +1,5 @@
 import React from 'react';
-import '../estilos/ModalEditarUsuario.css';
+import './InactivarUsuarios.css';
 
 interface ModalConfirmarProps {
   nombre: string;

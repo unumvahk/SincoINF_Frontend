@@ -1,5 +1,5 @@
 import React from 'react';
-import '../estilos/DetallesUsuario.css';
+import './DetallesUsuario.css';
 
 interface DetallesUsuarioProps {
   usuario: {

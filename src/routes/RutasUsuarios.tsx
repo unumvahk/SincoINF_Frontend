@@ -1,6 +1,6 @@
 import React from 'react';
 import { Routes, Route } from 'react-router-dom';
-import VistaUsuarios from '../modules/Usuarios/vistas/VistaUsuarios';
+import VistaUsuarios from '../views/empleados/VistaUsuarios';
 
 
 const RutasUsuarios: React.FC = () => {

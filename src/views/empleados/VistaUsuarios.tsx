@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
-import TablaUsuarios from '../componentes/TablaUsuarios';
-import FormularioRegistroUsuario from '../componentes/RegistroUsuario';
-import ModalDetalleUsuario from '../componentes/DetallesUsuario';
-import ModalEditarUsuario from '../componentes/EditarUsuario';
-import ModalInactivarUsuario from '../componentes/InactivarUsuario';
+
+import FormularioRegistroUsuario from '../../feature/empleados/form_registro_empleado/RegistroUsuario';
+import ModalDetalleUsuario from '../../feature/empleados/detalles_de_usuario/DetallesUsuario';
+import ModalEditarUsuario from '../../feature/empleados/editar_usuario/EditarUsuario';
+import ModalInactivarUsuario from '../../feature/empleados/confirmar_inactivar/InactivarUsuario';
+import TablaUsuarios from '../../feature/empleados/tabla_empleados/TablaUsuarios';
  
 const VistaUsuarios: React.FC = () => {
   const [mostrarFormulario, setMostrarFormulario] = useState(false);

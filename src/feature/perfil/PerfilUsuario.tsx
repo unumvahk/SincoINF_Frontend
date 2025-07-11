@@ -12,6 +12,10 @@ import {
   FaTimes,
   FaSearch
 } from 'react-icons/fa';
+<<<<<<< HEAD
+=======
+import '../perfil/PerfilUsuario.css';
+>>>>>>> 71b6d5d (Corrijo estructura de empleados)
 import { useNavigate } from 'react-router-dom';
 import './PerfilUsuario.css';
 

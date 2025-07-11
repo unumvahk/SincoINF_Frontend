@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
-import '../estilos/RegistroUsuario.css';
 import { FaUser, FaIdCard, FaEnvelope, FaBriefcase } from 'react-icons/fa';
-
+import './RegistroUsuario.css';
 interface Props {
   onClose: () => void;
 }

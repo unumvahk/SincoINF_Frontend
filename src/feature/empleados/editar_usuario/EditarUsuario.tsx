@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../estilos/EditarUsuario.css';
+import './EditarUsuario.css';
 
 interface ModalEditarUsuarioProps {
   usuario: any;

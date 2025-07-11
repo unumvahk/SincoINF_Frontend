@@ -2,6 +2,7 @@
 import React from 'react';
 import PerfilUsuarioCard from '../../feature/perfil/PerfilUsuario';
 
+
 const PerfilUsuarioVista: React.FC = () => {
   return (
     <>

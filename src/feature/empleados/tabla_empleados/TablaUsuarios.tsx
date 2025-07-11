@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import '../estilos/TablaUsuarios.css';
 import { FaEdit, FaEye, FaBan } from 'react-icons/fa';
+import './TablaUsuarios.css';
 
 export interface Usuario {
   id: number;
