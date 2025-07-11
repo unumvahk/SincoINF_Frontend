@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
-import VistaPrincipal from "../modules/Licencias/vistas/VistaPrincipal";
-import DetallesVista from "../modules/Licencias/vistas/DetallesVista";
-import VistaAsignaciones from "../modules/Licencias/vistas/VistaAsignaciones";
+import VistaPrincipal from "../views/licencias/VistaPrincipal";
+import DetallesVista from "../views/licencias/DetallesVista";
+import VistaAsignaciones from "../views/licencias/VistaAsignaciones";
 
 const RutasLicencia = () => {
   return (
