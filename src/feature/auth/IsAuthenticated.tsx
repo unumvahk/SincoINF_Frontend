@@ -1,6 +1,6 @@
 import { Navigate } from "react-router-dom";
-import useAuth from "../../../hooks/useAuth";
-import AuthLayout from "../../../layout/auth-layout/AuthLayout";
+import useAuth from "../../hooks/useAuth";
+import AuthLayout from "../../layout/auth-layout/AuthLayout";
 
 const IsAuthenticated = () => {
   const { usuario } = useAuth();
