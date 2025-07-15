@@ -1,5 +1,5 @@
 import { Routes, Route } from "react-router-dom";
-import VistaMantenimiento from "../componentes/VistaMantenimiento";
+import VistaMantenimiento from "../../src/views/estadisticas/VistaMantenimiento";
 
 const RutasAnalitica = () => {
   return (
