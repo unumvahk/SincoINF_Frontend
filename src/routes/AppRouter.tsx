@@ -13,7 +13,7 @@ import RutasPerfil from './RutasPerfil';
 const AppRouter = () => {
   return (
     <Routes>
-      {/* Rutas publicas */}
+      {/* Rutas públicas */}
       <Route element={<IsAuthenticated />}>
         <Route path="/login" element={<LoginView />} />
         <Route path='/email/verify/:code' element={ <VerifyEmailView /> } />
@@ -21,17 +21,17 @@ const AppRouter = () => {
         <Route path='/password/reset' element={<ResetPasswordView />} />
       </Route>
 
-      {/* Rutas protejidas */}
-      <Route path='/' element={<AppContainer />}>
-        {/* Redirecciona la ruta '/' a '/equipos' para evitar una pantalla en blanco */}
-        <Route index element={<Navigate to={'/equipos/'} replace />} />
+      {/* Rutas protegidas dentro del contenedor principal */}
+      <Route path="/" element={<AppContainer />}>
+        {/* Redirección al módulo de equipos por defecto */}
+        <Route index element={<Navigate to="/equipos/" replace />} />
 
-        {/* Nested Routes */}
-        <Route path="/equipos/*" index element={<RutasEquipos />} />
+        {/* Rutas internas por módulo */}
+        <Route path="/equipos/*" element={<RutasEquipos />} />
         <Route path="/licencias/*" element={<RutasLicencia />} />
-        <Route path='/usuarios/*' element={<RutasUsuarios /> }  />
-        <Route path='/perfil/*' element={<RutasPerfil />} />
-      </Route> 
+        <Route path="/usuarios/*" element={<RutasUsuarios />} />
+        <Route path="/perfil/*" element={<RutasPerfil />} />
+      </Route>
     </Routes>
   );
 };
