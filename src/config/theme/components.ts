@@ -1,20 +1,50 @@
-// components.ts
-// Este archivo permite sobrescribir los estilos por defecto de componentes de MUI.
-// Aquí puedes definir cómo lucen botones, inputs, tooltips, etc., de forma global.
+// src/config/theme/components.ts
+import type { Components, Theme } from "@mui/material/styles";
 
-import type { Components } from '@mui/material/styles';
-
-const components: Components = {
-  MuiButton: {
+const components = (theme: Theme): Components => ({
+ 
+  MuiTableRow: {
     styleOverrides: {
       root: {
-        borderRadius: '8px',     // Bordes redondeados para todos los botones
-        textTransform: 'none',   // Evita que el texto se convierta a mayúsculas automáticamente
+        "&:hover": {
+          backgroundColor: theme.palette.grey[100],
+        },
       },
     },
   },
-  // Puedes agregar más componentes aquí, por ejemplo:
-  // MuiTextField, MuiCard, MuiAppBar, etc.
-};
+
+  MuiTableCell: {
+    styleOverrides: {
+      head: {
+        fontWeight: 700,
+        backgroundColor: theme.palette.primary.main,
+        color: theme.palette.primary.contrastText,
+      },
+      body: {
+        fontSize: "0.9rem",
+        padding: "0.75rem 1rem",
+      },
+    },
+  },
+
+  // === 📋 Selects ===
+  MuiSelect: {
+    styleOverrides: {
+      root: {
+        borderRadius: "0.5rem",
+        backgroundColor: "#fff",
+      },
+    },
+  },
+
+  // === 🔍 Inputs ===
+  MuiInputLabel: {
+    styleOverrides: {
+      root: {
+        fontSize: "0.95rem",
+      },
+    },
+  },
+});
 
 export default components;
