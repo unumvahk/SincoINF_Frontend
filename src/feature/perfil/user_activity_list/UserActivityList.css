@@ -1,0 +1,161 @@
+.perfil-card-historial {
+  margin-top: 1rem;
+}
+
+.perfil-card-historial h3 {
+  color: #134090;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.card-historial-filtros {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.card-campo-filtro {
+  display: flex;
+  align-items: center;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+}
+
+.card-campo-filtro input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  font-size: 0.95rem;
+  padding-left: 0.5rem;
+}
+
+.card-campo-filtro input:focus {
+  outline: none;
+}
+
+.card-icono-filtro {
+  color: #888;
+}
+
+.card-historial-lista {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.card-historial-lista li {
+  background-color: #f1f5ff;
+  border: 1px solid #dbeafe;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1rem;
+  margin-bottom: 0.5rem;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.card-historial-lista li:hover {
+  background-color: #e0ecff;
+}
+
+.card-cerrar-sesion {
+  padding: 0.5rem 1rem;
+  background-color: #e11d48;
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  align-self: flex-end;
+  transition: background-color 0.2s ease;
+  width: auto;
+  margin-top: 0.5rem;
+}
+
+.card-cerrar-sesion:hover {
+  background-color: #be123c;
+}
+
+.card-modal {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(20, 20, 20, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-modal-contenido {
+  background: #fff;
+  padding: 2rem;
+  border-radius: 1rem;
+  width: 90%;
+  max-width: 400px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  position: relative;
+  text-align: center;
+}
+
+.card-modal-contenido h4 {
+  color: #134090;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.card-modal-contenido p {
+  margin: 0.5rem 0;
+}
+
+.card-cerrar-modal {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #134090;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.input-fecha-personalizada {
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: #f9f9f9;
+  border: 1px solid #ccc;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.95rem;
+  color: #333;
+  font-family: inherit;
+  cursor: pointer;
+  transition: border-color 0.2s ease;
+}
+
+.input-fecha-personalizada:focus {
+  border-color: #134090;
+  background-color: #fff;
+  outline: none;
+}
+
+@media (min-width: 640px) {
+  .perfil-card-datos {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .card-historial-filtros {
+    flex-direction: row;
+  }
+}

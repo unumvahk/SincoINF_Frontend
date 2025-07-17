@@ -47,7 +47,7 @@ const ForgotPasswordView = () => {
           isError && <Alert severity="error">Se ha ocacionado un error.</Alert>
         }
 
-        <Typography variant="h6" align="center" sx={{ fontWeight: '100' }}>
+        <Typography variant="h6" align="center">
           Cambia tu contraseña
         </Typography>
 

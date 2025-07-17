@@ -1,14 +1,19 @@
-// src/modules/Usuarios/vistas/PerfilUsuarioVista.tsx
+import { Container } from '@mui/material';
+import { purple } from '@mui/material/colors';
 import React from 'react';
-import PerfilUsuarioCard from '../../feature/perfil/PerfilUsuario';
 
-
-const PerfilUsuarioVista: React.FC = () => {
+const PerfilVista: React.FC = () => {
   return (
-    <>
-      <PerfilUsuarioCard />
-    </>
+    <Container
+      maxWidth='sm'
+      sx={{
+        bgcolor: purple[400],
+        height: '92vh',
+      }}
+    >
+
+    </Container>
   );
 };
 
-export default PerfilUsuarioVista;
+export default PerfilVista;
