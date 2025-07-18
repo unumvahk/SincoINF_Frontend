@@ -27,9 +27,13 @@ const AvatarMenu = () => {
     <>
       <Avatar
         onClick={ handleMenu }
+        
         sx={{ 
+          width: '45px',
+          height: '45px',
           bgcolor: deepOrange[500],
-          cursor: 'pointer'
+          cursor: 'pointer',
+          mr: 2
         }}
       > 
         N

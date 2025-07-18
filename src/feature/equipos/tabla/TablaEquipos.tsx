@@ -33,7 +33,7 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
   );
 
   return (
-    <div className="equipos-contenedor">
+    <>
       {/* === Barra superior con filtros === */}
       <div className="equipos-barra-superior">
         <div className="equipos-filtro-contenedor">
@@ -131,7 +131,7 @@ const TablaEquipos: React.FC<Props> = ({ equipos }) => {
 
       )}
 
-    </div>
+    </>
   );
 };
 

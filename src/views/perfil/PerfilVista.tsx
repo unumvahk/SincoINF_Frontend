@@ -1,18 +1,8 @@
-import { Container } from '@mui/material';
-import { purple } from '@mui/material/colors';
-import React from 'react';
+import UserInfoCard from '../../feature/perfil/UserInfoCard';
 
 const PerfilVista: React.FC = () => {
   return (
-    <Container
-      maxWidth='sm'
-      sx={{
-        bgcolor: purple[400],
-        height: '92vh',
-      }}
-    >
-
-    </Container>
+    <UserInfoCard />
   );
 };
 
