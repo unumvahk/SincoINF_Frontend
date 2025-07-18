@@ -1,7 +1,7 @@
 import { CircularProgress, Container } from "@mui/material";
 import { Navigate } from "react-router-dom";
 import useAuth from "../../hooks/useAuth"
-import Layout from "../../layout/Layout";
+import MainLayout from "../../layout/MainLayout";
 
 const AppContainer = () => {
   const { usuario, isLoading } = useAuth();
@@ -21,7 +21,7 @@ const AppContainer = () => {
         <CircularProgress />
       </Container>
     ) : usuario ? (
-      <Layout />
+      <MainLayout />
     ) : (
       <Navigate
         to='/login'

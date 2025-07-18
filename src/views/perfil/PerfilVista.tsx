@@ -1,14 +1,13 @@
-// src/modules/Usuarios/vistas/PerfilUsuarioVista.tsx
-import React from 'react';
-import PerfilUsuarioCard from '../../feature/perfil/PerfilUsuario';
+import GoBackBtn from '../../components/layout/GoBackBtn';
+import UserInfoCard from '../../feature/perfil/UserInfoCard';
 
-
-const PerfilUsuarioVista: React.FC = () => {
+const PerfilVista = () => {
   return (
     <>
-      <PerfilUsuarioCard />
+      <GoBackBtn />
+      <UserInfoCard />
     </>
   );
 };
 
-export default PerfilUsuarioVista;
+export default PerfilVista;

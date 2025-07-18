@@ -15,7 +15,8 @@ const useAuth = (opts = {}) => {
   });
 
   return {
-    usuario, ...rest
+    usuario,
+    ...rest
   }
 }
 
