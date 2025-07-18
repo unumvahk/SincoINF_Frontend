@@ -1,8 +1,12 @@
+import GoBackBtn from '../../components/layout/GoBackBtn';
 import UserInfoCard from '../../feature/perfil/UserInfoCard';
 
-const PerfilVista: React.FC = () => {
+const PerfilVista = () => {
   return (
-    <UserInfoCard />
+    <>
+      <GoBackBtn />
+      <UserInfoCard />
+    </>
   );
 };
 

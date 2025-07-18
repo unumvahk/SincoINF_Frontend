@@ -4,30 +4,32 @@ import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LogoutIcon from '@mui/icons-material/Logout';
+import { useMutation, useQueryClient } from "@tanstack/react-query";
+import { logout } from "../../lib/api";
 
 const AvatarMenu = () => {
   const navigate = useNavigate();
+  const queryClient = useQueryClient();
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
 
-  const handleMenu = (e: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(e.currentTarget);
+  const handleViewPerfil = () => {
+    navigate('/perfil'); 
+    setAnchorEl(null) ;
   }
 
-  const handleViewProfile = () => {
-    navigate('/perfil')
-    setAnchorEl(null);
-  }
-
-  const handleLogout = () => {
-    console.log('login out...')
-    setAnchorEl(null);
-  }
+  const { mutate: signOut } = useMutation({
+    mutationFn: logout,
+    onSettled: () => {
+      queryClient.clear();
+      setAnchorEl(null);
+      navigate('/login', { replace: true });
+    }
+  })
 
   return (
     <>
       <Avatar
-        onClick={ handleMenu }
-        
+        onClick={ (e) => setAnchorEl(e.currentTarget) }
         sx={{ 
           width: '45px',
           height: '45px',
@@ -36,9 +38,8 @@ const AvatarMenu = () => {
           mr: 2
         }}
       > 
-        N
+        JW
       </Avatar>
-
       <Menu
         id="user-menu"
         anchorEl={anchorEl}
@@ -58,25 +59,12 @@ const AvatarMenu = () => {
           ml: -2
         }}
       >
-        <MenuItem 
-          onClick={ handleViewProfile }
-          sx={{
-            display: 'flex',
-            gap: 1,
-          }}
-        >
-          <AccountCircleIcon />
-          Ver perfil
+        <MenuItem onClick={ handleViewPerfil } sx={{ display: 'flex', gap: 1 }}>
+          <AccountCircleIcon /> Ver perfil
         </MenuItem>
-        <MenuItem 
-          onClick={ handleLogout } 
-          sx={{
-            display: 'flex',
-            gap: 1,
-          }}
-        >
-        <LogoutIcon/>
-          Cerrar sesión
+
+        <MenuItem onClick={ () => signOut() } sx={{ display: 'flex', gap: 1 }}>
+          <LogoutIcon/> Cerrar sesión
         </MenuItem>
       </Menu>
     </>

@@ -1,6 +1,6 @@
 import { List, ListItem, ListItemButton, ListItemIcon, ListItemText } from '@mui/material'
 import { Code, Laptop, Users } from 'lucide-react'
-import { Link } from 'react-router-dom'
+import { Link, useLocation } from 'react-router-dom'
 
 type DraweItemIconProp = { text: string }
 
@@ -15,6 +15,7 @@ interface DrawerListProps {
 }
 
 const DrawerList = ({ open }: DrawerListProps) => {
+  const location = useLocation();
 
   return (
     <List 
@@ -22,55 +23,73 @@ const DrawerList = ({ open }: DrawerListProps) => {
         height: '100%', 
         borderRight: 2 ,
         borderRightColor: (theme) => theme.palette.grey[300],
+        paddingTop: 0,
       }}
     >
       {
-        ['Equipos', 'Licencias', 'Usuarios'].map((text) => (
-          <ListItem component={Link} to={`/${text.toLowerCase()}`}  key={text} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton
-              sx={[
-                {
-                  minHeight: 48,
-                  px: 2.5,
-                  color: (theme) => theme.palette.text.primary,
-                  '&:hover': {
-                    bgcolor: (theme) => theme.palette.primary.main,
-                    color: (theme) => theme.palette.primary.contrastText,
-                  }
-                },
-                open ? { justifyContent: 'initial' } : { justifyContent: 'center' },
-              ]}
+        ['Equipos', 'Licencias', 'Usuarios'].map((text) => {
+          const path = `/${text.toLocaleLowerCase()}`;
+          const isActive = location.pathname.startsWith(path);
+
+          return (
+            <ListItem 
+              component={Link} 
+              to={path}  
+              key={text} 
+              disablePadding 
+              sx={{ 
+                p: 0.6 
+              }}
             >
-              <ListItemIcon
+              <ListItemButton
                 sx={[
                   {
-                    minWidth: 0,
-                    justifyContent: 'center',
-                    color: (theme) => theme.palette.text.primary,
-                    '.MuiListItemButton-root:hover &': {
-                      color: (theme) => theme.palette.primary.contrastText,
-                    }
+                    py: 0,
+                    minHeight: 40,
+                    borderRadius: 2,
+                    color: (theme) => theme.palette.primary.dark,
+                    '&:hover': (theme) => isActive
+                      ? { bgcolor: theme.palette.primary.dark }
+                      : { bgcolor: theme.palette.grey[300] },
                   },
-                  open ? { mr: 3 } : { mr: 'auto' },
+                  open ? { justifyContent: 'initial' } : { justifyContent: 'center' },
+                  isActive && {
+                    bgcolor: (theme) => theme.palette.primary.dark,
+                    color: (theme) => theme.palette.primary.contrastText,
+                    '& .MuiListItemIcon-root': {
+                      color: (theme) => theme.palette.primary.contrastText,
+                    },
+                  },
                 ]}
               >
-                <DraweItemIcon text={text} />
-              </ListItemIcon>
-              <ListItemText
-                primary={text}
-                sx={[
-                  open
-                    ? {
-                        opacity: 1,
-                      }
-                    : {
-                        opacity: 0,
-                      },
-                ]}
-              />
-            </ListItemButton>
-          </ListItem>
-        ))
+                <ListItemIcon
+                  sx={[
+                    {
+                      minWidth: 0,
+                      justifyContent: 'center',
+                      color: (theme) => theme.palette.primary.dark,
+                    },
+                    open ? { mr: 1 } : { mr: 'auto' },
+                  ]}
+                >
+                  <DraweItemIcon text={text} />
+                </ListItemIcon>
+                <ListItemText
+                  primary={text}
+                  sx={[
+                    open
+                      ? {
+                          opacity: 1,
+                        }
+                      : {
+                          opacity: 0,
+                        },
+                  ]}
+                />
+              </ListItemButton>
+            </ListItem>
+          )
+        })
       }
     </List>
   )

@@ -1,18 +1,34 @@
-import { Avatar, Box, Card, IconButton, Typography } from "@mui/material"
-import UserInfoGrid from "../../components/empleado/UserInfoGrid"
-import { PencilLine } from "lucide-react"
-
-const userInfo = [
-  { label: "Fecha de Ingreso:", value: "May/18/2015" },
-  { label: "Fecha de Retiro:", value: "-------" },
-  { label: "Telefono:", value: "123456789" },
-  { label: "Hostname:", value: "Juan1324C" },
-  
-  
-  { label: "Estado:", value: "Activo" },
-]
+import { Avatar, Box, capitalize, Card, IconButton, Typography } from "@mui/material";
+import UserInfoGrid from "../../components/empleado/UserInfoGrid";
+import { PencilLine } from "lucide-react";
+import useAuth from "../../hooks/useAuth";
+import { formatDate } from "../../hooks/useFormat";
 
 const UserInfoCard = () => {
+  const { usuario } = useAuth();
+  const { 
+    nombres, 
+    apellidos, 
+    cargo, 
+    correo, 
+    estado, 
+    fecha_ingreso, 
+    fecha_retiro, 
+    hostname, 
+    telefono,
+    area
+  } = usuario?.usuario;
+
+  const userInfoGrid = [
+    { label: 'Fecha Ingreso:', value: formatDate(fecha_ingreso) },
+    { label: 'Fecha Retiro:', value: formatDate(fecha_retiro) || 'N/A' },
+    { label: 'Telefono:', value: telefono },
+    { label: 'Hostname:', value: hostname },
+    { label: 'Estado:', value: capitalize(estado) }
+  ]
+
+  console.log(usuario)
+
   return (
     <Card
       variant="outlined"
@@ -37,7 +53,7 @@ const UserInfoCard = () => {
 
       <Box
         sx={{
-          maxWidth: '420',
+          maxWidth: '260px',
           width: '100%',
           px: { xs: 0, md: '18px'},
           display: 'flex',
@@ -46,20 +62,20 @@ const UserInfoCard = () => {
         }}
       >
         <Typography variant="h5">
-          Juan David Wilches Devia
+          { capitalize(nombres) + ' ' + capitalize(apellidos) }
         </Typography>
         <Typography variant="subtitle2" color="text.secondary" >
-          Infraestructura
+          {  capitalize(area.nombre) }
         </Typography>
         <Typography variant="body1">
-          Desarrollador Junior I
+          { capitalize(cargo) }
         </Typography>
         <Typography variant="caption" color="primary">
-          juan.wilches@sinco.com
+          { capitalize(correo) }
         </Typography>
       </Box>
 
-      <UserInfoGrid userInfo={userInfo} />
+      <UserInfoGrid userInfo={userInfoGrid} />
 
       <IconButton
         sx={{
